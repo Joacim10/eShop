@@ -1,14 +1,17 @@
 <template>
-  <div>
-    
-  </div>
+
+<div>
+    Navbar
+</div>
+  
 </template>
 
 <script>
-
 export default {
-  name: 'Home',
-  components: {
-  }
+
 }
 </script>
+
+<style>
+
+</style>

@@ -1,14 +1,17 @@
 <template>
-  <div>
-    
-  </div>
+
+<div>
+    Footer
+</div>
+  
 </template>
 
 <script>
-
 export default {
-  name: 'Home',
-  components: {
-  }
+
 }
 </script>
+
+<style>
+
+</style>
