@@ -20,6 +20,85 @@ export default {
 </script>
 
 <style>
+:root{
+  --theme: #20D3C2;
+  --sale: #64CB83;
+  --hot: #FE4545;
+  --lightGrey: #f6f6f6;
+  --productBG: #eeeeee;
+  --line: #e3e3e3;
+  --grey: #aaaaaa;
+  --white: #ffffff;
+  --darkBlue: #0E153D;
+}
+
+/* colors */
+.white{
+color: var(--white) !important;
+}
+.white a{
+color: var(--white) !important;
+}
+.white a:hover{
+color: var(--darkBlue) !important;
+}
+
+.whiteDark{
+color: var(--white) !important;
+}
+.whiteDark a{
+color: var(--white) !important;
+}
+.whiteDark a:hover{
+color: var(--theme) !important;
+}
+
+.darkBlue{
+color: var(--darkBlue) !important;
+}
+.darkBlue a{
+color: var(--darkBlue) !important;
+}
+.darkBlue a:hover{
+color: var(--theme) !important;
+}
+
+.theme{
+color: var(--theme);
+}
+.theme a{
+color: var(--theme) !important;
+}
+.theme a:hover{
+color: var(--white) !important;
+}
+
+.themeBg{
+background-color: var(--theme);
+}
+
+.btnTheme{
+background-color: var(--theme);
+border-radius: 25px;
+}
+
+.btnWhite{
+background-color: var(--white);
+border-radius: 25px;
+color: var(--theme);
+}
+
+.btnWhite:hover{
+background-color: var(--theme);
+border-radius: 25px;
+color: var(--white);
+}
+
+.productBg{
+background-color: var(--productBG);
+}
+/* Colors */
+
 .f-14 {
   font-size: 0.875rem !important;
 }
