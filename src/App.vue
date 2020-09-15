@@ -10,11 +10,14 @@
 import Navbar from '@/components/Navbar.vue'
 import Footer from '@/components/Footer.vue'
 
+
+
 export default {
   name: 'App',
   components: {
     Navbar,
-    Footer
+    Footer,
+   
   }
 }
 </script>
@@ -28,6 +31,7 @@ export default {
   --productBG: #eeeeee;
   --line: #e3e3e3;
   --grey: #aaaaaa;
+  --mediumGrey: #cccccc;
   --white: #ffffff;
   --darkBlue: #0E153D;
 }
@@ -75,6 +79,12 @@ color: var(--white) !important;
 
 .themeBg{
 background-color: var(--theme);
+}
+.bgDarkBlue{
+  background-color: var(--darkBlue) !important;
+}
+.bgMediumGrey{
+  background-color: var(--mediumGrey);
 }
 
 .btnTheme{
