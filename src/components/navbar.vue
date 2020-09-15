@@ -9,9 +9,9 @@
 </template>
 
 <script>
-import TopNavbar from './TopNavbar'
-import MiddleNavbar from './MiddleNavbar'
-import BottomNavbar from './BottomNavbar'
+import TopNavbar from './Navbar/TopNavbar'
+import MiddleNavbar from './Navbar/MiddleNavbar'
+import BottomNavbar from './Navbar/BottomNavbar'
 
 
 export default {
