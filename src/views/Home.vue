@@ -1,22 +1,16 @@
 <template>
   <div>
-    
-
-
-<TestLinks/>
+    <DiscountBanner/>
   </div>
 </template>
 
 <script>
-import TestLinks from "@/components/TestLinks.vue";
+import DiscountBanner from "@/components/Homepage/DiscountBanner.vue";
 
 export default {
   name: "Home",
   components: {
-
-
-  TestLinks
-
+  DiscountBanner
   },
 };
 </script>

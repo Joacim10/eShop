@@ -33,17 +33,17 @@
                         <p>Follow us</p>
                             <div class="theme f-18">
                                 <a class="text-white mr-3"> <i class="fab fa-facebook-f"></i></a>
-                                <a class="text-white mr-3" > <i class="fab fa-twitter"></i></a>
-                                <a class="text-white mr-3" > <i class="fab fa-instagram"></i></a>
-                                <a class="text-white mr-3" > <i class="fab fa-pinterest-p"></i></a>
-                                <a class="text-white mr-2" > <i class="fab fa-youtube"></i></a>
+                                <a class="text-white mr-3"> <i class="fab fa-twitter"></i></a>
+                                <a class="text-white mr-3"> <i class="fab fa-instagram"></i></a>
+                                <a class="text-white mr-3"> <i class="fab fa-pinterest-p"></i></a>
+                                <a class="text-white mr-2"> <i class="fab fa-youtube"></i></a>
                             </div>            
                     </div>
                     <div class="col-6 col-sm-4 col-lg-3">
                         <p class="theme f-18 font-weight-bold pb-4">CONTACT INFO</p>
                         <div class="mb-2">
                             <p class="theme f-16">Address:</p>
-                            <p class="f-16">Solna Business Park</p>
+                            <p class="f-16">Solna Business Park</p> 
                             <p class="f-16">Feni-2500, Stockholm</p>
                         </div>
                         <div class="my-2">
