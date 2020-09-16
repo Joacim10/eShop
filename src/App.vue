@@ -81,8 +81,13 @@ background-color: var(--theme);
 .bgDarkBlue{
   background-color: var(--darkBlue) !important;
 }
+
 .bgMediumGrey{
   background-color: var(--mediumGrey);
+}
+
+.lightBg{
+  background-color: var(--lightGrey);
 }
 
 .btnTheme{
@@ -121,6 +126,9 @@ background-color: var(--productBG);
 }
 .f-36 {
   font-size: 2.25rem !important;
+}
+.f-60 {
+  font-size: 4rem !important;
 }
 .f-play {
   font-family: play !important;
