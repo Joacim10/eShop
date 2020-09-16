@@ -64,6 +64,9 @@ color: var(--darkBlue) !important;
 .darkBlue a:hover{
 color: var(--theme) !important;
 }
+.bgWhite{
+  background: var(--white);
+}
 
 .theme{
 color: var(--theme);
