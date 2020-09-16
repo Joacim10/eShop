@@ -12,7 +12,7 @@
         <div class="col-6 mb-5 mt-5">
           <!--  -->
           <div class="text-center">
-            <p class="fs-24 font-weight-medium">Oops! The page you are looking for doesn't exist.</p>
+            <p class="f-24 font-weight-medium f-roboto">Oops! The page you are looking for doesn't exist.</p>
           </div>
           <!--  -->
           <div class="d-flex justify-content-center">
