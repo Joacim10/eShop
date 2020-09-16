@@ -125,4 +125,5 @@ background-color: var(--productBG);
 .f-play {
   font-family: play !important;
 }
+
 </style>
