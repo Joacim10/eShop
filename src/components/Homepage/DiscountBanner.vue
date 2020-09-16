@@ -49,11 +49,12 @@ padding-bottom: 7rem;
  .pxDiscountBtn{
      padding: 40px 40px;
  }
- @media (max-width: 570px){
+  @media (max-width: 570px){
   .elementCenterSm{
     margin-left: 4rem;
     
   }
  }
+
  
 </style>
