@@ -16,7 +16,8 @@ export default {
   },
 
   methods:{
-    ...mapActions(['getAllProducts'])
+    ...mapActions(['getAllProducts','getProductById', 'addProductToCart'])
+    // ...mapActions(['getProductById', 'addProductToCart'])
   },
   created(){
     this.getAllProducts();
