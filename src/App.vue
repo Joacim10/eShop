@@ -21,6 +21,9 @@ export default {
 </script>
 
 <style>
+@import url('https://fonts.googleapis.com/css2?family=Play:wght@400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700;900&display=swap');
+
 :root{
   --theme: #20D3C2;
   --sale: #64CB83;
@@ -133,5 +136,33 @@ background-color: var(--productBG);
 .f-play {
   font-family: play !important;
 }
+
+
+/* body {
+  margin: 0;
+  font-family: 'Roboto', sans-serif;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 1.9rem;
+  color: var(--dark-color);
+  background-color: var(--white);
+} */
+
+
+
+
+.zigzag {
+  width: 300px;
+  height: 10px;
+  border: none;
+  margin: auto;
+  margin-top: 1.5rem;
+  margin-bottom: 1.5rem;
+  background-repeat: repeat-x;
+  background-position: center;
+  background-color: transparent;
+  background-image: url('/Image/zigzag.png');
+}
+
 
 </style>
