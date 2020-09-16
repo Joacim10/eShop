@@ -130,8 +130,18 @@ background-color: var(--productBG);
 .f-60 {
   font-size: 4rem !important;
 }
+
+.font-weight-medium {
+  font-weight: 500;
+}
+
 .f-play {
-  font-family: play !important;
+  /* font-family: play !important; */
+  font-family: 'Play', sans-serif !important;
+}
+.f-roboto {
+  /* font-family: play !important; */
+  font-family: "Roboto", sans-serif !important;
 }
 
 </style>
