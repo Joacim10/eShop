@@ -93,6 +93,16 @@ background-color: var(--theme);
   background-color: var(--lightGrey);
 }
 
+.grey {
+color: var(--grey) !important;
+}
+
+.grey a{
+color: var(--grey) !important;
+}
+
+
+
 .btnTheme{
 background-color: var(--theme);
 border-radius: 25px;
@@ -148,15 +158,9 @@ background-color: var(--productBG);
 }
 
 
-/* body {
-  margin: 0;
+ body {
   font-family: 'Roboto', sans-serif;
-  font-size: 16px;
-  font-weight: 400;
-  line-height: 1.9rem;
-  color: var(--dark-color);
-  background-color: var(--white);
-} */
+} 
 
 
 
