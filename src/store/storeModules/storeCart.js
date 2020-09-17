@@ -14,13 +14,13 @@ export default {
     // här utförs ändring av data
     
     ADD_TO_CART(state, {product,quantity}){
-      // console.log(product[0]._id)
+      //console.log(product._id)
 
       let exists = state.cart.find(item => {
-        return item.product[0]._id === product[0]._id
+        return item.product._id === product._id
       })
+
       if (exists) {
-        // console.log(exists)
         exists.quantity += quantity;
         // spara till storage
       sessionStorage.setItem('mycart',JSON.stringify(state.cart))
