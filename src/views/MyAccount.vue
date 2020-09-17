@@ -1,12 +1,28 @@
 <template>
   <div class="container">
-    <h1>My account</h1>
+    <div class="row">
+      <!---LOGIN COMPONENT --->
+      <div class="col-lg-6 col-md-12">
+        <Login />
+      </div>
+      <!---REGISTER COMPONENT --->
+      <div class="col-lg-6 col-md-12">
+        <Register />
+      </div>
+       
+       
+    </div>
   </div>
 </template>
 
 <script>
+import Login from '../components/Account/Login'
+import Register from '../components/Account/Register'
 export default {
   name: "MyAccount",
-  components: {},
+  components: {
+    Login,
+    Register
+  },
 };
 </script>
