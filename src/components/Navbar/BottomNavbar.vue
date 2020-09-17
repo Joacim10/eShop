@@ -17,33 +17,28 @@
                                 </div>
                             </li>
                             <li class="nav-item active ml-4 mt-1">
-                                <a class="nav-link darkBlue active" to="/">Home <span class="sr-only">(current)</span></a>
+                                <router-link class="nav-link darkBlue active" to="/">Home <span class="sr-only">(current)</span></router-link>
                             </li>
                             <li class="nav-item dropdown ml-4 mt-1">
-                                <a class="nav-link darkBlue " href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                    Shop <i class=" theme ml-1 fas noArrow fa-angle-down"></i>  </a>
-                                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                    <a class="dropdown-item" to="/shop">Shop</a>
-                                   
-                                </div>
+                                <router-link class="nav-link darkBlue " to="/shop" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                    Shop  </router-link>
+                               
                             </li>
                             <li class="nav-item dropdown ml-4 mt-1">
-                                <a class="nav-link darkBlue " href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                    Products <i class=" theme ml-1 fas noArrow fa-angle-down"></i></a>
-                                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                    <a class="dropdown-item" href="#">Action</a>
-                                </div>
+                                <router-link class="nav-link darkBlue " to="/products" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                    Products </router-link>
+                                
                             </li>
                             <li class="nav-item dropdown ml-4 mt-1">
-                                <a class="nav-link darkBlue " href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                    Categories <i class=" theme ml-1 fas noArrow fa-angle-down"></i></a>
+                                <router-link class="nav-link darkBlue " to="/categories" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                    Categories <i class=" theme ml-1 fas noArrow fa-angle-down"></i></router-link>
                                 <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                                     <a class="dropdown-item" href="#">Action</a>
                                 </div>
                             </li>
                             <li class="nav-item dropdown ml-4 mt-1">
-                                <a class="nav-link darkBlue" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                    Pages <i class=" theme ml-1 fas noArrow fa-angle-down"></i> </a>
+                                <router-link class="nav-link darkBlue" to="/pages" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                    Pages <i class=" theme ml-1 fas noArrow fa-angle-down"></i> </router-link>
                                 <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                                 <a class="dropdown-item" to="/wishlist">Wishlist</a>
                                 </div>
