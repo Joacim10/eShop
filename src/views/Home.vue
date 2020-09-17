@@ -1,6 +1,7 @@
 <template>
   <div>
     <ShoppingFun />
+    <Category />
     <DiscountBanner/>
     <QuotesSlide />
     <LatestBlog />
@@ -11,6 +12,7 @@
 
 <script>
 import ShoppingFun from "@/components/Homepage/ShoppingFun.vue";
+import Category from "@/components/Homepage/Category.vue";
 import DiscountBanner from "@/components/Homepage/DiscountBanner.vue";
 import QuotesSlide from "@/components/Homepage/QuotesSlide.vue";
 import LatestBlog from "@/components/Homepage/LatestBlog/LatestBlog.vue";
@@ -21,6 +23,7 @@ export default {
   name: "Home",
   components: {
   ShoppingFun,
+  Category,
   DiscountBanner,
   QuotesSlide,
   LatestBlog,
