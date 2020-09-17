@@ -28,15 +28,15 @@
 
       <div class="mt-2 d-none d-sm-block">
         <i class="fa-lg mr-2 far fa-user"></i>
-        <span class="mr-4">My Account</span>
+        <router-link to="/account"><span class="mr-4 text-dark">My Account</span></router-link>
         <i class="fa-lg ml-3 far fa-heart"></i>
         <i class="fa-lg ml-3 fas fa-random position-relative">
           <span class="badge themeBg rounded-pill badge-primary position-absolute badge__">0</span>
         </i>
         <a>
-          <i class="text-dark fa-lg ml-3 fas fa-shopping-bag position-relative">
+          <router-link to="/shoppingcart"><i class="text-dark fa-lg ml-3 fas fa-shopping-bag position-relative">
             <span class="badge themeBg rounded-pill badge-primary position-absolute badge__">0</span>
-          </i>
+          </i> </router-link>
         </a>
         <span class="ml-2">$.0.00</span>
       </div>
