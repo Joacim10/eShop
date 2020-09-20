@@ -3,6 +3,12 @@ import App from './App.vue'
 import router from './router'
 import store from './store'
 
+// vuelidate validering av formulär jm 20-09-18
+import Vuelidate from 'vuelidate'
+Vue.use(Vuelidate)
+
+
+
 Vue.config.productionTip = false
 
 new Vue({
