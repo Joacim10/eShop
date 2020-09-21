@@ -7,6 +7,9 @@
           class="regText"
         >Registering for this site allows you to access your order status and history. Just fill in the fields below, and we’ll get a new account set up for you in no time. We will only ask you for information necessary to make the purchase process faster and easier.</p>
       </div>
+      <!-- message från store/api -->
+      <p v-if="message" class="text-success f-24">{{message}}</p>
+      <!--  -->
       <label class="mb-1" for="reguserName">
         Username
         <span class="theme">*</span>
@@ -85,7 +88,13 @@
 </template>
 
 <script>
+// import axios from "axios";
+// vuelidate
 import { required, email, minLength, maxLength } from "vuelidate/lib/validators";
+
+// store
+import { mapActions, mapGetters } from "vuex";
+
 
 export default {
   data() {
@@ -99,13 +108,50 @@ export default {
   },
 
   methods: {
+    ...mapActions(["registerUser"]),
+
     async submitForm() {
-      console.log("register submitted");
-      this.userName="";
-      this.email="";
-      this.passWord="";
-      this.$v.$reset;
+
+      if (this.userName != "" &&
+        this.email != "" &&
+        this.passWord != "") {
+
+          const user = {
+          userName: this.userName,
+          email: this.email,
+          passWord: this.passWord
+        };
+        // skicka user till mongodb med axios
+        const response = await this.registerUser(user);
+        console.log(response.statusCode);
+
+        // kontrollera om det gick att registrera en användare
+        if (response.statusCode == 201) {
+
+            console.log("register submitted");
+            this.userName="";
+            this.email="";
+            this.passWord="";
+            this.$v.$reset;
+
+          // gå till inloggning / kan kanske lägga till funktion för direkt inloggning
+          // this.$router.push("/login");
+
+          // test
+          this.message = "User created";
+          setTimeout(()=>{
+            this.message = "";
+          }, 3000);
+
+          // 
+        } else {
+          // det gick inte att registrera användare  Kunde inte registrera användare
+          this.message = "Could not create user"
+        }
+        
+      }
     },
+
   },
 
   validations: {
@@ -131,6 +177,9 @@ export default {
       maxLength: maxLength(20),
     },
   },
+   computed: {
+    ...mapGetters(["messages"])
+  }
 };
 </script>
 
