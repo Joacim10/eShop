@@ -18,6 +18,8 @@ export default {
    
   }
 }
+
+
 </script>
 
 <style>
@@ -94,6 +96,9 @@ background-color: var(--theme);
 
 .lightBg{
   background-color: var(--lightGrey);
+}
+.bgGrey{
+  background-color: var(--grey);
 }
 
 .grey {
