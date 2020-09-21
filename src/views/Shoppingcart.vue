@@ -27,15 +27,21 @@
 import ShoppingCartTotal from "../components/ShoppingCart/ShoppingCartTotal";
 import ApplyCouponComponent from "../components/ReusableComponents/ApplyCouponComponent";
 import ShoppingCartItems from "../components/ShoppingCart/ShoppingCartItems";
-import BannerShoppingCart from '../components/ShoppingCart/BannerShoppingcart'
+
+import { mapActions } from 'vuex';
 
 export default {
   name: "Shoppingcart",
   components: {
     ShoppingCartTotal,
     ApplyCouponComponent,
-    ShoppingCartItems,
-    BannerShoppingCart,
+    ShoppingCartItems
+  },
+  methods: {
+    ...mapActions(["setShoppingCart"])
+  },
+  created (){
+    this.setShoppingCart ()
   }
 };
 </script>

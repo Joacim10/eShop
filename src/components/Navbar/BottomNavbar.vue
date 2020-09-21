@@ -19,13 +19,13 @@
                             <li class="nav-item active ml-4 mt-1">
                                 <router-link class="nav-link darkBlue active" to="/">Home <span class="sr-only">(current)</span></router-link>
                             </li>
-                            <li class="nav-item dropdown ml-4 mt-1">
-                                <router-link class="nav-link darkBlue " to="/shop" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            <li class="nav-item  ml-4 mt-1">
+                                <router-link class="nav-link darkBlue " to="/shop">
                                     Shop  </router-link>
                                
                             </li>
-                            <li class="nav-item dropdown ml-4 mt-1">
-                                <router-link class="nav-link darkBlue " to="/products" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            <li class="nav-item  ml-4 mt-1">
+                                <router-link class="nav-link darkBlue " to="/products">
                                     Products </router-link>
                                 
                             </li>
