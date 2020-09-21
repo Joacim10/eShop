@@ -76,7 +76,8 @@ export default {
       if (cart) {
         state.cart = cart
       }
-    }
+    },
+    
 
   },
 
@@ -110,7 +111,8 @@ export default {
 
     setShoppingCart({commit}){
       commit('SET_SHOPPINGCART')
-    }
+    },
+    
 
   },
 

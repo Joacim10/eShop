@@ -8,8 +8,7 @@
           <th scope="row">
             
            
-            <button v-on:click.stop="deleteProductFromCart(cartItem.product._id)">X</button>
-
+            <i v-on:click.stop="deleteProductFromCart(cartItem.product._id)" class="fas fa-times-circle"></i>
            
 
              <img class="img-fluid imageWidth" :src="`${cartItem.product.image}`" alt="">
@@ -90,6 +89,9 @@ th, td {
 .fa-times-circle {
   color: gray;
   font-size: 20px;
+}
+i {
+  cursor: pointer;
 }
  .imageWidth {
         width: 70px;
