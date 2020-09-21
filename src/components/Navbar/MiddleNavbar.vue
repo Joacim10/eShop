@@ -35,17 +35,22 @@
         </i>
         <a>
           <router-link to="/shoppingcart"><i class="text-dark fa-lg ml-3 fas fa-shopping-bag position-relative">
-            <span class="badge themeBg rounded-pill badge-primary position-absolute badge__">0</span>
+            <span class="badge themeBg rounded-pill badge-primary position-absolute badge__">{{shoppingCartItemCount}}</span>
           </i> </router-link>
         </a>
-        <span class="ml-2">$.0.00</span>
+        <span class="ml-2">$.{{shoppingCartTotal}}</span>
       </div>
     </div>
   </div>
 </template>
 
 <script>
-export default {};
+import { mapGetters } from 'vuex'
+export default {
+  computed: {
+      ...mapGetters(['shoppingCartItemCount', "shoppingCartTotal"])
+    }
+};
 </script>
 
 <style scoped>
