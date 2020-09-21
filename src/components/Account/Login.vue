@@ -4,30 +4,39 @@
       <div>
         <h4 class="mt-2 mb-3">LOGIN</h4>
       </div>
-      <label class="mb-1" for="exampleInputEmail1">Username or email <span class="theme">*</span></label>
+      <label class="mb-1" for="logUserNameOrEmail">Username or email <span class="theme">*</span></label>
       <input
         type="email"
         class="form-control"
-        id="exampleInputEmail1"
-        aria-describedby="emailHelp"
-        placeholder="Enter email"
-      />
+        id="logUserNameOrEmail"
+        placeholder="Username or email" v-model="userNameOrEmail"
+        v-on:blur="$v.userNameOrEmail.$touch()" />
+      <p v-if="$v.userNameOrEmail.$error" > <small>please type valid username or email</small> </p>
     </div>
 
     <div class="form-group py-0 px-4">
-      <label class="mb-1" for="exampleInputPassword1">Password <span class="theme">*</span></label>
-      <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password" />
+      <label class="mb-1" for="logPassWord">Password <span class="theme">*</span></label>
+      <input type="password" class="form-control" id="logPassWord" placeholder="Password" 
+      v-model="passWord"  
+      v-on:blur="$v.passWord.$touch()" />
+      <p v-if="$v.passWord.$error" > <small>please type your password </small></p>
     </div>
     <div class="form-group py-2 px-4">
       <div class="mt-3 row container">
-        <button class="col-12 py-2 btnTheme px-5 border-0 text-white">LOG IN</button>
+        <button class="col-12 py-2 btnTheme px-5 border-0 text-white" 
+          v-on:click.prevent="submitForm"
+          v-bind:disabled="$v.$invalid"
+          v-bind:class="{btndisabled: $v.$invalid}"
+        >LOG IN</button>
       </div>
     </div>
 
     <div class="form-group px-4">
       <div class="form-check mt-3 d-flex justify-content-between">
-        <input type="checkbox" class="form-check-input" id="exampleCheck1" />
+        <input type="checkbox" class="form-check-input" id="checkBoxRememberMe" 
+        v-model="chBoxRememberMe" v-bind:disabled="$v.$invalid" />
         <label class="form-check-label" for="exampleCheck1">Remeber me</label>
+        <!-- <p> {{chBoxRememberMe}} </p> -->
         <p class="theme">Lost your account?</p>
       </div>
     </div>
@@ -59,7 +68,47 @@
 </template>
 
 <script>
-export default {};
+
+import { required, minLength, maxLength } from "vuelidate/lib/validators";
+
+export default {
+
+data(){
+    return{
+      userNameOrEmail: "",
+      // email: "",
+      passWord: "",
+      chBoxRememberMe:'',
+      submitted: false,
+      message: ""
+    }
+  },
+  methods: {
+
+     async submitForm(){
+       console.log('login submitted');
+       this.userNameOrEmail= "";
+      this.passWord= "";
+      this.chBoxRememberMe = false;
+      this.$v.$reset;
+     }
+
+
+   },
+   validations: {
+    userNameOrEmail: {
+      required,
+      minLength: minLength(4),
+      maxLength: maxLength(50)
+    },
+    passWord: {
+      required,
+      minLength: minLength(6),
+      maxLength: maxLength(20),
+    },
+  },
+
+};
 </script>
 
 <style scoped>
@@ -69,4 +118,19 @@ export default {};
 .facebookBg{
     background-color: #3B5998;
 }
+
+
+/* klasser för vuelidate */
+.invalid {
+  border: 1px solid #f77272 !important;
+  background-color: #f8b1b1 !important;
+}
+.valid {
+  background-color: #6fffab !important;
+}
+
+.btndisabled {
+  background-color: #8ab8b3 !important;
+}
+
 </style>
