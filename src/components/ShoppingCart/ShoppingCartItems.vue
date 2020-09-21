@@ -2,7 +2,7 @@
   <div>
     
         
-    <table class="table table-hover ">
+    <table class="table table-hover kalle">
       <tbody  v-for="cartItem in shoppingCart" :key="cartItem._id" :cartItem="cartItem">
         <tr>
           <th scope="row">
