@@ -8,7 +8,7 @@
           <th scope="row">
             
             
-            <button class="btn bgGrey py-0 px-1" v-on:click.stop="deleteProductFromCart(cartItem.product._id)"><i class="fas text-white fa-times py-0 rounded removeButton"></i></button>
+            <button class="btn bgGrey py-0 px-1 kalle" v-on:click.stop="deleteProductFromCart(cartItem.product._id)"><i class="fas text-white fa-times py-0 rounded removeButton"></i></button>
 
            
 
