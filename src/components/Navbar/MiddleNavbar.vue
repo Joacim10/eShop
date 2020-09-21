@@ -38,7 +38,7 @@
             <span class="badge themeBg rounded-pill badge-primary position-absolute badge__">{{shoppingCartItemCount}}</span>
           </i> </router-link>
         </a>
-        <span class="ml-2">$.0.00</span>
+        <span class="ml-2">$.{{shoppingCartTotal}}</span>
       </div>
     </div>
   </div>
@@ -48,7 +48,7 @@
 import { mapGetters } from 'vuex'
 export default {
   computed: {
-      ...mapGetters(['shoppingCartItemCount'])
+      ...mapGetters(['shoppingCartItemCount', "shoppingCartTotal"])
     }
 };
 </script>

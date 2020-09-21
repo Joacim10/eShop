@@ -2,17 +2,17 @@
   <div>
     
         
-    <table class="table table-hover ">
+    <table class="table">
       <tbody  v-for="cartItem in shoppingCart" :key="cartItem._id" :cartItem="cartItem">
         <tr>
           <th scope="row">
             
-           
-            <button v-on:click.stop="deleteProductFromCart(cartItem.product._id)">X</button>
+            
+            <button class="btn bgGrey py-0 px-1 kalle" v-on:click.stop="deleteProductFromCart(cartItem.product._id)"><i class="fas text-white fa-times py-0 rounded removeButton"></i></button>
 
            
 
-             <img class="img-fluid imageWidth" :src="`${cartItem.product.image}`" alt="">
+             <img class="img-fluid imageWidth ml-2" :src="`${cartItem.product.image}`" alt="">
             <span class="ml-2 verticalCenter">{{cartItem.product.name}}</span>
             
           </th>
@@ -87,13 +87,21 @@ th, td {
 .btnRadius{
   border-radius: 30px ;
 }
+.removeButton{
+  
+ 
+ 
+
+
+}
 .fa-times-circle {
   color: gray;
   font-size: 20px;
 }
  .imageWidth {
-        width: 70px;
-        
+        width: 60px;
+       
        
     }
+    
 </style>

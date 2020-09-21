@@ -95,6 +95,9 @@ background-color: var(--theme);
 .lightBg{
   background-color: var(--lightGrey);
 }
+.bgGrey{
+  background-color: var(--grey);
+}
 
 .grey {
 color: var(--grey) !important;
