@@ -1,8 +1,7 @@
 <template>
   <div>
     
-        
-    <table class="table">
+  <table class="table">
       <tbody  v-for="cartItem in shoppingCart" :key="cartItem._id" :cartItem="cartItem">
         <tr>
           <th scope="row">
