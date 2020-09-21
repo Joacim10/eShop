@@ -61,9 +61,9 @@ const routes = [
     component: () => import('../views/MyAccount.vue')
   },
   {
-    path: '/whishlist',
-    name: 'Whishlist',
-    component: () => import('../views/Whishlist.vue')
+    path: '/wishlist',
+    name: 'Wishlist',
+    component: () => import('../views/Wishlist.vue')
   },
   {
     path: '/compare',
