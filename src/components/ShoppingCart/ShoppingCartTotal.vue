@@ -45,7 +45,7 @@
             </div>
           <router-link to="/checkout"> <button
               class="btnRadiusCart py-2 mt-1 themeBg border-0 text-white pxCartBtn"
-            >PROCEED TO CHECKOUT</button></router-link>
+          >PROCEED TO CHECKOUT</button></router-link>
           </div>
         </div>
   </div>

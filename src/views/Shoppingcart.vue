@@ -1,4 +1,6 @@
 <template>
+  <div>
+    <BannerShoppingCart />
   <div class="container mt-5">
     <div class="row">
       <div class="col-12 col-lg-8">
@@ -18,12 +20,14 @@
      </div>
    
   </div>
+  </div>
 </template>
 
 <script>
 import ShoppingCartTotal from "../components/ShoppingCart/ShoppingCartTotal";
 import ApplyCouponComponent from "../components/ReusableComponents/ApplyCouponComponent";
 import ShoppingCartItems from "../components/ShoppingCart/ShoppingCartItems";
+
 import { mapActions } from 'vuex';
 
 export default {
@@ -31,7 +35,7 @@ export default {
   components: {
     ShoppingCartTotal,
     ApplyCouponComponent,
-    ShoppingCartItems,
+    ShoppingCartItems
   },
   methods: {
     ...mapActions(["setShoppingCart"])
