@@ -10,10 +10,11 @@ import axios from '../../helpers/helperAxios';
 export default {
 
   state: {
-    products:
-      [
-        { id: 1, name: 'Default', short: 'Default', desc: 'Default', price: 0, image: 'https://bit.ly/3mmOlL2' }
-      ],
+    products: {
+      count: 1,
+      data: [
+        { id: 1, name: 'Default', short: 'Default', desc: 'Default', price: 0, image: 'https://bit.ly/3mmOlL2', badgetype: '' }
+      ]},
     product: [{ id: 1, name: 'Default', short: 'Default', desc: 'Default', price: 0, image: 'https://bit.ly/3mmOlL2' }]
   },
 
