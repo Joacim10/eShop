@@ -33,7 +33,7 @@ export default {
     },
     DELETE_FROM_CART(state,id){
       // console.log(id)
-      state.cart = state.cart.filter(item => {return item.product[0]._id !== id})
+      state.cart = state.cart.filter(item => {return item.product._id !== id})
       // spara till storage
       sessionStorage.setItem('mycart',JSON.stringify(state.cart))
     },
@@ -42,7 +42,7 @@ export default {
       // letar efter den produkt som ska ökas i antal
       let item = state.cart.find(item => {
         // console.log(item.product[0]._id)
-        return item.product[0]._id === cartItem[0]._id
+        return item.product._id === cartItem._id
       })
       // console.log(item);
       // om den finns så ökar vi antal med 1
@@ -56,7 +56,7 @@ export default {
       // console.log(cartItem._id)
       // letar efter den produkt som ska ökas i antal
       let item = state.cart.find(item => {
-        return item.product[0]._id === cartItem[0]._id
+        return item.product._id === cartItem._id
       })
       // console.log(item);
       // om den finns och antal mer än 1 minskar vi antal med 1
@@ -126,7 +126,7 @@ export default {
       if (state.cart.length !== 0) {
         state.cart.forEach(item => {
 
-          total += item.product[0].price * item.quantity
+          total += item.product.price * item.quantity
 
         })
       }

@@ -8,7 +8,7 @@
           <div class="card-body ">
             <div class="d-flex justify-content-between border-bottom">
                <p class="font-weight-bold"> Subtotal</p>
-               <p class="theme">$910</p>
+               <p class="theme">${{shoppingCartTotal}}</p>
             </div>
             <div class="d-flex justify-content-between border-bottom mt-3">
                <p class="font-weight-bold align-self-center"> Shipping</p>
@@ -16,12 +16,12 @@
                 <div class="d-flex justify-content-end">
                 <span class="mr-2">Flat rate: </span>
                  <span class="theme mr-2"> $20.00 </span>
-                 <span><input type="radio" aria-label="Radio button for following text input"></span><br>
+                 <span><input type="radio" aria-label="Radio button for following text input" id=""></span><br>
                  </div>
 
                  <div class="d-flex justify-content-end mt-1"> 
                  <span class="mr-2">Free shipping </span>
-                 <span><input type="radio" aria-label="Radio button for following text input"></span><br>
+                 <span><input type="radio" aria-label="Radio button for following text input" id="free"></span><br>
                  </div>
                  <div class="d-flex justify-content-end mt-1"> 
                  <span class="mr-2">Local pickup: </span>
@@ -41,19 +41,24 @@
             </div>
             <div class="d-flex justify-content-between mt-3">
                <p class="font-weight-bold"> TOTAL</p>
-               <p class="theme">$910.00</p>
+               <p class="theme"> ${{shoppingCartTotal}}</p>
             </div>
-           <button
+          <router-link to="/checkout"> <button
               class="btnRadiusCart py-2 mt-1 themeBg border-0 text-white pxCartBtn"
-            >PROCEED TO CHECKOUT</button>
+            >PROCEED TO CHECKOUT</button></router-link>
           </div>
         </div>
   </div>
 </template>
 
 <script>
+import { mapGetters, } from "vuex";
 export default {
-
+  props: ["cartItem"],
+  computed: {
+    ...mapGetters(["shoppingCartTotal",])
+  },
+ 
 }
 </script>
 
