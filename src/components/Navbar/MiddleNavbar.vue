@@ -29,7 +29,7 @@
       <div class="mt-2 d-none d-sm-block">
         <i class="fa-lg mr-2 far fa-user"></i>
         <router-link to="/account"><span class="mr-4 text-dark">My Account</span></router-link>
-        <i class="fa-lg ml-3 far fa-heart"></i>
+        <router-link to="/wishlist" class="text-dark"><i class="fa-lg ml-3 far fa-heart"></i></router-link>
         <i class="fa-lg ml-3 fas fa-random position-relative">
           <span class="badge themeBg rounded-pill badge-primary position-absolute badge__">0</span>
         </i>
