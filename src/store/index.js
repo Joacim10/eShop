@@ -5,8 +5,8 @@ import Vuex from 'vuex'
 import storeProducts from './storeModules/storeProducts';
 import storeCart from './storeModules/storeCart';
 import storeUser from './storeModules/storeUser';
+import storeOrders from './storeModules/storeOrders';
 import storeWishlist from './storeModules/storeWishlist';
-// import storeOrders from './storeModules/storeOrders';
 
 Vue.use(Vuex)
 
@@ -18,7 +18,7 @@ export default new Vuex.Store({
     storeProducts,
     storeCart,
     storeUser,
-    storeWishlist,
-    
+    storeOrders,
+    storeWishlist
   }
 })
