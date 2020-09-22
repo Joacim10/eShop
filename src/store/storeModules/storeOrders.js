@@ -25,13 +25,17 @@ export default {
   state: {
     newOrder: {},
     order:[],
-    orders: null
+    orders: null,
+    orderCreated: false
   },
 
   mutations: {
 
     SET_ORDERS_BY_CUSTOMER(state, ordersbycustomer) {
       state.orders = ordersbycustomer
+    },
+    SET_ORDER_CREATED(state, created) {
+      state.orderCreated = created
     }
 
   },
@@ -41,10 +45,12 @@ export default {
     // registrera en ny order
     async createNewOrder({ commit }, newOrder) {
 
+      commit('SET_ORDER_CREATED', false)
       try {
         const response = await axios.post('/orders', newOrder)
         // skicka user till mongodb med axios http://localhost:9999/api/v1/orders
         // console.log(response.data)
+        commit('SET_ORDER_CREATED', true)
         return response;
 
       } catch (error) {
