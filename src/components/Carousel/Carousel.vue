@@ -48,8 +48,7 @@ export default {
       }
   },
   methods: {
-      moveCarousel(direction, position) {
-      // Find a more elegant way to express the :style. consider using props to make it truly generic
+    moveCarousel(direction, position) {
       if (direction === 1 && !this.atEndOfList) {
           this.currentOffset -= this.paginationFactor;
       } else if (direction === -1 && !this.atHeadOfList) {
@@ -58,27 +57,18 @@ export default {
           this.currentOffset = -(position * this.paginationFactor);
       }
       this.activeIndicator = -this.currentOffset / this.paginationFactor
-      }
+    }
   },
   mounted: function() {
-      this.cardMargin = 6/this.windowSize
-      //console.log('this.cardMargin', this.cardMargin)
-      this.cardWidth = (100 - (this.cardMargin * (this.windowSize - 1))) / this.windowSize
-      //console.log('this.cardWidth', this.cardWidth)
-      this.paginationFactor = +((this.cardWidth + this.cardMargin).toFixed(2))
-      //console.log('this.paginationFactor', this.paginationFactor)
-      //console.log('this.products', this.products)
-      //console.log('this.products.count', this.products.count)
-      //console.log('Object.keys(this.products.data).length', Object.keys(this.products.data).length)
-      this.filteredProducts = this.products || {count: 0, data: ['']}
-
-      //this.numberOfIndicators = (this.filteredProducts.count || 0 ) - (this.windowSize -1)
-      this.numberOfIndicators = (this.computedProducts.length || 0 ) - (this.windowSize -1)
+    this.cardMargin = 6/this.windowSize
+    this.cardWidth = (100 - (this.cardMargin * (this.windowSize - 1))) / this.windowSize
+    this.paginationFactor = +((this.cardWidth + this.cardMargin).toFixed(2))
+    this.filteredProducts = this.products || {count: 0, data: ['']}
+    this.numberOfIndicators = (this.computedProducts.length || 0 ) - (this.windowSize -1)
   },
   computed: {
     ...mapGetters(['products']),
     computedProducts: function () {
-
       let newArrayOfProducts = []
 
       for (let x of this.badgetype) {
@@ -89,17 +79,15 @@ export default {
           return a['name'].toString().localeCompare(b['name'].toString())
         })
       }
-
       return newArrayOfProducts
     },
     computedWidthAndMargin() {
       return {
-          "min-width": `${this.cardWidth}%`,
-          "margin-right": `${this.cardMargin}%`
+        "min-width": `${this.cardWidth}%`,
+        "margin-right": `${this.cardMargin}%`
       };      
     },
     atEndOfList() {
-      //console.log('this.filteredProducts.length', this.filteredProducts.length)
       return this.currentOffset <= (this.paginationFactor * -1) * ((this.computedProducts || []).length - this.windowSize);
     },
     atHeadOfList() {
@@ -175,23 +163,23 @@ body {
   height: 400px;
 }
 
-    @media (min-width: 576px) { 
-        .card-carousel-cards div{
-            height: 280px;
-        }
+@media (min-width: 576px) { 
+    .card-carousel-cards div{
+        height: 280px;
     }
+}
 
-    @media (min-width: 768px) {  
-        .card-carousel-cards div{
-            height: 300px;
-        }
+@media (min-width: 768px) {  
+    .card-carousel-cards div{
+        height: 300px;
     }
+}
 
-    @media (min-width: 992px) {  
-        .card-carousel-cards div{
-            height: 360px;
-        }
+@media (min-width: 992px) {  
+    .card-carousel-cards div{
+        height: 360px;
     }
+}
 
 @media only screen and (min-width: 1200px) {
   .card-carousel-cards div{
