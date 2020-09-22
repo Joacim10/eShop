@@ -61,7 +61,7 @@
           v-model="chBoxRememberMe"
           v-bind:disabled="$v.$invalid"
         />
-        <label class="form-check-label" for="exampleCheck1">Remeber me</label>
+        <label class="form-check-label" for="exampleCheck1">Remember me</label>
         <!-- <p> {{chBoxRememberMe}} </p> -->
         <p class="theme">Lost your account?</p>
       </div>
