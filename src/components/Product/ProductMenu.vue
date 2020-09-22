@@ -1,35 +1,32 @@
 <template>
   
-
     <div id="productMenu">
 
+      <!-- Färgplupparna -->
       <div class="tip"><i class="my-2 px-2 fas fa-circle text-danger"></i>
          <span class="tipcolors tiptext"><i class="fas fa-circle green"></i> <i class="fas fa-circle purple"></i> <i class="fas fa-circle red"></i> <i class="fas fa-circle black"></i></span>
       </div>
 
-      <div class="tip"> <i class="my-2 px-2 fas fa-heart"></i>
-         <span class="tiptext" >My favorite</span>
+      <!-- Wishlist - hjärtat -->
+      <div class="tip"> <i v-on:click="addProductToWishlist({product})" class="my-2 px-2 fas fa-heart"></i>
+         <span class="tiptext" >Wishlist</span>
       </div>
        
-
+      <!-- Random - Behövs detta? -->
       <div class="tip">  <i class="my-2 px-2 fas fa-random"></i>
          <span class="tiptext">Random</span>
       </div>
        
-
+      <!-- Quick view -->
       <div class="tip"><i class="my-2 px-2 fas fa-search"></i>
-         <span class="tiptext" >Search</span>
+         <span class="tiptext" >Quick view</span>
       </div>
        
-
+      <!-- Add to cart -->
       <div class="tip"><i v-on:click="addProductToCart({product, quantity})" class="my-2 px-2 fas fa-shopping-cart"></i>
          <span class="tiptext" >Add to cart</span>
       </div>
-       
-       
-
-
-   
+    
   </div>
 
 </template>
@@ -46,7 +43,9 @@ export default {
     };
   },
   methods: {
-    ...mapActions(["addProductToCart"]),
+    // ...mapActions(["addProductToCart"]),
+    ...mapActions(['addProductToCart', 'addProductToWishlist']),
+  
   },
 };
 </script>
@@ -55,6 +54,7 @@ export default {
 
 <style>
 
+/* kör utan scoped */
 
 #productMenu i {
   font-size: 0.8rem;
@@ -70,13 +70,12 @@ export default {
 
   #productMenu .tip {
     position: relative;
-    display: inline-block;
-  
+    display: inline-block;  
   } 
     
  .tip .tiptext {
   visibility: hidden;
-  width: 120px;
+  width: 90px;
   background-color: var(--theme) ;
   color: var(--white) ;
   text-align: center;
@@ -85,12 +84,12 @@ export default {
   position: absolute;
   z-index: 1;
   bottom: -4%;
-  left: -210%;
+  left: -110%;
   margin-left: -60px;
   opacity: 0;
   transition: opacity 0.3s;
   font-size: 0.8rem;
-    }
+ }
 
 
   .tip .tiptext::after {
@@ -104,13 +103,12 @@ export default {
   border-color: var(--theme) transparent transparent transparent;
   transform-origin: 0 0;
   transform: rotate(270deg); 
-
  }
     
  .tip:hover .tiptext {
     visibility: visible !important;
     opacity: 1;
-    }
+  }
 
 
 /* Färgerna */
