@@ -7,6 +7,7 @@
 </template>
 
 <script>
+import { mapActions } from "vuex";
 import Navbar from '@/components/navbar.vue'
 import Footer from '@/components/footer.vue'
 
@@ -15,8 +16,13 @@ export default {
   components: {
     Navbar,
     Footer,
-   
-  }
+  },
+  methods:{
+    ...mapActions(['getAllProducts'])
+  },
+  created(){
+    this.getAllProducts();
+  },
 }
 
 

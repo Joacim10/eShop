@@ -63,7 +63,7 @@
 
 <script>
 // hämtar "funktioner från store"
-import { mapGetters, mapActions } from "vuex";
+import { mapGetters } from "vuex";
 import ProductList from "@/components/Product/ProductList.vue"
 
 export default {
@@ -71,16 +71,9 @@ export default {
   components: {
     ProductList
   },
-  methods:{
-    ...mapActions(['getAllProducts','getProductById', 'addProductToCart'])
-  },
-  created(){
-    this.getAllProducts();
-  },
   computed:{
     ...mapGetters(['products'])
   }
-
 };
 </script>
 
