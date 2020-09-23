@@ -24,7 +24,7 @@
                                     Shop <i class=" theme ml-1 fas noArrow fa-angle-down"></i></div>
                                 <div class="dropdown-menu" aria-labelledby="shopDropdown">
                                     <router-link class="dropdown-item" to="/shoppingcart">Shoppingcart</router-link>
-                                    <router-link class="dropdown-item" to="/whishlist">Whishlist</router-link>
+                                    <router-link class="dropdown-item" to="/wishlist">Wishlist</router-link>
                                 </div>
                                
                             </li>
@@ -56,7 +56,7 @@
                                 </div>
                             </li>
                             <li class="nav-item mt-1 ml-4">
-                                <a class="nav-link darkBlue" href="#">Blog</a>
+                                <router-link class="nav-link darkBlue" to="/blog">Blog</router-link>
                             </li>
                             <div class="mt-2 p-0 mb-3 col-12 d-sm-none d-lg-none d-xl-none">
                                 <i class=" fa-lg ml-2 mr-2 far fa-user"></i>
