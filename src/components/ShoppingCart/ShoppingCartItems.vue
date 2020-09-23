@@ -1,10 +1,12 @@
 <template>
   <div>
-    
+   
   <table class="table">
+    
       <tbody  v-for="cartItem in shoppingCart" :key="cartItem._id" :cartItem="cartItem">
         <tr>
-          <th scope="row">
+          
+          <th  scope="row">
             <i v-on:click.stop="deleteProductFromCart(cartItem.product._id)" class="fas fa-times-circle"></i>
             
             <img class="img-fluid imageWidth ml-2" :src="`${cartItem.product.image}`" alt="">
