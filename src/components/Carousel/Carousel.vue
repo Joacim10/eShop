@@ -38,7 +38,6 @@ export default {
   props: ['windowSize', 'badgetype'],  
   data() {
       return {
-      filteredProducts: {count: 0, data: ['']},
       currentOffset: 0,
       paginationFactor: Number,
       cardWidth: Number,
@@ -63,7 +62,6 @@ export default {
     this.cardMargin = 6/this.windowSize
     this.cardWidth = (100 - (this.cardMargin * (this.windowSize - 1))) / this.windowSize
     this.paginationFactor = +((this.cardWidth + this.cardMargin).toFixed(2))
-    this.filteredProducts = this.products || {count: 0, data: ['']}
     this.numberOfIndicators = (this.computedProducts.length || 0 ) - (this.windowSize -1)
   },
   computed: {
