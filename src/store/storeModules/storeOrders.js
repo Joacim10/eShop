@@ -26,7 +26,9 @@ export default {
     newOrder: {},
     order:[],
     orders: null,
-    orderCreated: false
+    orderCreated: false,
+    shippingDataValid: false,
+    shippingData:{}
   },
 
   mutations: {
@@ -36,6 +38,13 @@ export default {
     },
     SET_ORDER_CREATED(state, created) {
       state.orderCreated = created
+    },
+
+    SET_SHIPPINGDATA_VALID(state,valid){
+      state.shippingDataValid = valid
+    },
+    SET_SHIPPINGDATA(state,data){
+      state.shippingData = data
     }
 
   },
@@ -57,9 +66,7 @@ export default {
         console.log(error)
         return error;
       }
-
       // return {data:"order created" , newOrder}
-
     },
 
     // hämta alla ordrar för en kund med id med axios http://localhost:9999/api/v1/orders/customer/
@@ -70,9 +77,18 @@ export default {
       if (response !== null) {
         commit('SET_ORDERS_BY_CUSTOMER', response)
       }
-
       // return "orders by customer"
+    },
 
+    storeShippingData({ commit },data){
+      commit('SET_SHIPPINGDATA',data)
+      commit('SET_SHIPPINGDATA_VALID',true)
+    },
+    clearShippingData({ commit }){
+      commit('SET_SHIPPINGDATA',{})
+    },
+    storeShippingDataValid({ commit },value){
+      commit('SET_SHIPPINGDATA_VALID',value)
     }
 
   },
@@ -85,7 +101,15 @@ export default {
 
     orders(state) {
       return state.orders
+    },
+
+    shippingData(state){
+      return state.shippingData
+    },
+    shippingDataValid(state){
+      return state.shippingDataValid
     }
+
 
 
   }

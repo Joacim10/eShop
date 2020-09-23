@@ -304,6 +304,9 @@
 
 
 <script>
+// store
+import { mapActions, mapGetters } from "vuex";
+
 // /^\+?([0-9]{2})\)?[-. ]?([0-9]{4})[-. ]?([0-9]{4})$/
 // /^\(?([0-9]{3})\)?[-. ]?([0-9]{3})[-. ]?([0-9]{4})$/
 // /^[\+]?[(]?[0-9]{3}[)]?[-\s\.]?[0-9]{3}[-\s\.]?[0-9]{4,6}$/im
@@ -351,7 +354,7 @@ export default {
       orderNotes: "",
 
       // bool
-      shipToDifferentAddress: "",
+      shipToDifferentAddress: false,
 
       // alter. recipient name
       altShippingrecipient: "",
@@ -366,7 +369,37 @@ export default {
   },
 
   methods: {
+    ...mapActions(["storeShippingData","storeShippingDataValid","clearShippingData"]),
 
+    updateShippingData() {
+      const shippingData = {
+        firstName: this.firstName,
+        lastName: this.lastName,
+        phoneNumber: this.phoneNumber,
+        email: this.email,
+
+        companyName: this.companyName,
+
+        streetAddress: this.streetAddress,
+        apartmentNumber: this.apartmentNumber,
+        zipCode: this.zipCode,
+        city: this.city,
+        state: this.state,
+        country: this.country,
+
+        orderNotes: this.orderNotes,
+
+        shipToDifferentAddress: this.shipToDifferentAddress,
+        altShippingrecipient: this.altShippingrecipient,
+        altShippingStreetAddress: this.altShippingStreetAddress,
+        alterZipCode: this.alterZipCode,
+        alterCity: this.alterCity,
+      };
+
+      // console.log(shippingData);
+      // sparar till storeOrders
+      this.storeShippingData(shippingData)
+    },
   },
 
   validations: {
@@ -420,15 +453,24 @@ export default {
       },
     },
   },
-  updated:function (){
+  updated: function () {
     if (this.$v.$invalid == false) {
       // om formuläret är valid så skickar vi data till store
-      console.log('shipping data ok')
-    } else{
+      console.log("shipping data ok");
+      this.updateShippingData();
+    } else {
       // data saknas i formulär/ej korrekt, spärra "Place Order"
+      this.storeShippingDataValid(false);
     }
-    
+  },
+
+  computed: {
+    ...mapGetters(["shippingDataValid"]),
+  },
+  beforeMount: function () {
+    this.clearShippingData();
   }
+
 };
 </script>
 
