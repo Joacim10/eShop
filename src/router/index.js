@@ -13,29 +13,14 @@ const routes = [
     component: Home
   },
   {
-    path: '/shop',
-    name: 'Shop',
-    component: () => import('../views/Shop.vue')
-  },
-  {
     path: '/products',
-    name: 'Product',
+    name: 'Products',
     component: () => import('../views/Products.vue')
   },
   {
-    path: '/shop/:produktId',
+    path: '/shop/:productId',
     name: 'Product',
     component: () => import('../views/ProductDetails.vue')
-  },
-  {
-    path: '/categories',
-    name: 'Categories',
-    component: () => import('../views/Categories.vue')
-  },
-  {
-    path: '/pages',
-    name: 'Pages',
-    component: () => import('../views/Pages.vue')
   },
   {
     path: '/blog',
