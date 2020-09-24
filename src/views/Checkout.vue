@@ -32,7 +32,7 @@
 
               <div class="card-body">
                 <CheckoutOrder />
-                <CheckoutPlaceorder />
+                <!-- <CheckoutPlaceorder /> -->
               </div>
             </div>
           </div>
@@ -49,7 +49,7 @@ import CheckoutCupon from "@/components/ReusableComponents/ApplyCouponComponent.
 
 import CheckoutForm from "@/components/Checkout/CheckoutForm.vue";
 import CheckoutOrder from "@/components/Checkout/CheckoutOrder.vue";
-import CheckoutPlaceorder from "@/components/Checkout/CheckoutPlaceorder.vue";
+// import CheckoutPlaceorder from "@/components/Checkout/CheckoutPlaceorder.vue";
 
 export default {
   name: "Checkout",
@@ -58,7 +58,7 @@ export default {
     CheckoutCupon,
     CheckoutForm,
     CheckoutOrder,
-    CheckoutPlaceorder,
+    // CheckoutPlaceorder,
   },
 };
 </script>

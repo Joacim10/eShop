@@ -1,99 +1,245 @@
 <template>
   <div>
-
     <!-- <div class="card">
 
       <div class="card-header bgDarkBlue text-center theme f-24 py-1">
         <span class="text-uppercase f24">Your order</span>
-      </div> -->
+    </div>-->
 
-      
-      <!-- <div class="card-body"> -->
+    <!-- <div class="card-body"> -->
 
-        <!-- Products -->
+    <!-- Products -->
 
-        <!-- Product item -->
+    <!-- Product item -->
+    <!-- om det finns produketr i shoppingcart visas de här -->
+    <div v-if="shoppingCart.length > 0">
+      <div
+        v-for="cartItem in shoppingCart"
+        :key="cartItem._id"
+        :cartItem="cartItem"
+      >
         <div class="d-flex justify-content-between border-bottom">
-          <p class="">Women smart high heel shoe</p>
-          <p class="theme">$380</p>
+          <p class="">{{ cartItem.product.name }}</p>
+          <p class="theme">${{ cartItem.product.price * cartItem.quantity }}</p>
+        </div>
+      </div>
+    </div>
+    <!-- annars visar vi ett meddelande -->
+    <div v-else>
+      <p>No item in shoppincart</p>
+    </div>
+
+    <!-- Product item -->
+    <!-- <div class="d-flex justify-content-between border-bottom mt-3">
+      <p class>Women smart high heel shoe</p>
+      <p class="theme">$380</p>
+    </div> -->
+
+    <!-- Subtotal -->
+    <div class="d-flex justify-content-between border-bottom mt-3">
+      <p class="font-weight-bold theme">Subtotal</p>
+      <p class="theme">${{ shoppingCartTotal }}</p>
+    </div>
+
+    <!-- Shipping -->
+    <div class="d-flex justify-content-between border-bottom mt-3 pb-3">
+      <p class="align-self-center">Shipping</p>
+      <div>
+        <div class="d-flex justify-content-end">
+          <span class="mr-2">Flat rate:</span>
+          <span class="theme mr-2">$20.00</span>
+          <span>
+            <input
+              type="radio"
+              aria-label="Radio button for following text input"
+            />
+          </span>
+          <br />
         </div>
 
-        <!-- Product item -->
-        <div class="d-flex justify-content-between border-bottom mt-3">
-          <p class="">Women smart high heel shoe</p>
-          <p class="theme">$380</p>
+        <div class="d-flex justify-content-end">
+          <span class="mr-2">Free shipping</span>
+          <span>
+            <input
+              type="radio"
+              aria-label="Radio button for following text input"
+            />
+          </span>
+          <br />
         </div>
-
-
-
-
-        <!-- Subtotal -->
-        <div class="d-flex justify-content-between border-bottom mt-3">
-          <p class="font-weight-bold theme ">Subtotal</p>
-          <p class="theme">$910</p>
+        <div class="d-flex justify-content-end">
+          <span class="mr-2">Local pickup:</span>
+          <span class="theme mr-2">$20.00</span>
+          <span>
+            <input
+              type="radio"
+              aria-label="Radio button for following text input"
+            />
+          </span>
+          <br />
         </div>
+        <div class="d-flex justify-content-end">
+          <span>Shipping to AL</span>
+        </div>
+        <div class="d-flex justify-content-end">
+          <span class>Change adress</span>
+        </div>
+      </div>
+    </div>
 
-        <!-- Shipping -->
-        <div class="d-flex justify-content-between border-bottom mt-3  pb-3">
-          <p class="align-self-center">Shipping</p>
-          <div>
-            <div class="d-flex justify-content-end">
-              <span class="mr-2">Flat rate:</span>
-              <span class="theme mr-2">$20.00</span>
-              <span>
-                <input type="radio" aria-label="Radio button for following text input" />
-              </span>
-              <br />
-            </div>
+    <!-- TOTAL -->
+    <div class="d-flex justify-content-between mt-3">
+      <p class="font-weight-bold text-uppercase theme">TOTAL</p>
+      <p class="theme">${{ shoppingCartTotal }}</p>
+    </div>
 
-            <div class="d-flex justify-content-end">
-              <span class="mr-2">Free shipping</span>
-              <span>
-                <input type="radio" aria-label="Radio button for following text input" />
-              </span>
-              <br />
-            </div>
-            <div class="d-flex justify-content-end">
-              <span class="mr-2">Local pickup:</span>
-              <span class="theme mr-2">$20.00</span>
-              <span>
-                <input type="radio" aria-label="Radio button for following text input" />
-              </span>
-              <br />
-            </div>
-            <div class="d-flex justify-content-end">
-              <span>Shipping to AL</span>
-            </div>
-            <div class="d-flex justify-content-end">
-              <span class>Change adress</span>
-            </div>
+    <div class="theme my-hr"></div>
+
+    <div>
+      <!-- Payment -->
+      <div class="border-bottom mt-3 pb-3">
+        <div>
+          <div class="d-flex">
+            <span>
+              <input
+                type="radio"
+                aria-label="Radio button for following text input"
+              />
+            </span>
+            <span class="ml-2">Direct bank transfer</span>
+
+            <br />
           </div>
-
         </div>
 
-        <!-- TOTAL -->
-        <div class="d-flex justify-content-between mt-3">
-          <p class="font-weight-bold text-uppercase theme"> TOTAL</p>
-          <p class="theme">$930.00</p>
+        <div>
+          <div class="d-flex">
+            <span>
+              <input
+                type="radio"
+                aria-label="Radio button for following text input"
+              />
+            </span>
+            <span class="ml-2">Check Payment</span>
+
+            <br />
+          </div>
         </div>
 
-   
+        <div>
+          <div class="d-flex">
+            <span>
+              <input
+                type="radio"
+                aria-label="Radio button for following text input"
+              />
+            </span>
+            <span class="ml-2">Cash on delivery</span>
 
-      <!-- </div> -->
+            <br />
+          </div>
+        </div>
 
-    <!-- </div> -->
+        <div>
+          <div class="d-flex align-items-end">
+            <span>
+              <input
+                type="radio"
+                aria-label="Radio button for following text input"
+              />
+            </span>
+            <span class="ml-2">Paypal</span>
+            <span class="theme ml-2">
+              <img src="/Image/checkout/PayPalLogo.png" />
+            </span>
+            <span class="ml-2 small">
+              <a href="#" class="grey">What is Paypal?</a>
+            </span>
 
+            <br />
+          </div>
+        </div>
+      </div>
+      <div class="border-bottom mt-3 pb-3">
+        <p>
+          Your personal data will be used to process your order, support your
+          experience throughout this website, and for other purposes described
+          in our
+          <a href="#" class="theme">privacy policy</a> .
+        </p>
+      </div>
+      <div class="mt-3 pb-3">
+        <div class="form-group">
+          <div class="form-check">
+            <input
+              class="form-check-input"
+              type="checkbox"
+              value
+              id="acceptTerms"
+              v-model="acceptTerms"
+            />
+            <label class="form-check-label" for="acceptTerms">
+              I have read and agree to the website terms and
+              <a href="#" class="theme">conditions</a>
+              <span class="theme">*</span>
+            </label>
+          </div>
+        </div>
+      </div>
 
+      <!-- knapp går bara att trycka på om shipping data är valid och man har godkänt vilkoren -->
+      <button
+        type="submit"
+        class="btn btnTheme white col-lg-auto text-uppercase text-bold"
+        v-bind:disabled="!shippingDataValid || !acceptTerms"
+        v-on:click.prevent="submitOrder" >
+        Place order
+      </button>
+      <!-- <p>{{ shippingDataValid }} {{ acceptTerms }}</p> -->
+    </div>
   </div>
-
 </template>
 
 
 <script>
+import { mapGetters, mapActions } from "vuex";
+
 export default {
   name: "CheckoutOrder",
+  data() {
+    return {
+      acceptTerms: false,
+      submitted: false,
+      message: "",
+    };
+  },
+
+  methods:{
+    ...mapActions(["createNewOrder"]),
+
+    async submitOrder(){
+      console.log('order submitted')
+    },
+
+  },
+
+  computed: {
+    ...mapGetters([
+      "shoppingCart",
+      "product",
+      "shoppingCartItemCount",
+      "shoppingCartTotal",
+      "shippingDataValid",
+    ]),
+  },
 };
 </script>
 
-<style>
+<style scoped>
+.my-hr {
+  content: "";
+  width: 100%;
+  height: 1px;
+  background-color: var(--theme);
+}
 </style>
