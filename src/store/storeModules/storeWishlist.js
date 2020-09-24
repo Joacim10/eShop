@@ -18,15 +18,18 @@ export default {
 
   mutations: {
 
-    ADD_TO_WISHLIST(state, { product }) {
+    ADD_TO_WISHLIST(state, product ) {
       console.log(state.wishlist)
-      let exists = state.wishlist.find(item => { return item._id === product.product._id })
+      console.log(product)
+
+
+      let exists = state.wishlist.find(item => { return item._id === product._id })
       
       if (exists) {
         sessionStorage.setItem('wishlist', JSON.stringify(state.wishlist))
         return
       }else{
-        state.wishlist.push({ product })
+        state.wishlist.push( product )
         sessionStorage.setItem('wishlist', JSON.stringify(state.wishlist))
       }
 
@@ -34,7 +37,7 @@ export default {
 
 
     DELETE_FROM_WISHLIST(state, id) {
-      state.wishlist = state.wishlist.filter(item => { return item.product.product._id !== id })
+      state.wishlist = state.wishlist.filter(item => { return item._id !== id })
 
       sessionStorage.setItem('wishlist', JSON.stringify(state.wishlist))
     },
@@ -51,7 +54,7 @@ export default {
 
 
     addProductToWishlist({ commit }, product ) {
-      commit('ADD_TO_WISHLIST', { product })
+      commit('ADD_TO_WISHLIST', product )
 
     },
 

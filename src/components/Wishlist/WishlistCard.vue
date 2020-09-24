@@ -2,10 +2,10 @@
 <div class="row">
     <div  v-for="wishlistItem in wishlist" :key="wishlistItem._id" :wishlistItem="wishlistItem">
         <div>
-            <i v-on:click.stop="deleteProductFromWishlist(wishlistItem.product.product._id)" class="ml-3 fas fa-times grey"><span class="ml-2 f-16 font-weight-light">Remove item</span></i>
+            <i v-on:click.stop="deleteProductFromWishlist(wishlistItem._id)" class="ml-3 fas fa-times grey"><span class="ml-2 f-16 font-weight-light">Remove item</span></i>
         </div>
         <div class="sizeWishlist">
-            <ProductCard :product="wishlistItem.product.product"/>
+            <ProductCard :product="wishlistItem"/>
         </div>
     </div>
 </div>
