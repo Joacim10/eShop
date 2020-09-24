@@ -8,7 +8,7 @@
       </div>
 
       <!-- Wishlist - hjärtat -->
-      <div class="tip"> <i v-on:click="addProductToWishlist({product})" class="my-2 px-2 fas fa-heart"></i>
+      <div class="tip"> <i v-on:click="addProductToWishlist(product)" class="my-2 px-2 fas fa-heart"></i>
          <span class="tiptext" >Wishlist</span>
       </div>
        
