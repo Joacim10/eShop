@@ -191,11 +191,12 @@
       <button
         type="submit"
         class="btn btnTheme white col-lg-auto text-uppercase text-bold"
-        v-bind:disabled="!shippingDataValid || !acceptTerms"
-        v-on:click.prevent="submitOrder" >
+        v-bind:disabled="!shippingDataValid || !acceptTerms || !isUserLoggedIn"
+        v-on:click.prevent="submitOrder"
+      >
         Place order
       </button>
-      <!-- <p>{{ shippingDataValid }} {{ acceptTerms }}</p> -->
+      <p>{{ shippingDataValid }} {{ acceptTerms }} {{ isUserLoggedIn }}</p>
     </div>
   </div>
 </template>
@@ -214,13 +215,41 @@ export default {
     };
   },
 
-  methods:{
-    ...mapActions(["createNewOrder"]),
+  methods: {
+    ...mapActions(["createNewOrder","clearAllCartItem","clearShippingData"]),
 
-    async submitOrder(){
-      console.log('order submitted')
+    async submitOrder() {
+      // skapar ett objekt med data om användare, valda produkter och leverans data
+      const newOrder = {
+        userId: this.user.id,
+        userData: this.user,
+        shippingData: this.shippingData,
+        orderItems: this.shoppingCart,
+        orderTotalAmount: this.shoppingCartTotal,
+      };
+      //  skickar en "action" till store för att spara data i databas
+      const response = await this.createNewOrder(newOrder);
+      // kollar om det gick att spara till databas
+      if (response.status == 200) {
+        console.log("Order submitted...    " + response);
+
+        // rensar shoppingvagn
+        this.clearAllCartItem();
+        // rensa shippingdata eller vill man ha kvar den ?
+        this.clearShippingData();
+
+
+        //  går till en sida som visar att order är skickad
+        //            this.$router.push("/checkoutok");
+        // eller visa en modal ?
+
+      } else {
+        console.log(response);
+      }
+
+      
+
     },
-
   },
 
   computed: {
@@ -230,6 +259,9 @@ export default {
       "shoppingCartItemCount",
       "shoppingCartTotal",
       "shippingDataValid",
+      "shippingData",
+      "isUserLoggedIn",
+      "user",
     ]),
   },
 };
