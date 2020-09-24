@@ -1,10 +1,10 @@
 <template>
   <div>
     <BannerShoppingCart />
-    
+  
     
   <div class="container mt-5">
-      
+
     <div class="row">
       <div class="col-12 col-lg-8 py-0">
         
@@ -33,7 +33,13 @@
 
         <hr class="mb-0 mt-0 themeBg">
         <!--ShoppingCart Items--->
-        <ShoppingCartItems />
+       
+          <ShoppingCartItems  />
+        
+      
+        
+     
+          
       </div>
 
       <!-- TOTALCART-->
@@ -64,6 +70,7 @@ export default {
     ApplyCouponComponent,
     ShoppingCartItems
   },
+  props : ["cartItem"],
   methods: {
     ...mapActions(["setShoppingCart"])
   },
