@@ -1,12 +1,12 @@
 <template>
   <div>
-   
-  <table class="table">
-    
-      <tbody  v-for="cartItem in shoppingCart" :key="cartItem._id" :cartItem="cartItem">
-        <tr>
+  
+  <table  class="table">   
+      <tbody  v-for="cartItem in shoppingCart" :key="cartItem._id" :cartItem="cartItem">  
+        <tr v-if="shoppingCart.length > 0">
           
-          <th  scope="row">
+          <th   scope="row">
+            
             <i v-on:click.stop="deleteProductFromCart(cartItem.product._id)" class="fas fa-times-circle"></i>
             
             <img class="img-fluid imageWidth ml-2" :src="`${cartItem.product.image}`" alt="">
@@ -18,19 +18,27 @@
           </td>
 
           <td class="bTop">
-            <button class="border rounded px-2 bgWhite" v-on:click.stop="decreaseQuantity(cartItem.product)">-</button>
-            <span class="border bgWhite px-2 py-1 rounded">{{cartItem.quantity}}</span>
-            <button class="bgWhite border px-2 rounded"  v-on:click.stop="increaseQuantity(cartItem.product)">+</button>
+            <button class="border rounded px-2 bgWhite hoverBtn" v-on:click.stop="decreaseQuantity(cartItem.product)">-</button>
+            <span class="border bgWhite px-2 py-1 rounded hoverBtn">{{cartItem.quantity}}</span>
+            <button class="bgWhite border px-2 rounded hoverBtn"  v-on:click.stop="increaseQuantity(cartItem.product)">+</button>
           </td>
 
           <td class="theme bTop">
             <span>${{ cartItem.product.price * cartItem.quantity}}</span>
           </td>
         </tr>
+       
       </tbody>
       
+      <!--- OM SHOPPINGCART ÄR TOM -->
+      <div v-if="shoppingCart.length === 0" class="text-center mt-5">
+        <h1 class="theme"> SHOPPINGCART IS EMPTY </h1>
+        <router-link to="/products"> <button class=" mt-3 py-2 btn btnTheme text-white">CHECK OUT OUR PRODUCTS</button> </router-link>
+      </div>
     </table>
-    <div class="d-flex justify-content-end">
+      
+      
+    <div v-if="shoppingCart.length > 0" class="d-flex justify-content-end">
         <button class=" px-4 py-2 btn  btnRadius bgDarkBlue text-uppercase text-white font-weight-bold">UPDATE CART</button>
       </div>
     
@@ -84,12 +92,9 @@ th, td {
 .btnRadius{
   border-radius: 30px ;
 }
-.removeButton{
-  
- 
- 
-
-
+.hoverBtn:hover{
+  background-color:var(--theme);
+  color: white;
 }
 .fa-times-circle {
   color: gray;
