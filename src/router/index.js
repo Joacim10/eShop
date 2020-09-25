@@ -35,11 +35,22 @@ const routes = [
     name: 'Shoppingcart',
     component: () => import('../views/Shoppingcart.vue')
   },
+
   {
     path: '/checkout',
     name: 'Checkout',
-    component: () => import('../views/Checkout.vue')
+    component: () => import('../views/Checkout.vue'),
+    children:[
+      { path: '',
+      name: 'CheckoutForm',
+      component: () => import('../components/Checkout/CheckoutForm.vue')},
+
+      { path: 'checkoutOrderOk',
+      name: 'CheckoutOrderOk',
+      component: () => import('../components/Checkout/CheckoutOrderOk.vue')}
+    ]
   },
+
   {
     path: '/account',
     name: 'MyAccount',
