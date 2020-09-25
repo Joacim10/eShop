@@ -1,5 +1,6 @@
 <template>
       <div>
+        <div class="mt-1 col-12 col-lg-5 borderDotted rounded">
       <div class="pl-4 mt-4">
         <p class="mb-0">If you have a coupon code, please apply it below.</p>
       </div>
@@ -17,6 +18,8 @@
             >Apply Coupon</button>
           </div>
           </div>
+          </div>
+
           </div>
        
 </template>
