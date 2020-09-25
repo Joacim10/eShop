@@ -57,7 +57,7 @@ export default {
       commit('SET_ORDER_CREATED', false)
       try {
         const response = await axios.post('/orders', newOrder)
-        // skicka user till mongodb med axios http://localhost:9999/api/v1/orders
+        // skicka order till mongodb med axios http://localhost:9999/api/v1/orders
         // console.log(response.data)
         commit('SET_ORDER_CREATED', true)
         return response;

@@ -69,6 +69,9 @@ export default {
 
     CLEAR_CART(state){
       state.cart = []
+      //  jm.
+      sessionStorage.setItem('mycart',JSON.stringify(state.cart))
+      // 
     },
 
     SET_SHOPPINGCART(state){
