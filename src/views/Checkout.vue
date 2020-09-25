@@ -1,26 +1,45 @@
 <template>
   <div class="pb-5">
     <CheckoutBreadcrumb />
+
     <div class="container pt-5">
       <form class="needs-validation" novalidate>
         <div class="row">
           <!-- Col 1 -->
           <div class="col">
-            <p>
-              Returning customer?
-              <!-- <a href="#" class="theme">Click here to login</a> -->
-              <router-link to="/account" class="theme" >Click here to login</router-link>
-            </p>
-            <p>
-              Have a coupon?
-              <a href="#" class="theme">Click here to enter your code</a>
-            </p>
+            <!-- inte inloggad -->
+            <div v-if="!isUserLoggedIn">
+              <p>
+                <!-- Returning customer? -->
+                <strong class="pr-2">Please login to checkout</strong>
 
-            <div class="mt-3 mb-3">
-              <CheckoutCupon />
+                <router-link to="/account" class="theme"
+                  >Click here to login</router-link
+                >
+              </p>
             </div>
 
-            <CheckoutForm />
+            <p class="mb-3">
+              Have a coupon?
+              <!-- <a href="#" class="theme">Click here to enter your code</a> -->
+              <a
+                class="theme togggleCoupon"
+                v-on:click.prevent="toggleShowCoupon"
+                >Click here to enter your code</a
+              >
+            </p>
+            <!-- <p>{{ toggleCoupon }}</p> -->
+
+            <div v-show="toggleCoupon">
+              <div class="mt-3 mb-3">
+                <CheckoutCupon />
+              </div>
+            </div>
+
+            <div class="mt-5">
+              <CheckoutForm />
+            </div>
+
           </div>
 
           <!-- Col 2 -->
@@ -43,6 +62,8 @@
 </template>
 
 <script>
+import { mapGetters } from "vuex";
+
 import CheckoutBreadcrumb from "@/components/Checkout/CheckoutBreadcrumb.vue";
 // import CheckoutCupon from "@/components/Checkout/CheckoutCupon.vue";
 import CheckoutCupon from "@/components/ReusableComponents/ApplyCouponComponent.vue";
@@ -60,6 +81,29 @@ export default {
     CheckoutOrder,
     // CheckoutPlaceorder,
   },
+
+  data() {
+    return {
+      toggleCoupon: false,
+      message: "",
+    };
+  },
+  methods: {
+    toggleShowCoupon() {
+      this.toggleCoupon = !this.toggleCoupon;
+    },
+  },
+
+  computed: {
+    ...mapGetters(["isUserLoggedIn", "user"]),
+  },
 };
 </script>
+
+<style scoped>
+.togggleCoupon {
+  cursor: pointer;
+  text-decoration: none;
+}
+</style>
 

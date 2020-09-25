@@ -196,7 +196,7 @@
       >
         Place order
       </button>
-      <p>{{ shippingDataValid }} {{ acceptTerms }} {{ isUserLoggedIn }}</p>
+      <!-- <p>{{ shippingDataValid }} {{ acceptTerms }} {{ isUserLoggedIn }}</p> -->
     </div>
   </div>
 </template>
@@ -239,8 +239,8 @@ export default {
         this.clearShippingData();
 
 
-        //  går till en sida som visar att order är skickad
-        //            this.$router.push("/checkoutok");
+        //  går till en sida som visar att order är skickad ?
+                   this.$router.push("/shop");
         // eller visa en modal ?
 
       } else {
