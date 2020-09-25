@@ -1,6 +1,6 @@
 <template>
       <div>
-        <div class="mt-1  py-2  px-2 borderDotted rounded">
+        <div class=" mb-2  py-1  px-4 borderDotted rounded">
       <div class="pl-4 mt-4">
         <p class="mb-0">If you have a coupon code, please apply it below.</p>
       </div>
