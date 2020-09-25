@@ -2,7 +2,7 @@
   <div class="container">
     <div class="row mt-4 d-flex">
       <div class="mt-2 mr-5 ml-4">
-        <img class="centerElement" src="/image/navigation/Logo.png">
+        <router-link to="/"><img class="centerElement" src="/image/navigation/Logo.png"></router-link>
       </div>
 
       <div class="input-group col-6 d-none d-xl-flex mr-3">
@@ -27,7 +27,7 @@
       </div>
 
       <div class="mt-2 d-none d-sm-block">
-        <i class="fa-lg mr-2 far fa-user"></i>
+        <router-link to="/account"><i class="fa-lg mr-2 far fa-user text-dark"></i></router-link>
         <router-link to="/account"><span class="mr-4 text-dark">My Account</span></router-link>
         <router-link to="/wishlist" class="text-dark"><i class="fa-lg ml-3 far fa-heart"></i></router-link>
         <i class="fa-lg ml-3 fas fa-random position-relative">

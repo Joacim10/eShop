@@ -6,7 +6,7 @@
                     <h1>Shopping is</h1>
                     <h1 class="font-weight-bold theme">MORE FUN</h1>
                     <p>Vivamus dignissim a ex eu ornare. Ut fermentum orci <br> vel diam ultricies faucibus. Quisque quis erat sed</p>
-                    <button class="btn btnWhite pl-4 pr-4 p-2">SHOP NOW</button>
+                    <router-link to="/products"><button class="btn btnWhite pl-4 pr-4 p-2">SHOP NOW</button></router-link>
                 </div>
                 <img src="/Image/ShoppingFun/homeBg.png" class="d-block imgCarousel img-none">
             </div>
