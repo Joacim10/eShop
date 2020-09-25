@@ -2,7 +2,7 @@
   <div class="container">
     <div class="row mt-4 d-flex">
       <div class="mt-2 mr-5 ml-4">
-        <img class="centerElement" src="/image/navigation/Logo.png">
+        <router-link to="/"><img class="centerElement" src="/image/navigation/Logo.png"></router-link>
       </div>
 
       <div class="input-group col-6 d-none d-xl-flex mr-3">
