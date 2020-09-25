@@ -2,108 +2,31 @@
   <div class="pb-5">
     <CheckoutBreadcrumb />
 
-    <div class="container pt-5">
-      <form class="needs-validation" novalidate>
-        <div class="row">
-          <!-- Col 1 -->
-          <div class="col">
-            <!-- inte inloggad -->
-            <div v-if="!isUserLoggedIn">
-              <p>
-                <!-- Returning customer? -->
-                <strong class="pr-2">Please login to checkout</strong>
-
-                <router-link to="/account" class="theme"
-                  >Click here to login</router-link
-                >
-              </p>
-            </div>
-
-            <p class="mb-3">
-              Have a coupon?
-              <!-- <a href="#" class="theme">Click here to enter your code</a> -->
-              <a
-                class="theme togggleCoupon"
-                v-on:click.prevent="toggleShowCoupon"
-                >Click here to enter your code</a
-              >
-            </p>
-            <!-- <p>{{ toggleCoupon }}</p> -->
-
-            <div v-show="toggleCoupon">
-              <div class="mt-3 mb-3">
-                <CheckoutCupon />
-              </div>
-            </div>
-
-            <div class="mt-5">
-              <CheckoutForm />
-            </div>
-
-          </div>
-
-          <!-- Col 2 -->
-          <div class="col">
-            <div class="card">
-              <div class="card-header bgDarkBlue text-center theme f-24 py-1">
-                <span class="text-uppercase f24">Your order</span>
-              </div>
-
-              <div class="card-body">
-                <CheckoutOrder />
-                <!-- <CheckoutPlaceorder /> -->
-              </div>
-            </div>
-          </div>
-        </div>
-      </form>
-    </div>
+    <!-- här visas children som finns i routes(index.js) -->
+    <router-view></router-view>
+    <!--  -->
   </div>
 </template>
 
 <script>
-import { mapGetters } from "vuex";
 
 import CheckoutBreadcrumb from "@/components/Checkout/CheckoutBreadcrumb.vue";
-// import CheckoutCupon from "@/components/Checkout/CheckoutCupon.vue";
-import CheckoutCupon from "@/components/ReusableComponents/ApplyCouponComponent.vue";
-
-import CheckoutForm from "@/components/Checkout/CheckoutForm.vue";
-import CheckoutOrder from "@/components/Checkout/CheckoutOrder.vue";
-// import CheckoutPlaceorder from "@/components/Checkout/CheckoutPlaceorder.vue";
 
 export default {
   name: "Checkout",
   components: {
     CheckoutBreadcrumb,
-    CheckoutCupon,
-    CheckoutForm,
-    CheckoutOrder,
-    // CheckoutPlaceorder,
   },
 
   data() {
-    return {
-      toggleCoupon: false,
-      message: "",
-    };
+    return {};
   },
-  methods: {
-    toggleShowCoupon() {
-      this.toggleCoupon = !this.toggleCoupon;
-    },
-  },
+  methods: {},
 
-  computed: {
-    ...mapGetters(["isUserLoggedIn", "user"]),
-  },
+  computed: {},
 };
 </script>
 
 <style scoped>
-.togggleCoupon {
-  cursor: pointer;
-  text-decoration: none;
-}
 </style>
 

@@ -1,15 +1,6 @@
 <template>
   <div>
-    <!-- <div class="card">
-
-      <div class="card-header bgDarkBlue text-center theme f-24 py-1">
-        <span class="text-uppercase f24">Your order</span>
-    </div>-->
-
-    <!-- <div class="card-body"> -->
-
-    <!-- Products -->
-
+    
     <!-- Product item -->
     <!-- om det finns produketr i shoppingcart visas de här -->
     <div v-if="shoppingCart.length > 0">
@@ -29,11 +20,7 @@
       <p>No item in shoppincart</p>
     </div>
 
-    <!-- Product item -->
-    <!-- <div class="d-flex justify-content-between border-bottom mt-3">
-      <p class>Women smart high heel shoe</p>
-      <p class="theme">$380</p>
-    </div> -->
+    
 
     <!-- Subtotal -->
     <div class="d-flex justify-content-between border-bottom mt-3">
@@ -96,7 +83,7 @@
     <div class="theme my-hr"></div>
 
     <div>
-      <!-- Payment -->
+      <!--   Payment                          -->
       <div class="border-bottom mt-3 pb-3">
         <div>
           <div class="d-flex">
@@ -104,6 +91,11 @@
               <input
                 type="radio"
                 aria-label="Radio button for following text input"
+                value="Direct bank transfer"
+                 v-model="paymentType"
+                
+                 
+
               />
             </span>
             <span class="ml-2">Direct bank transfer</span>
@@ -118,6 +110,9 @@
               <input
                 type="radio"
                 aria-label="Radio button for following text input"
+                value="Check Payment"
+                 v-model="paymentType"
+                
               />
             </span>
             <span class="ml-2">Check Payment</span>
@@ -132,6 +127,9 @@
               <input
                 type="radio"
                 aria-label="Radio button for following text input"
+                value="Cash on delivery"
+                 v-model="paymentType"
+                 
               />
             </span>
             <span class="ml-2">Cash on delivery</span>
@@ -146,6 +144,9 @@
               <input
                 type="radio"
                 aria-label="Radio button for following text input"
+                value="Paypal"
+                 v-model="paymentType"
+                 
               />
             </span>
             <span class="ml-2">Paypal</span>
@@ -159,7 +160,10 @@
             <br />
           </div>
         </div>
+        <!-- <p> {{paymentType}} </p> -->
       </div>
+      <!-- payment end -->
+
       <div class="border-bottom mt-3 pb-3">
         <p>
           Your personal data will be used to process your order, support your
@@ -209,6 +213,7 @@ export default {
   name: "CheckoutOrder",
   data() {
     return {
+      paymentType:"Direct bank transfer",
       acceptTerms: false,
       submitted: false,
       message: "",
@@ -240,7 +245,7 @@ export default {
 
 
         //  går till en sida som visar att order är skickad ?
-                   this.$router.push("/shop");
+                   this.$router.push("/checkout/checkoutOrderOk");
         // eller visa en modal ?
 
       } else {
