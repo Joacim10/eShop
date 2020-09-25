@@ -286,7 +286,7 @@
     <!-- alternativ address för leverans end -->
 
     <!-- test -->
-    <p>form invalid: {{ $v.$invalid }}</p>
+    <!-- <p>form invalid: {{ $v.$invalid }}</p> -->
     <!--  -->
 
     <!--  textbox Notes  -->
