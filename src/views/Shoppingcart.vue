@@ -39,8 +39,9 @@
         <ShoppingCartTotal />
       </div>
     </div>
-    
+        <div class="mt-1 col-12 col-lg-5 ">
          <ApplyCouponComponent /> 
+         </div>
     
      <div class="container my-4">
       <div class="text-center pt-5">
