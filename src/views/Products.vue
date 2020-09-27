@@ -2,7 +2,7 @@
   <div class="container">
         <div class="grid-container">
       <div class="menu text-left pr-3">
-        <div class="f-16 text-info head cursorNormal">Product Categories</div>
+        <div class="f-16 theme head cursorNormal">Product Categories</div>
         <div class="f-16 d-flex justify-content-between" :class="{ theme : category === 'Men' }"> <div class="cursorPointer" v-on:click="changeCategory('Men')"  >Men's</div> <div class="cursorNormal">{{ countCategory('Men').length }}</div> </div>
         <div class="f-16 d-flex justify-content-between" :class="{ theme : category === 'Women' }"> <div class="cursorPointer" v-on:click="changeCategory('Women')"  >Women's</div> <div class="cursorNormal">{{ countCategory('Women').length }}</div> </div>
         <div class="f-16 d-flex justify-content-between" :class="{ theme : category === 'Kids' }" > <div class="cursorPointer" v-on:click="changeCategory('Kids')" >Kids</div> <div class="cursorNormal">{{ countCategory('Kids').length }}</div> </div>
@@ -11,9 +11,9 @@
         <div class="f-16 d-flex justify-content-between" :class="{ theme : category === 'Shoes' }" > <div class="cursorPointer" v-on:click="changeCategory('Shoes')" >Shoes</div> <div class="cursorNormal">{{ countCategory('Shoes').length }}</div> </div>
         <div class="f-16 d-flex justify-content-between" :class="{ theme : category === 'Watches' }" > <div class="cursorPointer" v-on:click="changeCategory('Watches')" >Watches</div> <div class="cursorNormal">{{ countCategory('Watches').length }}</div> </div>
 
-<!--         <div class="f-16 text-info head">Filter By Price</div> -->
+<!--         <div class="f-16 theme head">Filter By Price</div> -->
 
-        <div class="f-16 text-info head cursorNormal">Filter By Color</div>
+        <div class="f-16 theme head cursorNormal">Filter By Color</div>
         <div v-if="countColor('#000000') != 0" class="f-16 d-flex justify-content-between align-items-center"><div class="d-flex align-items-center"><input class="black cursorPointer" type="checkbox" v-model="colors" value="#000000" /><div class="color cursorNormal">Black</div></div> <div class="cursorNormal">{{ countColor('#000000') }}</div> </div>
         <div v-if="countColor('#808080') != 0" class="f-16 d-flex justify-content-between align-items-center"><div class="d-flex align-items-center"><input class="grey cursorPointer" type="checkbox" v-model="colors" value="#808080" /><div class="color cursorNormal">Grey</div></div> <div class="cursorNormal">{{ countColor('#808080') }}</div> </div>
         <div v-if="countColor('#F3EB80') != 0" class="f-16 d-flex justify-content-between align-items-center"><div class="d-flex align-items-center"><input class="yellow cursorPointer" type="checkbox" v-model="colors" value="#F3EB80" /><div class="color cursorNormal">Yellow</div></div> <div class="cursorNormal">{{ countColor('#F3EB80') }}</div> </div>
@@ -22,7 +22,7 @@
         <div v-if="countColor('#F385E9') != 0" class="f-16 d-flex justify-content-between align-items-center"><div class="d-flex align-items-center"><input class="pink cursorPointer" type="checkbox" v-model="colors" value="#F385E9" /><div class="color cursorNormal">Pink</div></div> <div class="cursorNormal">{{ countColor('#F385E9') }}</div> </div>
         <div v-if="countColor('#ffffff') != 0" class="f-16 d-flex justify-content-between align-items-center"><div class="d-flex align-items-center"><input class="whiteBox cursorPointer" type="checkbox" v-model="colors" value="#ffffff" /><div class="color cursorNormal">White</div></div> <div class="cursorNormal">{{ countColor('#ffffff') }}</div> </div>
 
-<!--         <div class="f-16 text-info head">Filter By Size</div>
+<!--         <div class="f-16 theme head">Filter By Size</div>
 
         <div class="f-16 d-flex justify-content-between"> <div class="">XS</div> <div>12</div> </div>
         <div class="f-16 d-flex justify-content-between"> <div class="">S</div> <div>12</div> </div>
