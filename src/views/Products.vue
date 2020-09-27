@@ -23,6 +23,7 @@
         <div v-if="countColor('#ffffff') != 0" class="f-16 d-flex justify-content-between align-items-center"><div class="d-flex align-items-center"><input class="whiteBox cursorPointer" type="checkbox" v-model="colors" value="#ffffff" /><div class="color cursorNormal">White</div></div> <div class="cursorNormal">{{ countColor('#ffffff') }}</div> </div>
 
 <!--         <div class="f-16 text-info head">Filter By Size</div>
+
         <div class="f-16 d-flex justify-content-between"> <div class="">XS</div> <div>12</div> </div>
         <div class="f-16 d-flex justify-content-between"> <div class="">S</div> <div>12</div> </div>
         <div class="f-16 d-flex justify-content-between"> <div class="">M</div> <div>12</div> </div>
@@ -30,7 +31,7 @@
         <div class="f-16 d-flex justify-content-between"> <div class="">XL</div> <div>12</div> </div>
         <div class="f-16 d-flex justify-content-between"> <div class="">XXL</div> <div>12</div> </div> -->
 
-<!--         <div class="f-16 text-info head">Filter By Brand</div>
+<!--         <div class="f-16 theme head">Filter By Brand</div>
         <div class="row brands">
           <div class="col-6">
             <img src="/Image/Brand/Bexim.png" alt="">
@@ -49,8 +50,8 @@
           </div>
         </div> -->
 
-  <!--       <div class="f-16 text-info head">Product Status</div>
-        <div class="f-16 text-info head">Top Rated Products</div> -->
+  <!--       <div class="f-16 theme head">Product Status</div>
+        <div class="f-16 theme head">Top Rated Products</div> -->
         <div class="d-flex justify-content-start mt-4">
           <button @click="clearFilter" class="theme btn btnTheme white">Clear Filter</button>
         </div>
