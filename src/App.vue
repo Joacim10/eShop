@@ -197,7 +197,7 @@ background-color: var(--productBG);
 }
 
 .cursorNormal{
-  cursor: context-menu;
+  cursor: default;
 }
 
 .cursorPointer{
