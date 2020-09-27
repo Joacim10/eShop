@@ -1,5 +1,13 @@
 <template>
   <div>
+
+
+
+    <!-- används inte -->
+    <!-- ligger i CheckoutOrder -->
+
+
+
     <hr />
     <!-- Payment -->
     <div class="border-bottom mt-3 pb-3">

@@ -46,7 +46,7 @@ input.form-control {
 
 @media (min-width: 1025px){
     button {
-    top: 10.68rem;
+    top: 10.69rem;
     right: 1.1rem;
     }
 }

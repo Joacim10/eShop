@@ -196,5 +196,11 @@ background-color: var(--productBG);
   background-image: url('/Image/zigzag.png');
 }
 
+.cursorNormal{
+  cursor: context-menu;
+}
 
+.cursorPointer{
+  cursor: pointer;
+}
 </style>

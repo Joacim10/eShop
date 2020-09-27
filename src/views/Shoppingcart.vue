@@ -1,7 +1,6 @@
 <template>
   <div>
-    <BannerShoppingCart />
-  
+ 
     
   <div class="container mt-5">
 
@@ -28,18 +27,11 @@
 
         </div>
 
-
-
-
         <hr class="mb-0 mt-0 themeBg">
         <!--ShoppingCart Items--->
        
           <ShoppingCartItems  />
-        
-      
-        
-     
-          
+
       </div>
 
       <!-- TOTALCART-->
@@ -47,11 +39,30 @@
         <ShoppingCartTotal />
       </div>
     </div>
-    <!-- APPLY CODE // KAN ANVÄNDAS PÅ FLER STÄLLEN-->
-    <div class="mt-1 col-12 col-lg-5 borderDotted rounded">
+        <div class="mt-1 col-12 col-lg-5 ">
          <ApplyCouponComponent /> 
-     </div>
-   
+         </div>
+    
+     <div class="container my-4">
+      <div class="text-center pt-5">
+        <h1 class="font-weight-bold">YOU MAY <h1 class="theme font-weight-bold d-inline-block">ALSO LIKE </h1></h1>
+        <div class="d-flex justify-content-center mb-3">
+            <hr class="zigzag">
+        </div>
+        
+      </div>
+      <Carousel class="d-sm-none heightCarousel" :windowSize="1" :badgetype="['New']" />
+      <Carousel class="d-none d-sm-block d-md-none heightCarousel"  :windowSize="3" :badgetype="['New']" />
+      <Carousel class="d-none d-md-block heightCarousel"  :windowSize="4" :badgetype="['New']"/>
+      
+    </div>
+
+    
+    
+     
+      
+      
+
   </div>
   </div>
 </template>
@@ -61,6 +72,11 @@ import ShoppingCartTotal from "../components/ShoppingCart/ShoppingCartTotal";
 import ApplyCouponComponent from "../components/ReusableComponents/ApplyCouponComponent";
 import ShoppingCartItems from "../components/ShoppingCart/ShoppingCartItems";
 
+import Carousel from "@/components/Carousel/Carousel.vue";
+
+
+
+
 import { mapActions } from 'vuex';
 
 export default {
@@ -68,9 +84,13 @@ export default {
   components: {
     ShoppingCartTotal,
     ApplyCouponComponent,
-    ShoppingCartItems
+    ShoppingCartItems,
+    Carousel,
+    
+    
+ 
   },
-  props : ["cartItem"],
+  props : ["cartItem","cardWidth"],
   methods: {
     ...mapActions(["setShoppingCart"])
   },
@@ -98,5 +118,7 @@ export default {
 .mlRandom{
   margin-left: 120px;
 }
+
+
 
 </style>
