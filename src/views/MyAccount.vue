@@ -30,7 +30,6 @@
       <DefaultAccountView />
     </div>
   </div>
-  </div>
 </template>
 
 <script>
