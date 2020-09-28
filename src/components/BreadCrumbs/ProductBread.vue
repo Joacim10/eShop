@@ -5,7 +5,7 @@
                   <ul class="crumb mt-2">
                      <li class="breadcrumb-item active"> <router-link to="/"><small>Home</small></router-link></li>
                      <li class="breadcrumb-item active"> <router-link to="/products"><small>Products</small></router-link></li>
-                     <li class="breadcrumb-item active"> <router-link to="/shoes"><small>Category</small></router-link></li>
+                     <li class="breadcrumb-item active"> <router-link to="/categories"><small>Category</small></router-link></li>
                      <li class="breadcrumb-item " ><router-link to="/shop/:productId" ><small>Produkt</small></router-link></li>
                 </ul>
             </div>
