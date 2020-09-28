@@ -15,10 +15,13 @@ const routes = [
   {
     path: '/products',
     name: 'Products',
-    component: () => import('../views/Products.vue')
+    component: () => import('../views/Products.vue'),
+    props(route) {
+      return {  category: route.query.category }
+    }
   },
   {
-    path: '/shop/:productId',
+    path: '/products/:productId',
     name: 'Product',
     component: () => import('../views/ProductDetails.vue')
   },

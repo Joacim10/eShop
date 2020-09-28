@@ -3,13 +3,13 @@
         <div class="grid-container">
       <div class="menu text-left pr-3">
         <div class="f-16 theme head cursorNormal">Product Categories</div>
-        <div class="f-16 d-flex justify-content-between" :class="{ theme : category === 'Men' }"> <div class="cursorPointer" v-on:click="changeCategory('Men')"  >Men's</div> <div class="cursorNormal">{{ countCategory('Men').length }}</div> </div>
-        <div class="f-16 d-flex justify-content-between" :class="{ theme : category === 'Women' }"> <div class="cursorPointer" v-on:click="changeCategory('Women')"  >Women's</div> <div class="cursorNormal">{{ countCategory('Women').length }}</div> </div>
-        <div class="f-16 d-flex justify-content-between" :class="{ theme : category === 'Kids' }" > <div class="cursorPointer" v-on:click="changeCategory('Kids')" >Kids</div> <div class="cursorNormal">{{ countCategory('Kids').length }}</div> </div>
-        <div class="f-16 d-flex justify-content-between" :class="{ theme : category === 'Hats' }" > <div class="cursorPointer" v-on:click="changeCategory('Hats')" >Hats</div> <div class="cursorNormal">{{ countCategory('Hats').length }}</div> </div>
-        <div class="f-16 d-flex justify-content-between" :class="{ theme : category === 'Sunglasses' }" > <div class="cursorPointer" v-on:click="changeCategory('Sunglasses')" >Sunglasses</div> <div class="cursorNormal">{{ countCategory('Sunglasses').length }}</div> </div>
-        <div class="f-16 d-flex justify-content-between" :class="{ theme : category === 'Shoes' }" > <div class="cursorPointer" v-on:click="changeCategory('Shoes')" >Shoes</div> <div class="cursorNormal">{{ countCategory('Shoes').length }}</div> </div>
-        <div class="f-16 d-flex justify-content-between" :class="{ theme : category === 'Watches' }" > <div class="cursorPointer" v-on:click="changeCategory('Watches')" >Watches</div> <div class="cursorNormal">{{ countCategory('Watches').length }}</div> </div>
+        <div class="f-16 d-flex justify-content-between" :class="{ theme : activeCategory === 'Men' }"> <div class="cursorPointer" v-on:click="changeCategory('Men')"  >Men's</div> <div class="cursorNormal">{{ countCategory('Men').length }}</div> </div>
+        <div class="f-16 d-flex justify-content-between" :class="{ theme : activeCategory === 'Women' }"> <div class="cursorPointer" v-on:click="changeCategory('Women')"  >Women's</div> <div class="cursorNormal">{{ countCategory('Women').length }}</div> </div>
+        <div class="f-16 d-flex justify-content-between" :class="{ theme : activeCategory === 'Kids' }" > <div class="cursorPointer" v-on:click="changeCategory('Kids')" >Kids</div> <div class="cursorNormal">{{ countCategory('Kids').length }}</div> </div>
+        <div class="f-16 d-flex justify-content-between" :class="{ theme : activeCategory === 'Hats' }" > <div class="cursorPointer" v-on:click="changeCategory('Hats')" >Hats</div> <div class="cursorNormal">{{ countCategory('Hats').length }}</div> </div>
+        <div class="f-16 d-flex justify-content-between" :class="{ theme : activeCategory === 'Sunglasses' }" > <div class="cursorPointer" v-on:click="changeCategory('Sunglasses')" >Sunglasses</div> <div class="cursorNormal">{{ countCategory('Sunglasses').length }}</div> </div>
+        <div class="f-16 d-flex justify-content-between" :class="{ theme : activeCategory === 'Shoes' }" > <div class="cursorPointer" v-on:click="changeCategory('Shoes')" >Shoes</div> <div class="cursorNormal">{{ countCategory('Shoes').length }}</div> </div>
+        <div class="f-16 d-flex justify-content-between" :class="{ theme : activeCategory === 'Watches' }" > <div class="cursorPointer" v-on:click="changeCategory('Watches')" >Watches</div> <div class="cursorNormal">{{ countCategory('Watches').length }}</div> </div>
 
 <!--         <div class="f-16 theme head">Filter By Price</div> -->
 
@@ -72,21 +72,24 @@ import ProductList from "@/components/Product/ProductList.vue"
 
 export default {
   name: "Shop",
+  props: ['category'],
   components: {
     ProductList
   },
   data() {
     return {
-      category: '',
+      activeCategory: '',
       colors: []
     }
   },
   methods: {
     changeCategory: function (category) {
-      if (this.category != category) {
-        this.category = category
+      if (this.activeCategory != category) {
+        this.colors = []
+        this.$router.push({path: '/products', query: { category: category } })
       } else {
-        this.category = ''
+        this.colors = []
+        this.$router.push({path: '/products'})
       }
     },
     countCategory: function (category) {
@@ -99,8 +102,8 @@ export default {
       let array = []
 
       // Om man har valt en category så räknas alla produkter med just den färgen i den kategorin
-      if (this.category != '') {
-        array = this.countCategory(this.category).filter((item) => {
+      if (this.activeCategory != '') {
+        array = this.countCategory(this.activeCategory).filter((item) => {
           return (item.colors.includes(color)) 
         })
       } else {
@@ -111,8 +114,8 @@ export default {
       return array.length
     },
     clearFilter: function () {
-      this.category = '',
       this.colors = []
+      this.$router.push({path: '/products'})
     }
   },
   computed:{
@@ -121,11 +124,11 @@ export default {
       let newArrayOfProducts = []
 
       // Filtrerar på category
-      if (this.category === '') {
+      if (this.activeCategory === '') {
         newArrayOfProducts = this.products.data
       } else {
         newArrayOfProducts = this.products.data.filter((item) => {
-          return (item.category === this.category) 
+          return (item.category === this.activeCategory) 
         }) 
       }
 
@@ -150,6 +153,14 @@ export default {
         return a['name'].toString().localeCompare(b['name'].toString())
       })
       return newArrayOfProducts
+    }
+  },
+  mounted() {
+    this.activeCategory = this.$route.query.category
+  },
+  watch: {
+    category: function(newVal) {
+      this.activeCategory = newVal || ''
     }
   }
 };
