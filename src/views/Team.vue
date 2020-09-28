@@ -1,12 +1,15 @@
 <template>
-  <div class="container">
-    <h1>Team</h1>
+  <div>
+    <Teams />
   </div>
 </template>
 
 <script>
+import Teams from '../components/Homepage/Teams/Teams'
 export default {
   name: "Team",
-  components: {},
+  components: {
+    Teams,
+  },
 };
 </script>

@@ -11,17 +11,30 @@
                         <ul class="navbar-nav mr-auto hoverNav ">
                             <li class="nav-item dropdown themeBg mr-3 px-2 py-1 d-none d-lg-block">
                                 <a class="nav-link text-white " href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                 <img class="mr-1 mb-1" src="/image/navigation/HamburgerPhoto.png"> <span class="mr-2 "> Browse Categories</span>  <i class=" ml-4 fas  fa-angle-down"></i></a>
+                                    <img class="mr-1 mb-1" src="/image/navigation/HamburgerPhoto.png"> 
+                                    <span class="mr-2 "> Browse Categories</span>  
+                                    <i class=" ml-4 fas  fa-angle-down"></i>
+                                </a>
                                 <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                    <a class="dropdown-item" href="#">Action</a>
+                                    <router-link class="dropdown-item" :to="{ path: '/products', query: { category: 'Men' }}">Men's</router-link>
+                                    <router-link class="dropdown-item" :to="{ path: '/products', query: { category: 'Women' }}">Women's</router-link>
+                                    <router-link class="dropdown-item" :to="{ path: '/products', query: { category: 'Kids' }}">Kids</router-link>
+                                    <router-link class="dropdown-item" :to="{ path: '/products', query: { category: 'Hats' }}">Hats</router-link>
+                                    <router-link class="dropdown-item" :to="{ path: '/products', query: { category: 'Sunglasses' }}">Sunglasses</router-link>
+                                    <router-link class="dropdown-item" :to="{ path: '/products', query: { category: 'Shoes' }}">Shoes</router-link>
+                                    <router-link class="dropdown-item" :to="{ path: '/products', query: { category: 'Watches' }}">Watches</router-link>                                
                                 </div>
                             </li>
                             <li class="nav-item active ml-4 mt-1">
                                 <router-link class="nav-link darkBlue active" to="/">Home <span class="sr-only">(current)</span></router-link>
                             </li>
                             <li class="nav-item  ml-4 mt-1">
-                                <router-link class="nav-link darkBlue " to="/shop">
-                                    Shop  </router-link>
+                                <div class="nav-link darkBlue " id="shopDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                    Shop <i class=" theme ml-1 fas noArrow fa-angle-down"></i></div>
+                                <div class="dropdown-menu" aria-labelledby="shopDropdown">
+                                    <router-link class="dropdown-item" to="/shoppingcart">Shoppingcart</router-link>
+                                    <router-link class="dropdown-item" to="/wishlist">Wishlist</router-link>
+                                </div>
                                
                             </li>
                             <li class="nav-item  ml-4 mt-1">
@@ -30,21 +43,29 @@
                                 
                             </li>
                             <li class="nav-item dropdown ml-4 mt-1">
-                                <router-link class="nav-link darkBlue " to="/categories" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                    Categories <i class=" theme ml-1 fas noArrow fa-angle-down"></i></router-link>
+                                <div class="nav-link darkBlue " id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                    Categories <i class=" theme ml-1 fas noArrow fa-angle-down"></i></div>
                                 <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                    <a class="dropdown-item" href="#">Action</a>
+                                    <router-link class="dropdown-item" :to="{ path: '/products', query: { category: 'Men' }}">Men's</router-link>
+                                    <router-link class="dropdown-item" :to="{ path: '/products', query: { category: 'Women' }}">Women's</router-link>
+                                    <router-link class="dropdown-item" :to="{ path: '/products', query: { category: 'Kids' }}">Kids</router-link>
+                                    <router-link class="dropdown-item" :to="{ path: '/products', query: { category: 'Hats' }}">Hats</router-link>
+                                    <router-link class="dropdown-item" :to="{ path: '/products', query: { category: 'Sunglasses' }}">Sunglasses</router-link>
+                                    <router-link class="dropdown-item" :to="{ path: '/products', query: { category: 'Shoes' }}">Shoes</router-link>
+                                    <router-link class="dropdown-item" :to="{ path: '/products', query: { category: 'Watches' }}">Watches</router-link>
                                 </div>
                             </li>
                             <li class="nav-item dropdown ml-4 mt-1">
-                                <router-link class="nav-link darkBlue" to="/pages" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                    Pages <i class=" theme ml-1 fas noArrow fa-angle-down"></i> </router-link>
-                                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                <a class="dropdown-item" to="/wishlist">Wishlist</a>
+                                <div class="nav-link darkBlue" id="pagesNavbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                    Pages <i class=" theme ml-1 fas noArrow fa-angle-down"></i> </div>
+                                <div class="dropdown-menu" aria-labelledby="pagesNavbarDropdown">
+                                <router-link class="dropdown-item" to="/about">About Us</router-link>
+                                <router-link class="dropdown-item" to="/team">Team</router-link>
+                                <router-link class="dropdown-item" to="/portfolio">Portfolio</router-link>
                                 </div>
                             </li>
                             <li class="nav-item mt-1 ml-4">
-                                <a class="nav-link darkBlue" href="#">Blog</a>
+                                <router-link class="nav-link darkBlue" to="/blog">Blog</router-link>
                             </li>
                             <div class="mt-2 p-0 mb-3 col-12 d-sm-none d-lg-none d-xl-none">
                                 <i class=" fa-lg ml-2 mr-2 far fa-user"></i>
@@ -76,7 +97,8 @@ export default {
   
 }
 .hoverNav a:hover{
-    border-bottom: 2px solid var(--theme)!important;
+    border: none;
+    /* border-bottom: 2px solid var(--theme)!important; */
 }
 
 @media (max-width: 980px) {

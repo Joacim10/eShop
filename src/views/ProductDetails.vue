@@ -1,7 +1,7 @@
 <template>
   <div class="" >
 
-   <ProductDetailsBreadcrumb />  
+    <ProductBread />
 
     <div class="container">
 
@@ -25,42 +25,38 @@
  <ProductDetalsNavTabs/>
 </div>
 
-
 </div>
          
 <!-- <ImageTest/> -->
 
   </div>
+</div>
 </template>
 
 <script>
 import { mapActions, mapGetters } from 'vuex'
-
 import ProductDetailsBreadcrumb from "@/components/ProductDetails/ProductDetailsBreadcrumb.vue";
 import ProductImage from "@/components/ProductDetails/ProductImage.vue";
- import ProductShop from "@/components/ProductDetails/ProductShop.vue";
- import ProductDetalsNavTabs from "@/components/ProductDetails/ProductDetalsNavTabs.vue";
+import ProductShop from "@/components/ProductDetails/ProductShop.vue";
+import ProductDetalsNavTabs from "@/components/ProductDetails/ProductDetalsNavTabs.vue";
 //  import ImageTest from "@/components/ProductDetails/ImageTest.vue";
- 
+import ProductBread from '../components/BreadCrumbs/ProductBread'
 
 export default {
   name: "ProductDetails",
-   props: ['id'],
-
+  props: ['id'],
   components: {
-     ProductDetailsBreadcrumb,
-    ProductImage,
+     ProductBread,
+     ProductImage,
      ProductShop,
      ProductDetalsNavTabs,
     //  ImageTest
   },
-
   data() {
     return {
        quantity: 1
     };
   },
-
   methods: {
     ...mapActions(['getProductById', 'addProductToCart'])
   },
@@ -70,7 +66,5 @@ export default {
   computed: {
     ...mapGetters(['product'])
   }
-
-
 };
 </script>

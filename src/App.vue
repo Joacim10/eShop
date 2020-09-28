@@ -3,29 +3,33 @@
     <Navbar/>  
     <router-view/>
     <Footer/>
+    <Modal v-if="showModal === true"/>
   </div>
 </template>
 
 <script>
-import { mapActions } from "vuex";
+import { mapActions, mapGetters } from "vuex";
 import Navbar from '@/components/navbar.vue'
 import Footer from '@/components/footer.vue'
+import Modal from '@/components/Modal/Modal.vue'
 
 export default {
   name: 'App',
   components: {
     Navbar,
     Footer,
+    Modal
   },
-  methods:{
+  methods: {
     ...mapActions(['getAllProducts'])
   },
-  created(){
+  created() {
     this.getAllProducts();
   },
+  computed: {
+    ...mapGetters(['showModal']),
+  }
 }
-
-
 </script>
 
 <style>
@@ -192,5 +196,11 @@ background-color: var(--productBG);
   background-image: url('/Image/zigzag.png');
 }
 
+.cursorNormal{
+  cursor: default;
+}
 
+.cursorPointer{
+  cursor: pointer;
+}
 </style>

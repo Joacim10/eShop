@@ -1,26 +1,26 @@
 <template>
-  
     <div id="productMenu">
 
       <!-- Färgplupparna -->
       <div class="tip"><i class="my-2 px-2 fas fa-circle text-danger"></i>
-         <span class="tipcolors tiptext"><i class="fas fa-circle green"></i> <i class="fas fa-circle purple"></i> <i class="fas fa-circle red"></i> <i class="fas fa-circle black"></i></span>
+        <span class="tipcolors tiptext pl-1">
+          <i v-for="(color, index) in product.colors" :key="index" class="fas fa-circle pr-1" :style="{'color': color}"></i> 
+        </span>
       </div>
 
       <!-- Wishlist - hjärtat -->
-      <div class="tip"> <i v-on:click="addProductToWishlist({product})" class="my-2 px-2 fas fa-heart"></i>
+      <div class="tip"> <i v-on:click="addProductToWishlist(product)" class="my-2 px-2 fas fa-heart"></i>
          <span class="tiptext" >Wishlist</span>
       </div>
        
-      <!-- Random -->
-
+      <!-- Compare -->
       <div class="tip"> <router-link :to="{name: 'ProductDetails', params: {id: product._id}}"><i class="my-2 px-2 fas fa-random"></i></router-link>
-         <span class="tiptext">Random</span>
+         <span class="tiptext">Compare</span>
       </div>
 
         
       <!-- Quick view -->
-      <div class="tip"><i class="my-2 px-2 fas fa-search"></i>
+      <div class="tip"><i v-on:click="toggleModal({modalType: 'quickView', data: product})" class="my-2 px-2 fas fa-search" ></i>
          <span class="tiptext" >Quick view</span>
       </div>
        
@@ -28,9 +28,7 @@
       <div class="tip"><i v-on:click="addProductToCart({product, quantity})" class="my-2 px-2 fas fa-shopping-cart"></i>
          <span class="tiptext" >Add to cart</span>
       </div>
-    
   </div>
-
 </template>
 
 <script>
@@ -41,20 +39,16 @@ export default {
   props: ["product"],
   data() {
     return {
-      quantity: 1,
+      quantity: 1
     };
   },
   methods: {
-    ...mapActions(['addProductToCart', 'addProductToWishlist']),
-  
+      ...mapActions(['addProductToCart', 'addProductToWishlist', 'toggleModal']),
   },
 };
 </script>
 
-
-
 <style>
-
 /* kör utan scoped */
 
 #productMenu i {
@@ -92,7 +86,6 @@ export default {
   font-size: 0.8rem;
  }
 
-
   .tip .tiptext::after {
    content: "";
   position: absolute;
@@ -111,22 +104,17 @@ export default {
     opacity: 1;
   }
 
-
 /* Färgerna */
 
 #productMenu .tip .tipcolors {
    background-color: #f0eeee !important;
 }
-
  .tip .tipcolors::after {
   border-color:  #f0eeee transparent transparent transparent  !important;
 } 
-
 #productMenu .tipcolors i {
  text-decoration: none;
 } 
-
-
 #productMenu .green {
   color: #82d8c6 !important;
 }
@@ -136,10 +124,8 @@ export default {
 #productMenu .red {
   color: #fe6c6c !important;
 }
-
 #productMenu .black {
   color: #333333 !important;
 } 
-
 
 </style>

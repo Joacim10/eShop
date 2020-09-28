@@ -69,6 +69,9 @@ export default {
 
     CLEAR_CART(state){
       state.cart = []
+      //  jm.
+      sessionStorage.setItem('mycart',JSON.stringify(state.cart))
+      // 
     },
 
     SET_SHOPPINGCART(state){
@@ -128,7 +131,7 @@ export default {
       if (state.cart.length !== 0) {
         state.cart.forEach(item => {
 
-          total += item.product.price * item.quantity
+          total += item.product.price * item.quantity 
 
         })
       }
