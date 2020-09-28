@@ -100,6 +100,7 @@ export default {
     },
 
     orders(state) {
+      // console.log(state.orders)
       return state.orders
     },
 

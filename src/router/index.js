@@ -41,7 +41,7 @@ const routes = [
   },
 
   {
-    path: '/checkout',
+    path: '/checkout/',
     name: 'Checkout',
     component: () => import('../views/Checkout.vue'),
     children:[
@@ -56,9 +56,18 @@ const routes = [
   },
 
   {
-    path: '/account',
+    path: '/account/',
     name: 'MyAccount',
-    component: () => import('../views/MyAccount.vue')
+    component: () => import('../views/MyAccount.vue'),
+    children:[
+      { path: 'userProfile',
+      name: 'UserProfile',
+      component: () => import('../components/Account/UserProfile.vue')},
+
+      { path: 'userOrders',
+      name: 'UserOrders',
+      component: () => import('../components/Account/UserOrders.vue')}
+    ]
   },
   {
     path: '/wishlist',
