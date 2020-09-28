@@ -3,16 +3,16 @@
 
   
     <div class="border-bottom">
-      <h5 class="f-24 font-weight-bold theme pt-4">{{ product[0].name }}</h5>
-      <p>{{ product[0].shortdesc }}</p>
+      <h5 class="f-24 font-weight-bold theme pt-4">{{ product.name }}</h5>
+      <p>{{ product.shortdesc }}</p>
     </div>
 
     <div>
 
     <div class="pt-3 ">
       <div class="d-flex  align-items-baseline">
-        <span class="d-flex f-24 font-weight-bold theme pr-3">{{ product[0].currency }}{{ product[0].price }}</span> 
-        <span class=" d-flex pr-3 grey"><s>{{ product[0].currency }}???</s></span> 
+        <span class="d-flex f-24 font-weight-bold theme pr-3">{{ product.currency }}{{ product.price }}</span> 
+        <span class=" d-flex pr-3 grey"><s>{{ product.currency }}???</s></span> 
         <span class="small d-flex align-items-baseline ">
           <img src="/Image/ProductDetails/InStock.png" class="d-flex mr-1"> In stock
         </span>
@@ -56,13 +56,13 @@
 
      <div class="pt-4 d-flex">  
        <span>   
-           Category: <span class="theme">{{ product[0].category }}</span>   
+           Category: <span class="theme">{{ product.category }}</span>   
         </span>          
      </div>
 
       <div class="pt-4 d-flex"> 
         <span>Tags: 
-          <span class="border p-1 mr-3" v-for="tag in product[0].tags" :key="tag">{{ tag }}</span>
+          <span class="border p-1 mr-3" v-for="tag in product.tags" :key="tag">{{ tag }}</span>
         </span>       
            
       </div>
@@ -87,13 +87,8 @@ import { mapActions, mapGetters } from 'vuex'
 export default {
   
   name: "ProductShop",
-
-  props: ['id', 'product'],
-  
-
+  props: ['id'],
   components: {},
-
-
   data() {
     return {
        quantity: 1,
@@ -104,6 +99,7 @@ export default {
     ...mapActions(['getProductById', 'addProductToCart', 'addProductToWishlist'])
   },
   created() {
+    console.log('this.id', this.id)
     this.getProductById(this.id)
   },
   computed: {
