@@ -231,6 +231,7 @@ export default {
         shippingData: this.shippingData,
         orderItems: this.shoppingCart,
         orderTotalAmount: this.shoppingCartTotal,
+        paymentType: this.paymentType,
       };
       //  skickar en "action" till store för att spara data i databas
       const response = await this.createNewOrder(newOrder);
