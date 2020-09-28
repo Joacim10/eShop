@@ -1,7 +1,7 @@
 <template>
   <div class="" >
 
-    <ProductBread />
+    <ProductBread :category='product.category' :name='product.name' />
 
     <div class="container">
 
