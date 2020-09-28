@@ -156,7 +156,7 @@ export default {
     }
   },
   mounted() {
-    this.activeCategory = this.$route.query.category
+    this.activeCategory = this.$route.query.category || ''
   },
   watch: {
     category: function(newVal) {
