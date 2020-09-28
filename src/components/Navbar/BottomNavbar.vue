@@ -11,9 +11,18 @@
                         <ul class="navbar-nav mr-auto hoverNav ">
                             <li class="nav-item dropdown themeBg mr-3 px-2 py-1 d-none d-lg-block">
                                 <a class="nav-link text-white " href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                 <img class="mr-1 mb-1" src="/image/navigation/HamburgerPhoto.png"> <span class="mr-2 "> Browse Categories</span>  <i class=" ml-4 fas  fa-angle-down"></i></a>
+                                    <img class="mr-1 mb-1" src="/image/navigation/HamburgerPhoto.png"> 
+                                    <span class="mr-2 "> Browse Categories</span>  
+                                    <i class=" ml-4 fas  fa-angle-down"></i>
+                                </a>
                                 <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                    <a class="dropdown-item" href="#">Action</a>
+                                    <router-link class="dropdown-item" :to="{ path: '/products', query: { category: 'Men' }}">Men's</router-link>
+                                    <router-link class="dropdown-item" :to="{ path: '/products', query: { category: 'Women' }}">Women's</router-link>
+                                    <router-link class="dropdown-item" :to="{ path: '/products', query: { category: 'Kids' }}">Kids</router-link>
+                                    <router-link class="dropdown-item" :to="{ path: '/products', query: { category: 'Hats' }}">Hats</router-link>
+                                    <router-link class="dropdown-item" :to="{ path: '/products', query: { category: 'Sunglasses' }}">Sunglasses</router-link>
+                                    <router-link class="dropdown-item" :to="{ path: '/products', query: { category: 'Shoes' }}">Shoes</router-link>
+                                    <router-link class="dropdown-item" :to="{ path: '/products', query: { category: 'Watches' }}">Watches</router-link>                                
                                 </div>
                             </li>
                             <li class="nav-item active ml-4 mt-1">
@@ -37,13 +46,13 @@
                                 <div class="nav-link darkBlue " id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                     Categories <i class=" theme ml-1 fas noArrow fa-angle-down"></i></div>
                                 <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                    <a class="dropdown-item" to="/products">Men's</a>
-                                    <a class="dropdown-item" to="/products">Women's</a>
-                                    <a class="dropdown-item" to="/products">Kids</a>
-                                    <a class="dropdown-item" to="/products">Hats</a>
-                                    <a class="dropdown-item" to="/products">Sunglasses</a>
-                                    <a class="dropdown-item" to="/products">Shoes</a>
-                                    <a class="dropdown-item" to="/products">Watches</a>
+                                    <router-link class="dropdown-item" :to="{ path: '/products', query: { category: 'Men' }}">Men's</router-link>
+                                    <router-link class="dropdown-item" :to="{ path: '/products', query: { category: 'Women' }}">Women's</router-link>
+                                    <router-link class="dropdown-item" :to="{ path: '/products', query: { category: 'Kids' }}">Kids</router-link>
+                                    <router-link class="dropdown-item" :to="{ path: '/products', query: { category: 'Hats' }}">Hats</router-link>
+                                    <router-link class="dropdown-item" :to="{ path: '/products', query: { category: 'Sunglasses' }}">Sunglasses</router-link>
+                                    <router-link class="dropdown-item" :to="{ path: '/products', query: { category: 'Shoes' }}">Shoes</router-link>
+                                    <router-link class="dropdown-item" :to="{ path: '/products', query: { category: 'Watches' }}">Watches</router-link>
                                 </div>
                             </li>
                             <li class="nav-item dropdown ml-4 mt-1">
@@ -88,7 +97,8 @@ export default {
   
 }
 .hoverNav a:hover{
-    border-bottom: 2px solid var(--theme)!important;
+    border: none;
+    /* border-bottom: 2px solid var(--theme)!important; */
 }
 
 @media (max-width: 980px) {

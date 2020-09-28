@@ -15,11 +15,15 @@ const routes = [
   {
     path: '/products',
     name: 'Products',
-    component: () => import('../views/Products.vue')
+    component: () => import('../views/Products.vue'),
+    props(route) {
+      return {  category: route.query.category }
+    }
   },
   {
-    path: '/shop/:productId',
-    name: 'Product',
+    path: '/product/:id',
+    name: 'ProductDetails',
+    props: true, //för att kunna skicka över id
     component: () => import('../views/ProductDetails.vue')
   },
   {

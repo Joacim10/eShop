@@ -1,6 +1,6 @@
 <template>
 <div>
-  <WishlistBanner />
+  <WishlistBread />
   <div class="container pl-0 pr-0 mtHome">
     <h1 class="row font-weight-bold d-flex justify-content-center">YOUR PRODUCTS<span class="theme ml-2">WISHLIST</span></h1>
     <div class="d-flex justify-content-center mb-3">
@@ -12,13 +12,13 @@
 </template>
 
 <script>
-import WishlistBanner from "@/components/Wishlist/WishlistBanner.vue";
-import WishlistCard from "@/components/Wishlist/WishlistCard.vue";
 
+import WishlistCard from "@/components/Wishlist/WishlistCard.vue";
+import WishlistBread from '../components/BreadCrumbs/WishlistBread'
 export default {
   name: "Wishlist",
   components: {
-    WishlistBanner,
+    WishlistBread,
     WishlistCard
     },
 };

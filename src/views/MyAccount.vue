@@ -1,5 +1,6 @@
 <template>
   <div class=" mt-5">
+    <MyAccountBread />
     <div v-if="isUserLoggedIn">
       <div class="container">
         <div class="row justify-content-center align items-center d-flex">
@@ -29,25 +30,22 @@
       <DefaultAccountView />
     </div>
   </div>
+  </div>
 </template>
 
 <script>
 import { mapGetters, mapActions } from "vuex";
-// import Login from '../components/Account/Login'
-// import Register from '../components/Account/Register'
-
+import MyAccountBread from '../components/BreadCrumbs/MyAccountBread'
 import DefaultAccountView from "../components/Account/DefaultAccountView";
 import UserAccount from "../components/Account/UserAccount";
 
 export default {
   name: "MyAccount",
   components: {
-    // Login,
-    // Register
+    MyAccountBread,
     DefaultAccountView,
     UserAccount,
   },
-
   methods:{
     // ,'getCurrentUser',"clearAllCartItem"
     ...mapActions(['logOutUser']),
@@ -58,9 +56,7 @@ export default {
           this.returnUrl = this.$route.query.returnUrl || '/'
           this.$router.push(this.returnUrl)
     }
-
   },
-
   computed: {
     ...mapGetters(["isUserLoggedIn", "user"]),
   },
