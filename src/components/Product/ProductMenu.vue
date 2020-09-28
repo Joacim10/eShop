@@ -13,11 +13,12 @@
          <span class="tiptext" >Wishlist</span>
       </div>
        
-      <!-- Random - Behövs detta? -->
-      <div class="tip">  <i class="my-2 px-2 fas fa-random"></i>
-         <span class="tiptext" >Compare</span>
+      <!-- Compare -->
+      <div class="tip"> <router-link :to="{name: 'ProductDetails', params: {id: product._id}}"><i class="my-2 px-2 fas fa-random"></i></router-link>
+         <span class="tiptext">Compare</span>
       </div>
-       
+
+        
       <!-- Quick view -->
       <div class="tip"><i v-on:click="toggleModal({modalType: 'quickView', data: product})" class="my-2 px-2 fas fa-search" ></i>
          <span class="tiptext" >Quick view</span>
@@ -42,7 +43,7 @@ export default {
     };
   },
   methods: {
-    ...mapActions(['addProductToCart', 'addProductToWishlist', 'toggleModal']),
+      ...mapActions(['addProductToCart', 'addProductToWishlist', 'toggleModal']),
   },
 };
 </script>

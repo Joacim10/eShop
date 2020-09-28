@@ -38,16 +38,19 @@ export default {
     // anropas från en component
     async getProductById({ commit }, id) {
       // api anrop här med axios tex.
-      // console.log(id)
+    // console.log(id)
+  
 
       let res = await axios.get('/products/' + id)
+
+    
 
       // console.log(res)
 
       if (res !== null) {
         // commit('SET_STATE_PRODUCT', res.data)
         // anropar mutation
-        // console.log(res.data)
+       //console.log(res.data)
 
         commit('GET_PRODUCT_BY_ID', res.data)
       }
@@ -72,7 +75,7 @@ export default {
       return state.products
     },
     product(state) {
-      // console.log(state.product)
+      //console.log(state.product)
       // return state.product
       if(state.product == null && sessionStorage.getItem('product') !== null)
                 state.product = sessionStorage.getItem('product')    
