@@ -12,11 +12,13 @@
          <span class="tiptext" >Wishlist</span>
       </div>
        
-      <!-- Random - Behövs detta? -->
-      <div class="tip">  <i class="my-2 px-2 fas fa-random"></i>
+      <!-- Random -->
+
+      <div class="tip"> <router-link :to="{name: 'ProductDetails', params: {id: product._id}}"><i class="my-2 px-2 fas fa-random"></i></router-link>
          <span class="tiptext">Random</span>
       </div>
-       
+
+        
       <!-- Quick view -->
       <div class="tip"><i class="my-2 px-2 fas fa-search"></i>
          <span class="tiptext" >Quick view</span>
@@ -43,7 +45,6 @@ export default {
     };
   },
   methods: {
-    // ...mapActions(["addProductToCart"]),
     ...mapActions(['addProductToCart', 'addProductToWishlist']),
   
   },

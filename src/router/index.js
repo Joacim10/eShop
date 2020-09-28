@@ -23,8 +23,9 @@ const routes = [
     component: () => import('../views/Products.vue')
   },
   {
-    path: '/shop/:produktId',
-    name: 'Product',
+    path: '/shop/:id',
+    name: 'ProductDetails',
+    props: true, //för att kunna skicka över id
     component: () => import('../views/ProductDetails.vue')
   },
   {

@@ -1,7 +1,7 @@
 <template>
 <div>
 
-    <div class="card-main productBG">
+    <div class="card-main productBG" >
         <img :src="`${product.image}`" alt="">
         <div class="top-left">
             <div v-if="product.badgetype === 'Discount'" class="f-16 circle text-white p-1 text-center d-none" :class="product.badgetype">-{{product.discount}}%</div>
