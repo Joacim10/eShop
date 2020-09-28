@@ -1,6 +1,6 @@
 <template>
   <div class="pb-5">
-    <CheckoutBreadcrumb />
+    <ShoppingCartBread />
 
     <!-- här visas children som finns i routes(index.js) -->
     <router-view></router-view>
@@ -9,13 +9,13 @@
 </template>
 
 <script>
+  import ShoppingCartBread from '../components/BreadCrumbs/ShoppingCartBread'
 
-import CheckoutBreadcrumb from "@/components/Checkout/CheckoutBreadcrumb.vue";
 
 export default {
   name: "Checkout",
   components: {
-    CheckoutBreadcrumb,
+  ShoppingCartBread,
   },
 
   data() {
