@@ -6,8 +6,8 @@
     <div class="row">
       <div class="col">
         <!-- lista upp ordrar -->
-        <!-- {{orders.data.count}} -->
-        <div v-if="orders.data.count > 0">
+        <!-- {{orders.data.count}}  orders.data.count > 0 -->
+        <div v-if="orders">
           <OrderCard />
         </div>
         <div v-else >

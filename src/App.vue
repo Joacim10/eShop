@@ -125,6 +125,9 @@ color: var(--grey) !important;
 background-color: var(--theme);
 border-radius: 25px;
 }
+.btnTheme:hover{
+  background-color: #3eb9ad !important;
+}
 
 .btnWhite{
 background-color: var(--white);
@@ -203,4 +206,7 @@ background-color: var(--productBG);
 .cursorPointer{
   cursor: pointer;
 }
+
+
+
 </style>
