@@ -45,7 +45,7 @@ const routes = [
     name: 'Checkout',
     component: () => import('../views/Checkout.vue'),
     children:[
-      { path: '',
+      { path: 'checkout',
       name: 'CheckoutForm',
       component: () => import('../components/Checkout/CheckoutForm.vue')},
 

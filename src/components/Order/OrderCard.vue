@@ -4,7 +4,7 @@
     <div class="row">
       <div class="col">
         <!-- lista upp ordrar -->
-        <div v-if="orders">
+        <div v-if="orders.data.count > 0">
           <!--  -->
           <div
             v-for="order in orders.data.data"
@@ -15,9 +15,9 @@
               <p class="f-24">
                 Order: <span class="f-18">{{ order._id }}</span>
               </p>
-              <p class="f-18">Items: {{ order.orderItems.length }}</p>
+              <p class="f-18">Number of Products: {{ order.orderItems.length }}</p>
               <p class="f-18">
-                Total order value: {{ order.orderTotalAmount }}
+                Total order value: ${{ order.orderTotalAmount }}
               </p>
 
               <!-- -->

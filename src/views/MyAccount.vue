@@ -1,24 +1,28 @@
 <template>
-  <div class=" mt-5">
+  <div class="">
     <MyAccountBread />
-    <div v-if="isUserLoggedIn">
+
+
+
+    <div class="mt-3" v-if="isUserLoggedIn">
       <div class="container">
-        <div class="row justify-content-center align items-center d-flex">
-          <div class="col-5">
-            <h4 class="mt-3 mb-3"> {{user.userName}} is logged in</h4>
+        <!--             justify-content-center d-flex   -->
+        <div class="row align-items-center">
+          <div class="col-6">
+            <h4 class="mt-3 mb-3">You are logged in as {{ user.userName }}</h4>
           </div>
-          <!-- <div class="row"> -->
-              <div class="col-5 align items-center d-flex">
-                <!-- col-lg-auto  btnTheme text-uppercase class="btn themeBg white text-uppercase  text-bold p-0"-->
-                <button
-              
-              class="  btn btnTheme text-white"
-              v-on:click.prevent="onClickLogOut" >
+          <!-- <div class="row">   d-flex-->
+          <div class="col-6 align-items-center">
+            <!-- -->
+            <button
+              class="btn btnTheme rounded-pill text-white"
+              v-on:click.prevent="onClickLogOut"
+            >
               Logout
             </button>
-              </div>
-            <!-- </div> -->
-
+            <!-- -->
+          </div>
+          <!-- </div> -->
         </div>
         <div class="row">
           <!--  -->
@@ -34,7 +38,7 @@
 
 <script>
 import { mapGetters, mapActions } from "vuex";
-import MyAccountBread from '../components/BreadCrumbs/MyAccountBread'
+import MyAccountBread from "../components/BreadCrumbs/MyAccountBread";
 import DefaultAccountView from "../components/Account/DefaultAccountView";
 import UserAccount from "../components/Account/UserAccount";
 
@@ -45,19 +49,24 @@ export default {
     DefaultAccountView,
     UserAccount,
   },
-  methods:{
+  methods: {
     // ,'getCurrentUser',"clearAllCartItem"
-    ...mapActions(['logOutUser']),
+    ...mapActions(["logOutUser"]),
 
-    onClickLogOut(){
+    onClickLogOut() {
       this.logOutUser();
       // gå tillbaka till produkter
-          this.returnUrl = this.$route.query.returnUrl || '/'
-          this.$router.push(this.returnUrl)
-    }
+      this.returnUrl = this.$route.query.returnUrl || "/";
+      this.$router.push(this.returnUrl);
+    },
   },
   computed: {
     ...mapGetters(["isUserLoggedIn", "user"]),
   },
 };
 </script>
+
+<style scoped>
+
+
+</style>
