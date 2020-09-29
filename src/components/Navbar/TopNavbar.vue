@@ -8,7 +8,10 @@
                                 ENG <i class="fas fa-angle-down"></i>
                             </a>
                             <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                <a class="dropdown-item" href="#">Action</a>
+                                <a class="dropdown-item" href="#">Eng</a>
+                            </div>
+                            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                <a class="dropdown-item" href="#">Sv</a>
                             </div>
                         </li>
                         <li class="nav-item dropdown">
