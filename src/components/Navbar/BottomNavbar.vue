@@ -12,7 +12,7 @@
                             <li class="nav-item dropdown themeBg mr-3 px-2 py-1 d-none d-lg-block">
                                 <a class="nav-link text-white " href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                     <img class="mr-1 mb-1" src="/image/navigation/HamburgerPhoto.png"> 
-                                    <span class="mr-2 "> Browse Categories</span>  
+                                    <span class="mr-2 "> {{ $t("nav.brows") }}</span>  
                                     <i class=" ml-4 fas  fa-angle-down"></i>
                                 </a>
                                 <div class="dropdown-menu" aria-labelledby="navbarDropdown">
@@ -26,11 +26,11 @@
                                 </div>
                             </li>
                             <li class="nav-item active ml-4 mt-1">
-                                <router-link class="nav-link darkBlue active" to="/">Home <span class="sr-only">(current)</span></router-link>
+                                <router-link class="nav-link darkBlue active" to="/">{{ $t("nav.home") }} <span class="sr-only">(current)</span></router-link>
                             </li>
                             <li class="nav-item  ml-4 mt-1">
                                 <div class="nav-link darkBlue " id="shopDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                    Shop <i class=" theme ml-1 fas noArrow fa-angle-down"></i></div>
+                                    {{ $t("nav.shop") }} <i class=" theme ml-1 fas noArrow fa-angle-down"></i></div>
                                 <div class="dropdown-menu" aria-labelledby="shopDropdown">
                                     <router-link class="dropdown-item" to="/shoppingcart">Shoppingcart</router-link>
                                     <router-link class="dropdown-item" to="/wishlist">Wishlist</router-link>
@@ -39,12 +39,12 @@
                             </li>
                             <li class="nav-item  ml-4 mt-1">
                                 <router-link class="nav-link darkBlue " to="/products">
-                                    Products </router-link>
+                                   {{ $t("nav.products") }}</router-link>
                                 
                             </li>
                             <li class="nav-item dropdown ml-4 mt-1">
                                 <div class="nav-link darkBlue " id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                    Categories <i class=" theme ml-1 fas noArrow fa-angle-down"></i></div>
+                                    {{ $t("nav.categories") }} <i class=" theme ml-1 fas noArrow fa-angle-down"></i></div>
                                 <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                                     <router-link class="dropdown-item" :to="{ path: '/products', query: { category: 'Men' }}">Men's</router-link>
                                     <router-link class="dropdown-item" :to="{ path: '/products', query: { category: 'Women' }}">Women's</router-link>
@@ -57,7 +57,7 @@
                             </li>
                             <li class="nav-item dropdown ml-4 mt-1">
                                 <div class="nav-link darkBlue" id="pagesNavbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                    Pages <i class=" theme ml-1 fas noArrow fa-angle-down"></i> </div>
+                                    {{ $t("nav.pages") }} <i class=" theme ml-1 fas noArrow fa-angle-down"></i> </div>
                                 <div class="dropdown-menu" aria-labelledby="pagesNavbarDropdown">
                                 <router-link class="dropdown-item" to="/about">About Us</router-link>
                                 <router-link class="dropdown-item" to="/team">Team</router-link>
@@ -75,7 +75,7 @@
                             </div>
                         </ul>
                         <div class="my-2 my-lg-0">
-                            <button class="btn themeBg text-white px-3  btnRadius btnCollapse" type="submit"> SPECIAL OFFER</button>
+                            <button class="btn themeBg text-white px-3  btnRadius btnCollapse" type="submit"> {{ $t("nav.special") }}</button>
                         </div>
                     </div>
                 </nav>

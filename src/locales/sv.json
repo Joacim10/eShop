@@ -1,0 +1,21 @@
+{
+    "nav": {
+      "newsletter": "Nyhetsbrev",
+      "contact": "Kontakta oss",
+      "account": "Mitt konto",
+      "categories": "Kategorier",
+      "brows": "Bläddra i kategorier",
+      "home": "Hem",
+      "shop" : "Shop",
+      "products": "Produkter",
+      "pages" : "Sidor",
+      "blog" : "Blog",
+      "special": "ERBJUDANDE"
+    },
+    "header" : {
+      "shoping" : "Att handla",
+      "fun": "ÄR ROLIGT",
+      "button" : "HANDLA NU"
+
+    }
+  }
