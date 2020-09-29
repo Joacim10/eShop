@@ -12,17 +12,41 @@
             v-bind:order="order"
           >
             <div class="card mb-2 p-2">
-              <p class="f-24">
-                Order: <span class="f-18">{{ order._id }}</span>
-              </p>
-              <p class="f-18">Number of Products: {{ order.orderItems.length }}</p>
-              <p class="f-18">
-                Total order value: ${{ order.orderTotalAmount }}
-              </p>
+              <div class="row">
+                <div class="col-4">
+                  <p class="f-24">
+                    Order: <span class="f-18">{{ order._id }}</span>
+                  </p>
+                  <p class="f-18">
+                    Number of Products: {{ order.orderItems.length }}
+                  </p>
+                  <p class="f-18">
+                    Total order value: ${{ order.orderTotalAmount }}
+                  </p>
+                  <p class="f-18">
+                    Paymenttype: {{ order.paymentType }}
+                  </p>
+                </div>
+                <div class="col">
+                  <div class="row">
+                    <div class="col-12">
+                      <OrderCardContent
+                        :orderItems="order.orderItems"
+                      ></OrderCardContent>
+                    </div>
+                    <div class="col">
+                      <OrderShippingDetails
+                        :orderData="order.shippingData"
+                      ></OrderShippingDetails>
+                    </div>
+                  </div>
+                </div>
+              </div>
 
               <!-- -->
-                <OrderCardContent :orderItems="order.orderItems"></OrderCardContent>
+
               <!-- -->
+
               <!--  -->
             </div>
           </div>
@@ -37,6 +61,7 @@
 import { mapGetters, mapActions } from "vuex";
 
 import OrderCardContent from "../Order/OrderCardContent.vue";
+import OrderShippingDetails from '../Order/OrderShippingDetails.vue';
 
 export default {
   name: "OrderCard",
@@ -49,12 +74,11 @@ export default {
 
   components: {
     OrderCardContent,
+    OrderShippingDetails,
   },
 
   methods: {
     ...mapActions(["getOrdersByCustomer"]),
-
-    
   },
   created() {
     this.getOrdersByCustomer(this.user.id);
