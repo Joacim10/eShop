@@ -1,10 +1,10 @@
 <template>
   <div>
     <button
-      class="btn themeBg text-white px-3 btnRadius btnCollapse"
+      class="btn themeBg text-white px-3 btnRadius btnCollapse mb-2"
       v-on:click.prevent="toggleShowDetails"
     >
-      SHOW DETAILS
+      {{ !showDetails ? "SHOW DETAILS" : "HIDE DETAILS" }}
     </button>
 
     <div v-show="showDetails">
@@ -19,13 +19,13 @@
           </div>
 
           <div>
-            <p>Category: {{ item.product.category }}</p>
-            <p>Name: {{ item.product.name }}</p>
-            <p>Description: {{ item.product.description }}</p>
+            <p class="font-weight-bold">Category: <span class="font-weight-normal">{{ item.product.category }}</span>  </p>
+            <p class="font-weight-bold" >Name: <span class="font-weight-normal">{{ item.product.name }}</span> </p>
+            <p class="font-weight-bold">Description: <span class="font-weight-normal">{{ item.product.description }}</span></p>
           </div>
           <div class="ml-auto mr-2">
-            <p>Price: ${{ item.product.price }}</p>
-            <p>Quantity: {{ item.quantity }}</p>
+            <p class="font-weight-bold">Price:  <span class="font-weight-normal">${{ item.product.price }}</span></p>
+            <p class="font-weight-bold">Quantity: <span class="font-weight-normal">{{ item.quantity }}</span></p>
           </div>
         </div>
         <div class="my-hr"></div>
@@ -47,9 +47,9 @@ export default {
   props: ["Item", "orderItems"],
   methods: {
     toggleShowDetails() {
-      // console.log(this)
-      // console.log("klick");
+      // 
       this.showDetails = !this.showDetails;
+      // 
     },
   },
 };
