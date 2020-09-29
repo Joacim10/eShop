@@ -22,16 +22,31 @@
      <div class="pt-4">
         <div class="d-flex  align-items-baseline">
 
-         <span class="mr-3 d-flex">
-            <button class="btnWhite border rounded px-2">-</button>
-            <span class="border bgWhite px-2 py-1 rounded">3</span>
-            <button class="btnWhite border px-2 rounded">+</button>
+        <!-- v-for="cartItem in shoppingCart" :key="cartItem._id" :cartItem="cartItem" -->
+          
+              
+             
+            <!-- <button class="btnWhite border rounded px-2"  v-on:click.stop="decreaseQuantity(cartItem.product)">-</button>
+            <span class="border bgWhite px-2 py-1 rounded">{{cartItem.quantity}}</span>
+            <button class="btnWhite border px-2 rounded" v-on:click.stop="increaseQuantity(cartItem.product)">+</button>
+            <span class="border bgWhite px-2 py-1 rounded remove" v-on:click.stop="deleteProductFromCart(cartItem.product._id)">Remove</span> -->
+
+ <span id="cartDetails" class="mr-3 d-flex"  >
+             
+            <button class="btnWhite border rounded px-2"  v-on:click.stop="decreaseQuantity(product); getProductItemQuantity();">-</button>
+             <span class="border bgWhite px-2 py-1 rounded">{{item.quantity}}</span> 
+            <button class="btnWhite border px-2 rounded" v-on:click.stop="increaseQuantity(product); getProductItemQuantity();" >+</button>
+            <!-- <span class="border bgWhite px-2 py-1 rounded remove" v-on:click.stop="deleteProductFromCart(cartItem.product._id)">Remove</span> -->
+               
          </span>
+
 
 
          <span class="mr-3  d-flex">
              <button class="btn btnTheme white" v-on:click="addProductToCart({product, quantity })" ><img src="/Image/ProductDetails/cart.png"> Add to cart</button>
          </span>
+         
+
 
           <span id="Choices" class="mr-3  d-flex">
     
@@ -91,19 +106,40 @@ export default {
   components: {},
   data() {
     return {
-       quantity: 1,
+      item: {
+        id: this.id,
+        product: this.product,
+        quantity: 0
+
+          },
+           quantity: 1,
     };
   },
 
   methods: {
-    ...mapActions(['getProductById', 'addProductToCart', 'addProductToWishlist'])
-  },
+    ...mapActions(['getProductById', 'addProductToCart', 'addProductToWishlist', 'increaseQuantity', 'decreaseQuantity', 'deleteProductFromCart']),
+
+    getProductItemQuantity() {
+      console.log('hej')
+       console.log(this.id)
+      let item = this.shoppingCart.find(item => item.product[0].id == this.id )
+      console.log(item)
+      if(item) {
+         console.log('hallå')
+        this.item = item
+      }
+    }
+ 
+  
+ 
+ },
   created() {
     console.log('this.id', this.id)
     this.getProductById(this.id)
+    this.getProductItemQuantity()
   },
   computed: {
-    ...mapGetters(['product'])
+    ...mapGetters(['product', 'shoppingCart', 'cart'])
   }
   
 };
@@ -111,7 +147,14 @@ export default {
 
 <style scoped>
 
+#cartDetails:hover {
+  cursor: pointer;
+} 
 
+#cartDetails .remove:hover {
+  background-color: var(--hot);
+  color: var(--white);
+} 
 
 #Choices img:hover {
   cursor: pointer;
