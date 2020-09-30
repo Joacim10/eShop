@@ -28,8 +28,9 @@
 
       <div class="mt-2 d-none d-sm-block">
         <router-link to="/account"><i class="fa-lg mr-2 far fa-user text-dark"></i></router-link>
+        <router-link to="/wishlist"><i class="text-dark fa-lg ml-3 far fa-heart position-relative"><span class="badge themeBg rounded-pill badge-primary position-absolute badge__">{{wishlistItemCount}}</span></i>
+        </router-link>
         <router-link to="/account"><span class="mr-4 text-dark">{{ $t("nav.account") }}</span></router-link>
-        <router-link to="/wishlist" class="text-dark"><i class="fa-lg ml-3 far fa-heart"></i></router-link>
         <i class="fa-lg ml-3 fas fa-random position-relative">
           <span class="badge themeBg rounded-pill badge-primary position-absolute badge__">0</span>
         </i>
@@ -48,7 +49,7 @@
 import { mapGetters } from 'vuex'
 export default {
   computed: {
-      ...mapGetters(['shoppingCartItemCount',"shoppingCartTotal"])
+      ...mapGetters(['wishlistItemCount','shoppingCartItemCount','shoppingCartTotal'])
     }
 };
 </script>
