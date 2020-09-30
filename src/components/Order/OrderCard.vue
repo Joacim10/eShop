@@ -26,6 +26,9 @@
                   <p class="f-18">
                     Paymenttype: {{ order.paymentType }}
                   </p>
+                  <p class="f-18">
+                    Shippingtype: {{ order.shippingType }}
+                  </p>
                 </div>
                 <div class="col">
                   <div class="row">

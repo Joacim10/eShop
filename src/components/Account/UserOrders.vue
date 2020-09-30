@@ -1,13 +1,15 @@
 <template>
   <div class="container">
-    <h5>Your orders here</h5>
+    <!-- <h5>Your orders here</h5> -->
+    <h5>You have {{orders.data.count}} orders</h5>
 
     <!--  -->
     <div class="row">
       <div class="col">
         <!-- lista upp ordrar -->
         <!-- {{orders.data.count}}  orders.data.count > 0 -->
-        <div v-if="orders">
+        <!-- {{orders.data.count}} -->
+        <div v-if="orders.data.count > 0">
           <OrderCard />
         </div>
         <div v-else >
