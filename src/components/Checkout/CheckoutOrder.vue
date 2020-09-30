@@ -1,6 +1,5 @@
 <template>
   <div>
-    
     <!-- Product item -->
     <!-- om det finns produketr i shoppingcart visas de här -->
     <div v-if="shoppingCart.length > 0">
@@ -20,18 +19,18 @@
       <p>No item in shoppincart</p>
     </div>
 
-    
-
     <!-- Subtotal -->
     <div class="d-flex justify-content-between border-bottom mt-3">
       <p class="font-weight-bold theme">Subtotal</p>
       <p class="theme">${{ shoppingCartTotal }}</p>
     </div>
 
-    <!-- Shipping -->
-   
-      <ShippingOptions />
-  
+    <!-- Shipping Options-->
+    <ShippingOptions />
+        <!-- test -->
+        <!-- {{getShippingData}} -->
+        <!-- test -->
+    <!-- Shipping Options end-->
 
     <!-- TOTAL -->
     <div class="d-flex justify-content-between mt-3">
@@ -51,10 +50,7 @@
                 type="radio"
                 aria-label="Radio button for following text input"
                 value="Direct bank transfer"
-                 v-model="paymentType"
-                
-                 
-
+                v-model="paymentType"
               />
             </span>
             <span class="ml-2">Direct bank transfer</span>
@@ -70,8 +66,7 @@
                 type="radio"
                 aria-label="Radio button for following text input"
                 value="Check Payment"
-                 v-model="paymentType"
-                
+                v-model="paymentType"
               />
             </span>
             <span class="ml-2">Check Payment</span>
@@ -87,8 +82,7 @@
                 type="radio"
                 aria-label="Radio button for following text input"
                 value="Cash on delivery"
-                 v-model="paymentType"
-                 
+                v-model="paymentType"
               />
             </span>
             <span class="ml-2">Cash on delivery</span>
@@ -104,8 +98,7 @@
                 type="radio"
                 aria-label="Radio button for following text input"
                 value="Paypal"
-                 v-model="paymentType"
-                 
+                v-model="paymentType"
               />
             </span>
             <span class="ml-2">Paypal</span>
@@ -166,7 +159,7 @@
 
 
 <script>
-import ShippingOptions from '../ReusableComponents/ShippingOptions'
+import ShippingOptions from "../ReusableComponents/ShippingOptions";
 import { mapGetters, mapActions } from "vuex";
 
 export default {
@@ -176,7 +169,7 @@ export default {
   },
   data() {
     return {
-      paymentType:"Direct bank transfer",
+      paymentType: "Direct bank transfer",
       acceptTerms: false,
       submitted: false,
       message: "",
@@ -184,7 +177,7 @@ export default {
   },
 
   methods: {
-    ...mapActions(["createNewOrder","clearAllCartItem","clearShippingData"]),
+    ...mapActions(["createNewOrder", "clearAllCartItem", "clearShippingData"]),
 
     async submitOrder() {
       // skapar ett objekt med data om användare, valda produkter och leverans data
@@ -195,7 +188,13 @@ export default {
         orderItems: this.shoppingCart,
         orderTotalAmount: this.shoppingCartTotal,
         paymentType: this.paymentType,
+        shippingType: this.getShippingData,
+        
       };
+      // test
+      // console.log(newOrder)
+      // 
+
       //  skickar en "action" till store för att spara data i databas
       const response = await this.createNewOrder(newOrder);
       // kollar om det gick att spara till databas
@@ -207,17 +206,12 @@ export default {
         // rensa shippingdata eller vill man ha kvar den ?
         this.clearShippingData();
 
-
         //  går till en sida som visar att order är skickad ?
-                  //  this.$router.push("/checkout/checkoutOrderOk");
+        //  this.$router.push("/checkout/checkoutOrderOk");
         // eller visa en modal ?
-
       } else {
         console.log(response);
       }
-
-      
-
     },
   },
 
@@ -231,6 +225,7 @@ export default {
       "shippingData",
       "isUserLoggedIn",
       "user",
+      "getShippingData",
     ]),
   },
 };
