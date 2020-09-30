@@ -7,7 +7,7 @@ export default {
 
   // här sparas data
   state:{
-    cart: []
+    cart: [],
   },
 
   mutations: {
