@@ -7,21 +7,21 @@ export default {
 
     // här sparas data
     state:{
-      shippingOption: null
+      shippingOption: 'Free shipping'
     },
   
     mutations: {
       // här utförs ändring av data
       SET_SHIPPING_OPTION(state, shippingOption) {
         state.shippingOption = shippingOption;
-      //  sessionStorage.setItem('shippingOption',JSON.stringify(state.shippingOption))
+       sessionStorage.setItem('shippingOption',JSON.stringify(state.shippingOption))
       },
-      //SET_SHIPPING_WAY(state){
-     //   let shippingOption = JSON.parse(sessionStorage.getItem('shippingOption'))
-     //   if (shippingOption) {
-     //     state.shippingOption = shippingOption
-     //   }
-     // },
+      SET_SHIPPING_WAY(state){
+     let shippingOption = JSON.parse(sessionStorage.getItem('shippingOption'))
+      if (shippingOption) {
+         state.shippingOption = shippingOption
+       }
+      },
     
       
       

@@ -51,7 +51,7 @@ import {mapActions, mapGetters} from 'vuex'
 export default {
 data() {
     return {
-      shippingType:"Free shipping",
+      shippingType:'',
     
     };
   },
@@ -60,8 +60,8 @@ data() {
   },
  
   created (){
-        this.updateshippingOption(this.shippingType);
-        //this.shippingType = this.getShippingData;
+        //this.updateshippingOption(this.shippingType);
+        this.shippingType = this.getShippingData;
        console.log(this.shippingType)
   },
   updated (){
