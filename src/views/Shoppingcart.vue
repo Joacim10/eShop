@@ -1,6 +1,7 @@
 <template>
   <div>
- 
+    
+    <ShoppingCartBread />
     
   <div class="container mt-5">
 
@@ -72,8 +73,9 @@ import ShoppingCartTotal from "../components/ShoppingCart/ShoppingCartTotal";
 import ApplyCouponComponent from "../components/ReusableComponents/ApplyCouponComponent";
 import ShoppingCartItems from "../components/ShoppingCart/ShoppingCartItems";
 
-import Carousel from "@/components/Carousel/Carousel.vue";
 
+import Carousel from "@/components/Carousel/Carousel.vue";
+import ShoppingCartBread from '../components/BreadCrumbs/ShoppingCartBread'
 
 
 
@@ -86,6 +88,8 @@ export default {
     ApplyCouponComponent,
     ShoppingCartItems,
     Carousel,
+    ShoppingCartBread,
+    
     
     
  

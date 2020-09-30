@@ -29,50 +29,9 @@
     </div>
 
     <!-- Shipping -->
-    <div class="d-flex justify-content-between border-bottom mt-3 pb-3">
-      <p class="align-self-center">Shipping</p>
-      <div>
-        <div class="d-flex justify-content-end">
-          <span class="mr-2">Flat rate:</span>
-          <span class="theme mr-2">$20.00</span>
-          <span>
-            <input
-              type="radio"
-              aria-label="Radio button for following text input"
-            />
-          </span>
-          <br />
-        </div>
-
-        <div class="d-flex justify-content-end">
-          <span class="mr-2">Free shipping</span>
-          <span>
-            <input
-              type="radio"
-              aria-label="Radio button for following text input"
-            />
-          </span>
-          <br />
-        </div>
-        <div class="d-flex justify-content-end">
-          <span class="mr-2">Local pickup:</span>
-          <span class="theme mr-2">$20.00</span>
-          <span>
-            <input
-              type="radio"
-              aria-label="Radio button for following text input"
-            />
-          </span>
-          <br />
-        </div>
-        <div class="d-flex justify-content-end">
-          <span>Shipping to AL</span>
-        </div>
-        <div class="d-flex justify-content-end">
-          <span class>Change adress</span>
-        </div>
-      </div>
-    </div>
+   
+      <ShippingOptions />
+  
 
     <!-- TOTAL -->
     <div class="d-flex justify-content-between mt-3">
@@ -207,10 +166,14 @@
 
 
 <script>
+import ShippingOptions from '../ReusableComponents/ShippingOptions'
 import { mapGetters, mapActions } from "vuex";
 
 export default {
   name: "CheckoutOrder",
+  components: {
+    ShippingOptions,
+  },
   data() {
     return {
       paymentType:"Direct bank transfer",
@@ -231,6 +194,7 @@ export default {
         shippingData: this.shippingData,
         orderItems: this.shoppingCart,
         orderTotalAmount: this.shoppingCartTotal,
+        paymentType: this.paymentType,
       };
       //  skickar en "action" till store för att spara data i databas
       const response = await this.createNewOrder(newOrder);
@@ -245,7 +209,7 @@ export default {
 
 
         //  går till en sida som visar att order är skickad ?
-                   this.$router.push("/checkout/checkoutOrderOk");
+                  //  this.$router.push("/checkout/checkoutOrderOk");
         // eller visa en modal ?
 
       } else {

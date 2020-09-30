@@ -1,21 +1,34 @@
 <template>
   <div class="pb-5">
-    <CheckoutBreadcrumb />
+    <ShoppingCartBread />
 
     <!-- här visas children som finns i routes(index.js) -->
-    <router-view></router-view>
+    <!-- <router-view></router-view> -->
+
+    <div v-if="!orderCreatedOk">
+      <CheckoutForm />
+    </div>
+    <div v-else>
+      <CheckoutOrderOk />
+    </div>
+
     <!--  -->
   </div>
 </template>
 
 <script>
+import { mapGetters } from "vuex";
 
-import CheckoutBreadcrumb from "@/components/Checkout/CheckoutBreadcrumb.vue";
+import ShoppingCartBread from "../components/BreadCrumbs/ShoppingCartBread";
+import CheckoutForm from "../components/Checkout/CheckoutForm.vue";
+import CheckoutOrderOk from "../components/Checkout/CheckoutOrderOk.vue";
 
 export default {
   name: "Checkout",
   components: {
-    CheckoutBreadcrumb,
+    ShoppingCartBread,
+    CheckoutForm,
+    CheckoutOrderOk,
   },
 
   data() {
@@ -23,7 +36,9 @@ export default {
   },
   methods: {},
 
-  computed: {},
+  computed: {
+    ...mapGetters(["orderCreatedOk"]),
+  },
 };
 </script>
 

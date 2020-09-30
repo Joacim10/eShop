@@ -3,29 +3,33 @@
     <Navbar/>  
     <router-view/>
     <Footer/>
+    <Modal v-if="showModal === true"/>
   </div>
 </template>
 
 <script>
-import { mapActions } from "vuex";
+import { mapActions, mapGetters } from "vuex";
 import Navbar from '@/components/navbar.vue'
 import Footer from '@/components/footer.vue'
+import Modal from '@/components/Modal/Modal.vue'
 
 export default {
   name: 'App',
   components: {
     Navbar,
     Footer,
+    Modal
   },
-  methods:{
+  methods: {
     ...mapActions(['getAllProducts'])
   },
-  created(){
+  created() {
     this.getAllProducts();
   },
+  computed: {
+    ...mapGetters(['showModal']),
+  }
 }
-
-
 </script>
 
 <style>
@@ -121,6 +125,9 @@ color: var(--grey) !important;
 background-color: var(--theme);
 border-radius: 25px;
 }
+.btnTheme:hover{
+  background-color: #3eb9ad !important;
+}
 
 .btnWhite{
 background-color: var(--white);
@@ -193,10 +200,13 @@ background-color: var(--productBG);
 }
 
 .cursorNormal{
-  cursor: context-menu;
+  cursor: default;
 }
 
 .cursorPointer{
   cursor: pointer;
 }
+
+
+
 </style>

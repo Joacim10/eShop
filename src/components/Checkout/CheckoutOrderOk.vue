@@ -1,7 +1,5 @@
 <template>
   <div>
-    
-
     <div class="container pt-5">
       <div class="row justify-content-center align-items-center">
         <div class="col-6">
@@ -23,12 +21,29 @@
 </template>
 
 <script>
+import { mapActions } from "vuex";
+
 import Box from "@/components/Homepage/Box.vue";
 
 export default {
   name: "CheckoutOrderOk",
   components: {
     Box,
+  },
+  methods: {
+    ...mapActions(["updateOrderCreated"]),
+  },
+
+  computed: {},
+
+  // beforeRouteLeave(next){
+  //   console.log('before leave');
+  //   this.updateOrderCreated(false);
+  //   next();
+  // },
+  beforeDestroy: function () {
+    console.log("before destroy");
+    this.updateOrderCreated(false);
   },
 };
 </script>

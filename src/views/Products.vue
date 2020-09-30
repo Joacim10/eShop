@@ -2,18 +2,18 @@
   <div class="container">
         <div class="grid-container">
       <div class="menu text-left pr-3">
-        <div class="f-16 text-info head cursorNormal">Product Categories</div>
-        <div class="f-16 d-flex justify-content-between" :class="{ theme : category === 'Men' }"> <div class="cursorPointer" v-on:click="changeCategory('Men')"  >Men's</div> <div class="cursorNormal">{{ countCategory('Men').length }}</div> </div>
-        <div class="f-16 d-flex justify-content-between" :class="{ theme : category === 'Women' }"> <div class="cursorPointer" v-on:click="changeCategory('Women')"  >Women's</div> <div class="cursorNormal">{{ countCategory('Women').length }}</div> </div>
-        <div class="f-16 d-flex justify-content-between" :class="{ theme : category === 'Kids' }" > <div class="cursorPointer" v-on:click="changeCategory('Kids')" >Kids</div> <div class="cursorNormal">{{ countCategory('Kids').length }}</div> </div>
-        <div class="f-16 d-flex justify-content-between" :class="{ theme : category === 'Hats' }" > <div class="cursorPointer" v-on:click="changeCategory('Hats')" >Hats</div> <div class="cursorNormal">{{ countCategory('Hats').length }}</div> </div>
-        <div class="f-16 d-flex justify-content-between" :class="{ theme : category === 'Sunglasses' }" > <div class="cursorPointer" v-on:click="changeCategory('Sunglasses')" >Sunglasses</div> <div class="cursorNormal">{{ countCategory('Sunglasses').length }}</div> </div>
-        <div class="f-16 d-flex justify-content-between" :class="{ theme : category === 'Shoes' }" > <div class="cursorPointer" v-on:click="changeCategory('Shoes')" >Shoes</div> <div class="cursorNormal">{{ countCategory('Shoes').length }}</div> </div>
-        <div class="f-16 d-flex justify-content-between" :class="{ theme : category === 'Watches' }" > <div class="cursorPointer" v-on:click="changeCategory('Watches')" >Watches</div> <div class="cursorNormal">{{ countCategory('Watches').length }}</div> </div>
+        <div class="f-16 theme head cursorNormal">Product Categories</div>
+        <div class="f-16 d-flex justify-content-between" :class="{ theme : activeCategory === 'Men' }"> <div class="cursorPointer" v-on:click="changeCategory('Men')"  >Men's</div> <div class="cursorNormal">{{ countCategory('Men').length }}</div> </div>
+        <div class="f-16 d-flex justify-content-between" :class="{ theme : activeCategory === 'Women' }"> <div class="cursorPointer" v-on:click="changeCategory('Women')"  >Women's</div> <div class="cursorNormal">{{ countCategory('Women').length }}</div> </div>
+        <div class="f-16 d-flex justify-content-between" :class="{ theme : activeCategory === 'Kids' }" > <div class="cursorPointer" v-on:click="changeCategory('Kids')" >Kids</div> <div class="cursorNormal">{{ countCategory('Kids').length }}</div> </div>
+        <div class="f-16 d-flex justify-content-between" :class="{ theme : activeCategory === 'Hats' }" > <div class="cursorPointer" v-on:click="changeCategory('Hats')" >Hats</div> <div class="cursorNormal">{{ countCategory('Hats').length }}</div> </div>
+        <div class="f-16 d-flex justify-content-between" :class="{ theme : activeCategory === 'Sunglasses' }" > <div class="cursorPointer" v-on:click="changeCategory('Sunglasses')" >Sunglasses</div> <div class="cursorNormal">{{ countCategory('Sunglasses').length }}</div> </div>
+        <div class="f-16 d-flex justify-content-between" :class="{ theme : activeCategory === 'Shoes' }" > <div class="cursorPointer" v-on:click="changeCategory('Shoes')" >Shoes</div> <div class="cursorNormal">{{ countCategory('Shoes').length }}</div> </div>
+        <div class="f-16 d-flex justify-content-between" :class="{ theme : activeCategory === 'Watches' }" > <div class="cursorPointer" v-on:click="changeCategory('Watches')" >Watches</div> <div class="cursorNormal">{{ countCategory('Watches').length }}</div> </div>
 
-<!--         <div class="f-16 text-info head">Filter By Price</div> -->
+<!--         <div class="f-16 theme head">Filter By Price</div> -->
 
-        <div class="f-16 text-info head cursorNormal">Filter By Color</div>
+        <div class="f-16 theme head cursorNormal">Filter By Color</div>
         <div v-if="countColor('#000000') != 0" class="f-16 d-flex justify-content-between align-items-center"><div class="d-flex align-items-center"><input class="black cursorPointer" type="checkbox" v-model="colors" value="#000000" /><div class="color cursorNormal">Black</div></div> <div class="cursorNormal">{{ countColor('#000000') }}</div> </div>
         <div v-if="countColor('#808080') != 0" class="f-16 d-flex justify-content-between align-items-center"><div class="d-flex align-items-center"><input class="grey cursorPointer" type="checkbox" v-model="colors" value="#808080" /><div class="color cursorNormal">Grey</div></div> <div class="cursorNormal">{{ countColor('#808080') }}</div> </div>
         <div v-if="countColor('#F3EB80') != 0" class="f-16 d-flex justify-content-between align-items-center"><div class="d-flex align-items-center"><input class="yellow cursorPointer" type="checkbox" v-model="colors" value="#F3EB80" /><div class="color cursorNormal">Yellow</div></div> <div class="cursorNormal">{{ countColor('#F3EB80') }}</div> </div>
@@ -22,7 +22,8 @@
         <div v-if="countColor('#F385E9') != 0" class="f-16 d-flex justify-content-between align-items-center"><div class="d-flex align-items-center"><input class="pink cursorPointer" type="checkbox" v-model="colors" value="#F385E9" /><div class="color cursorNormal">Pink</div></div> <div class="cursorNormal">{{ countColor('#F385E9') }}</div> </div>
         <div v-if="countColor('#ffffff') != 0" class="f-16 d-flex justify-content-between align-items-center"><div class="d-flex align-items-center"><input class="whiteBox cursorPointer" type="checkbox" v-model="colors" value="#ffffff" /><div class="color cursorNormal">White</div></div> <div class="cursorNormal">{{ countColor('#ffffff') }}</div> </div>
 
-<!--         <div class="f-16 text-info head">Filter By Size</div>
+<!--         <div class="f-16 theme head">Filter By Size</div>
+
         <div class="f-16 d-flex justify-content-between"> <div class="">XS</div> <div>12</div> </div>
         <div class="f-16 d-flex justify-content-between"> <div class="">S</div> <div>12</div> </div>
         <div class="f-16 d-flex justify-content-between"> <div class="">M</div> <div>12</div> </div>
@@ -30,7 +31,7 @@
         <div class="f-16 d-flex justify-content-between"> <div class="">XL</div> <div>12</div> </div>
         <div class="f-16 d-flex justify-content-between"> <div class="">XXL</div> <div>12</div> </div> -->
 
-<!--         <div class="f-16 text-info head">Filter By Brand</div>
+<!--         <div class="f-16 theme head">Filter By Brand</div>
         <div class="row brands">
           <div class="col-6">
             <img src="/Image/Brand/Bexim.png" alt="">
@@ -49,8 +50,8 @@
           </div>
         </div> -->
 
-  <!--       <div class="f-16 text-info head">Product Status</div>
-        <div class="f-16 text-info head">Top Rated Products</div> -->
+  <!--       <div class="f-16 theme head">Product Status</div>
+        <div class="f-16 theme head">Top Rated Products</div> -->
         <div class="d-flex justify-content-start mt-4">
           <button @click="clearFilter" class="theme btn btnTheme white">Clear Filter</button>
         </div>
@@ -71,21 +72,24 @@ import ProductList from "@/components/Product/ProductList.vue"
 
 export default {
   name: "Shop",
+  props: ['category'],
   components: {
     ProductList
   },
   data() {
     return {
-      category: '',
+      activeCategory: '',
       colors: []
     }
   },
   methods: {
     changeCategory: function (category) {
-      if (this.category != category) {
-        this.category = category
+      if (this.activeCategory != category) {
+        this.colors = []
+        this.$router.push({path: '/products', query: { category: category } })
       } else {
-        this.category = ''
+        this.colors = []
+        this.$router.push({path: '/products'})
       }
     },
     countCategory: function (category) {
@@ -98,8 +102,8 @@ export default {
       let array = []
 
       // Om man har valt en category så räknas alla produkter med just den färgen i den kategorin
-      if (this.category != '') {
-        array = this.countCategory(this.category).filter((item) => {
+      if (this.activeCategory != '') {
+        array = this.countCategory(this.activeCategory).filter((item) => {
           return (item.colors.includes(color)) 
         })
       } else {
@@ -110,8 +114,8 @@ export default {
       return array.length
     },
     clearFilter: function () {
-      this.category = '',
       this.colors = []
+      this.$router.push({path: '/products'})
     }
   },
   computed:{
@@ -120,11 +124,11 @@ export default {
       let newArrayOfProducts = []
 
       // Filtrerar på category
-      if (this.category === '') {
+      if (this.activeCategory === '') {
         newArrayOfProducts = this.products.data
       } else {
         newArrayOfProducts = this.products.data.filter((item) => {
-          return (item.category === this.category) 
+          return (item.category === this.activeCategory) 
         }) 
       }
 
@@ -149,6 +153,14 @@ export default {
         return a['name'].toString().localeCompare(b['name'].toString())
       })
       return newArrayOfProducts
+    }
+  },
+  mounted() {
+    this.activeCategory = this.$route.query.category || ''
+  },
+  watch: {
+    category: function(newVal) {
+      this.activeCategory = newVal || ''
     }
   }
 };
@@ -182,7 +194,7 @@ input[type='checkbox']{
 .whiteBox { background-color: #ffffff; border: 1px solid #808080;}
 
 input[type='checkbox']:checked:after {content: '\2713';color: #f9f9f9;position: absolute;line-height: 1.2rem;font-size:1rem;padding-left: 0.27rem;}
-input.white[type='checkbox']:checked:after {content: '\2713';color: #808080;position: absolute;line-height: 1.2rem;font-size:1rem;padding-left: 0.25rem;}
+input.whiteBox[type='checkbox']:checked:after {content: '\2713';color: #808080 !important;position: absolute;line-height: 1.2rem;font-size:1rem;padding-left: 0.25rem;}
 input.yellow[type='checkbox']:checked:after {content: '\2713';color: #808080;position: absolute;line-height: 1.3rem;font-size:1.1rem;padding-left: 0.25rem;}
 
   .text-left > div {

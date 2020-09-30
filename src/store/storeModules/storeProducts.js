@@ -15,7 +15,7 @@ export default {
       data: [
         { id: 1, name: 'Default', short: 'Default', desc: 'Default', price: 0, image: 'https://bit.ly/3mmOlL2', badgetype: '' }
       ]},
-    product: [{ id: 1, name: 'Default', short: 'Default', desc: 'Default', price: 0, image: 'https://bit.ly/3mmOlL2' }]
+    product: { id: 1, name: 'Default', short: 'Default', desc: 'Default', price: 0, image: 'https://bit.ly/3mmOlL2' }
   },
 
   mutations: {
@@ -38,18 +38,21 @@ export default {
     // anropas från en component
     async getProductById({ commit }, id) {
       // api anrop här med axios tex.
-      // console.log(id)
+    // console.log(id)
+  
 
       let res = await axios.get('/products/' + id)
 
-      // console.log(res)
+    
+
+      console.log('axios product', res.data[0])
 
       if (res !== null) {
         // commit('SET_STATE_PRODUCT', res.data)
         // anropar mutation
-        // console.log(res.data)
+       //console.log(res.data)
 
-        commit('GET_PRODUCT_BY_ID', res.data)
+        commit('GET_PRODUCT_BY_ID', res.data[0])
       }
 
 
@@ -72,7 +75,7 @@ export default {
       return state.products
     },
     product(state) {
-      // console.log(state.product)
+      console.log('product getter', state.product)
       // return state.product
       if(state.product == null && sessionStorage.getItem('product') !== null)
                 state.product = sessionStorage.getItem('product')    

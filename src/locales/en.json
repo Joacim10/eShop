@@ -1,0 +1,21 @@
+{
+  "nav": {
+    "newsletter": "Newsletter",
+    "contact": "Contact us",
+    "account": "My account",
+    "categories": "Categories",
+    "brows": "Brows Categories",
+    "home": "Home",
+    "shop" : "Shop",
+    "products": "Products",
+    "pages" : "Pages",
+    "blog" : "Blog",
+    "special": "SPECIAL OFFERS"
+  },
+  "header" : {
+    "shoping" : "Shopping is",
+    "fun": "MORE FUN",
+    "button" : "SHOP NOW"
+
+  }
+}

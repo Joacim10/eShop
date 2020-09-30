@@ -15,11 +15,15 @@ const routes = [
   {
     path: '/products',
     name: 'Products',
-    component: () => import('../views/Products.vue')
+    component: () => import('../views/Products.vue'),
+    props(route) {
+      return {  category: route.query.category }
+    }
   },
   {
-    path: '/shop/:productId',
-    name: 'Product',
+    path: '/product/:id',
+    name: 'ProductDetails',
+    props: true, //för att kunna skicka över id
     component: () => import('../views/ProductDetails.vue')
   },
   {
@@ -40,21 +44,30 @@ const routes = [
     path: '/checkout',
     name: 'Checkout',
     component: () => import('../views/Checkout.vue'),
-    children:[
-      { path: '',
-      name: 'CheckoutForm',
-      component: () => import('../components/Checkout/CheckoutForm.vue')},
+    // children:[
+    //   { path: '/',
+    //   name: 'CheckoutForm',
+    //   component: () => import('../components/Checkout/CheckoutForm.vue')},
 
-      { path: 'checkoutOrderOk',
-      name: 'CheckoutOrderOk',
-      component: () => import('../components/Checkout/CheckoutOrderOk.vue')}
-    ]
+    //   { path: 'checkoutOrderOk',
+    //   name: 'CheckoutOrderOk',
+    //   component: () => import('../components/Checkout/CheckoutOrderOk.vue')}
+    // ]
   },
 
   {
-    path: '/account',
+    path: '/account/',
     name: 'MyAccount',
-    component: () => import('../views/MyAccount.vue')
+    component: () => import('../views/MyAccount.vue'),
+    children:[
+      { path: 'userProfile',
+      name: 'UserProfile',
+      component: () => import('../components/Account/UserProfile.vue')},
+
+      { path: 'userOrders',
+      name: 'UserOrders',
+      component: () => import('../components/Account/UserOrders.vue')}
+    ]
   },
   {
     path: '/wishlist',
