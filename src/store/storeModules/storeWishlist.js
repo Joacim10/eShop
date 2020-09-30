@@ -1,9 +1,7 @@
-
 // ----- WISHLIST STORE ------
 
 export default {
 
-  
   //STATE skickar till getters
   // här sparas data
 
@@ -11,17 +9,15 @@ export default {
     wishlist: []
   },
 
-
   // MUTATIONS skickar till state
   // här utförs ändring av data
   // spara till storage
 
   mutations: {
 
-    ADD_TO_WISHLIST(state, product ) {
+    ADD_TO_WISHLIST(state, product) {
       console.log(state.wishlist)
       console.log(product)
-
 
       let exists = state.wishlist.find(item => { return item._id === product._id })
       
@@ -35,13 +31,11 @@ export default {
 
     },
 
-
     DELETE_FROM_WISHLIST(state, id) {
       state.wishlist = state.wishlist.filter(item => { return item._id !== id })
 
       sessionStorage.setItem('wishlist', JSON.stringify(state.wishlist))
     },
-
 
   },
 
@@ -52,7 +46,6 @@ export default {
 
   actions: {
 
-
     addProductToWishlist({ commit }, product ) {
       commit('ADD_TO_WISHLIST', product )
 
@@ -61,7 +54,6 @@ export default {
     deleteProductFromWishlist({ commit }, id) {
       commit('DELETE_FROM_WISHLIST', id)
     },
-
 
   },
 
@@ -74,18 +66,12 @@ export default {
 
     wishlist(state) {
       return state.wishlist
-    }
+    },
 
+    wishlistItemCount(state) {
+      let items = state.wishlist.length
+
+      return items
+    },
   }
-
-
-
 }
-
-
-
-
-
-
-
-
