@@ -194,7 +194,7 @@ input[type='checkbox']{
 .whiteBox { background-color: #ffffff; border: 1px solid #808080;}
 
 input[type='checkbox']:checked:after {content: '\2713';color: #f9f9f9;position: absolute;line-height: 1.2rem;font-size:1rem;padding-left: 0.27rem;}
-input.white[type='checkbox']:checked:after {content: '\2713';color: #808080;position: absolute;line-height: 1.2rem;font-size:1rem;padding-left: 0.25rem;}
+input.whiteBox[type='checkbox']:checked:after {content: '\2713';color: #808080 !important;position: absolute;line-height: 1.2rem;font-size:1rem;padding-left: 0.25rem;}
 input.yellow[type='checkbox']:checked:after {content: '\2713';color: #808080;position: absolute;line-height: 1.3rem;font-size:1.1rem;padding-left: 0.25rem;}
 
   .text-left > div {

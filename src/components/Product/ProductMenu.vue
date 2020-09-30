@@ -1,8 +1,8 @@
 <template>
-    <div id="productMenu">
+    <div id="productMenu" v-on:click.stop>
 
       <!-- Färgplupparna -->
-      <div class="tip"><i class="my-2 px-2 fas fa-circle text-danger"></i>
+      <div class="tip"><i class="my-2 px-2 fas fa-circle" :style="initialColor"></i>
         <span class="tipcolors tiptext pl-1">
           <i v-for="(color, index) in product.colors" :key="index" class="fas fa-circle pr-1" :style="{'color': color}"></i> 
         </span>
@@ -14,11 +14,10 @@
       </div>
        
       <!-- Compare -->
-      <div class="tip"> <router-link :to="{name: 'ProductDetails', params: {id: product._id}}"><i class="my-2 px-2 fas fa-random"></i></router-link>
+      <div class="tip"> <i class="my-2 px-2 fas fa-random"></i>
          <span class="tiptext">Compare</span>
       </div>
 
-        
       <!-- Quick view -->
       <div class="tip"><i v-on:click="toggleModal({modalType: 'quickView', data: product})" class="my-2 px-2 fas fa-search" ></i>
          <span class="tiptext" >Quick view</span>
@@ -44,6 +43,21 @@ export default {
   },
   methods: {
       ...mapActions(['addProductToCart', 'addProductToWishlist', 'toggleModal']),
+  },
+  computed: {
+    initialColor () {
+      let border = ''
+      if (this.product.colors[0] === '#ffffff'){
+        border = '#00000'
+      } else {
+        border = '#fffff'
+      }
+
+      return {
+        "color": `${this.product.colors[0]}`,
+        "border-color": `${border} + !important`
+      }; 
+    }
   },
 };
 </script>
@@ -127,5 +141,9 @@ export default {
 #productMenu .black {
   color: #333333 !important;
 } 
+
+.fa-circle::before{
+  text-shadow: 1px 1px 5px #6866668e;
+}
 
 </style>
