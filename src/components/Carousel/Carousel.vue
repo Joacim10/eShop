@@ -1,29 +1,36 @@
 <template>
-<div id="carousel" class="position-relative">
-        <ol id="carousel-indicators" class="carousel-indicators">
-            <li v-for="(item, index) in (computedProducts.slice(0, numberOfIndicators))" :key="index"  @click="moveCarousel(0, index)" class="indicator" :class="{ 'active' : index === activeIndicator}"></li>
-        </ol>
-
-        <div class="card-carousel-wrapper">
-        <div class="card-carousel--nav__left d-none d-sm-block" @click="moveCarousel(-1, 0)" :disabled="atHeadOfList">
-            <div class="position-relative">
+  <!-- "REF" GÖR DET MÖJLIGT ATT KOMMA ÅT WIDTH I PIXLAR FÖR ATT RÄKNA UT HÖJDEN PÅ KORTEN  -->
+  <div id="carousel" ref="carousel" class="position-relative">
+    <div class="card-carousel-wrapper">
+      <!-- FLYTTAR CAROUSELEN OM MAN INTE ÄR BÖRJAN AV DEN -->
+      <div class="card-carousel--nav__left d-none d-sm-block" @click="moveCarousel(-1, 0)" :disabled="atHeadOfList">
+          <div class="position-relative">
             <img src="/Image/Carousel/Previous btn.png" alt="">
-            </div>
-        </div>
-        <div class="card-carousel">
-            <div class="card-carousel--overflow-container">
+          </div>
+      </div>
+      <div class="card-carousel">
+          <!-- OVERFLOW-CONTAINER DÖLJER DET SOM ÄR UTANFÖR DEN -->
+          <div class="card-carousel--overflow-container">
+            <!-- TRANSFORM FLYTTAR KORTEN SÅ MYCKET MAN HAR SCROLLAT -->
             <div class="card-carousel-cards" :style="{ transform: 'translateX' + '(' + currentOffset + '%' + ')' }">
-                <ProductCard class="card-carousel--card" :style="computedWidthAndMargin" v-for="(product, index) in computedProducts" :key="index" :product="product" />
+                <!-- COMPUTED CARD SIZE LÄGGER TILL STYLE PÅ KORTEN FÖR STORLEK OCH MARGIN -->
+                <ProductCard class="card-carousel--card" :style="computedCardSize" v-for="(product, index) in computedProducts" :key="index" :product="product" />
             </div>
-            </div>
+          </div>
+      </div>
+      <!-- FLYTTAR CAROUSELEN OM MAN INTE ÄR SLUTET AV DEN -->
+      <div class="card-carousel--nav__right d-none d-sm-block" @click="moveCarousel(1, 0)" :disabled="atEndOfList">
+        <div class="position-relative">
+            <img src="/Image/Carousel/Next btn.png" alt="">
         </div>
-        <div class="card-carousel--nav__right d-none d-sm-block" @click="moveCarousel(1, 0)" :disabled="atEndOfList">
-            <div class="position-relative">
-                <img src="/Image/Carousel/Next btn.png" alt="">
-            </div>
-        </div>
+      </div>
     </div>
-</div>
+    <!-- INDICATORS -->
+    <ol id="carousel-indicators" class="carousel-indicators">
+      <!-- CLICK FLYTTAR CAROUSELEN BEROENDE AV INDEX. ACTIVE LÄGGS TILL OM SCROLLEN MOTSVARAR INDEX PÅ INDICATOR -->
+      <li v-for="(item, index) in (computedProducts.slice(0, reduceIndicators))" :key="index"  @click="moveCarousel(0, index)" class="indicator" :class="{ 'active' : index === activeIndicator}"></li>
+    </ol>
+  </div>
 </template>
 
 <script>
@@ -35,18 +42,20 @@ export default {
   components: {
       ProductCard
   },
-  props: ['windowSize', 'badgetype'],  
+  props: ['windowSize', 'badgetype'], //WINDOWSIZE ÄR ANTALET KORT SOM SKA VISAS
   data() {
       return {
-      currentOffset: 0,
-      paginationFactor: Number,
-      cardWidth: Number,
-      cardMargin: Number,
-      numberOfIndicators: Number,
-      activeIndicator: 0,
+      currentOffset: 0, //HUR MÅNGA PROCENT MAN HAR SCROLLAT I LISTAN
+      paginationFactor: Number, //HUR MÅNGA PROCENT DET SKA SCROLLAS VARJE GÅNG
+      cardWidth: Number, //WIDTH I PROCENT
+      cardMargin: Number, //MARGIN I PROCENT
+      cardHeight: Number, //HEIGHT I PIXLAR
+      reduceIndicators: Number, //HUR MÅNGA FÄRRE INDICATORS ÄN PRODUKTER SOM SKA VISAS
+      activeIndicator: 0, //VILKEN INDICATOR SOM ÄR ACTIVE 
       }
   },
   methods: {
+    // FLYTTAR CAROUSELEN OM MAN INTE ÄR I BÖRJAN ELLER SLUTET AV LISTAN
     moveCarousel(direction, position) {
       if (direction === 1 && !this.atEndOfList) {
           this.currentOffset -= this.paginationFactor;
@@ -55,17 +64,33 @@ export default {
       } else if (direction === 0) {
           this.currentOffset = -(position * this.paginationFactor);
       }
-      this.activeIndicator = -this.currentOffset / this.paginationFactor
+      this.activeIndicator = Math.round(-this.currentOffset / this.paginationFactor)
+    },
+    //ÄNDRAR HÖJDEN PÅ KORTEN NÄR MAN ÄNDRAR STORLEK PÅ WEBLÄSARENS FÖNSTER
+    changeHeightOnWindowResize() {
+        // "REF" GÖR DET MÖJLIGT ATT KOMMA ÅT WIDTH I PIXLAR FÖR ATT RÄKNA UT HÖJDEN PÅ KORTEN
+        this.cardHeight = this.$refs.carousel.clientWidth * this.cardWidth * 0.01 * 1.143
     }
   },
   mounted: function() {
     this.cardMargin = 6/this.windowSize
     this.cardWidth = (100 - (this.cardMargin * (this.windowSize - 1))) / this.windowSize
     this.paginationFactor = +((this.cardWidth + this.cardMargin).toFixed(2))
-    this.numberOfIndicators = (this.computedProducts.length || 0 ) - (this.windowSize -1)
+    this.reduceIndicators = - (this.windowSize -1)
+    this.$nextTick(() => {
+      //SÄTTER CARD HEIGHT NÄR KOMPONENTEN SKAPAS
+      this.cardHeight = this.$refs.carousel.clientWidth * this.cardWidth * 0.01 * 1.143
+      //KÖR FUNKTION NÄR MAN ÄNDRAR STORLEK PÅ WEBBLÄSARENS FÖNSTER
+      window.addEventListener("resize", this.changeHeightOnWindowResize)
+    })
+  },
+  //TAR BORT EVENT-LISTENER NÄR KOMPONENTEN FÖRSTÖRS
+  destroyed() {
+    window.removeEventListener("resize", this.changeHeightOnWindowResize);
   },
   computed: {
     ...mapGetters(['products']),
+    //FILTRERAR PRODUKTER UTEFTER BADGETYPE SOM SKICKAS IN I PROPS
     computedProducts: function () {
       let newArrayOfProducts = []
 
@@ -79,17 +104,21 @@ export default {
       }
       return newArrayOfProducts
     },
-    computedWidthAndMargin() {
+    //RETURNERAR WIDTH, HEIGHT OCH MARGIN PÅ KORTENS STYLE I TEMPLATE
+    computedCardSize() {
       return {
         "min-width": `${this.cardWidth}%`,
+        "height": `${this.cardHeight}px !important`,
         "margin-right": `${this.cardMargin}%`
       };      
     },
+    // RETURNERAR TRUE OM MAN ÄR I SLUTET AV LISTAN
     atEndOfList() {
-      return this.currentOffset <= (this.paginationFactor * -1) * ((this.computedProducts || []).length - this.windowSize);
+      return this.activeIndicator === (this.computedProducts.length + this.reduceIndicators -1)
     },
+    // RETURNERAR TRUE OM MAN ÄR I BÖRJAN AV LISTAN
     atHeadOfList() {
-      return this.currentOffset === 0;
+      return this.activeIndicator === 0;
     },
   },
 }
@@ -110,6 +139,7 @@ body {
   color: #666a73;
   width: 100%;
 }
+/* /deep/ GÖR ATT CHILD KOMPONENTER PÅVERKAS AV CSS-KLASSEN TROTS SCOPED */
 /deep/ .card-carousel {
   display: flex;
   justify-content: center;
@@ -148,6 +178,11 @@ body {
   left: -15%;
   height: 70%;
   width: auto;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -o-user-select: none;
+  user-select: none;
 }
 .card-carousel--nav__left > div > img {
   position: absolute;
@@ -155,35 +190,14 @@ body {
   right: -15%;
   height: 40%;
   width: auto;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -o-user-select: none;
+  user-select: none;
 }
 
-.card-carousel-cards div {
-  height: 400px;
-}
-
-@media (min-width: 576px) { 
-    .card-carousel-cards div{
-        height: 280px;
-    }
-}
-
-@media (min-width: 768px) {  
-    .card-carousel-cards div{
-        height: 300px;
-    }
-}
-
-@media (min-width: 992px) {  
-    .card-carousel-cards div{
-        height: 360px;
-    }
-}
-
-@media only screen and (min-width: 1200px) {
-  .card-carousel-cards div{
-      height: 420px;
-  }
-  
+@media only screen and (min-width: 1200px) {  
   .card-carousel--nav__left, .card-carousel--nav__right {
     padding: 20px;
   }

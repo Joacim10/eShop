@@ -1,20 +1,21 @@
 <template>
 <div>
-
     <div class="card-main productBG" >
         <img :src="`${product.image}`" alt="">
+        <!-- TOP-LEFT -->
         <div class="top-left">
             <div v-if="product.badgetype === 'Discount'" class="f-16 circle text-white p-1 text-center d-none" :class="product.badgetype">-{{product.discount}}%</div>
             <div v-else class="f-16 circle text-white p-1 text-center d-none" :class="product.badgetype">{{product.badgetext}}</div>
        </div>
-
+        <!-- VID HOVER DÖLJS DEN HÄR -->
         <div class="card-original card-body text-white card-carousel--card--footer">
             <p class="f-18" >{{ product.name }}</p>
         </div>
-        <div class="card-hover card-body p-1 p-sm-2">
-
+        <!-- VID HOVER VISAS DEN HÄR -->
+        <router-link tag="div" :to="{name: 'ProductDetails', params: {id: product._id}}" class="card-hover card-body p-1 p-sm-2">
             <ProductMenu :product="product" class="top-right py-2"/>
 
+            <!-- BOTTOM-LEFT -->
             <div class="bottom-left text-white">
                 <p class="f-16">{{ product.name }}</p>
                 <p class="border d-inline-block p-1 mr-1 small text-center f-14" v-for="tag in product.tags" :key="tag">{{ tag }}</p>
@@ -26,11 +27,12 @@
                     <p class="theme f-18 font-weight-bold">{{ product.currency }}{{ newPrice }}</p>
                 </div>
             </div>
+            <!-- BOTTOM-RIGHT -->
             <div class="bottom-right theme d-none" :class="{ 'd-block' : product.rating > 0}">
                 <i v-for="(stars, index) in product.rating" :key="index" class="fas fa-star"></i>
                 <i v-for="item in nonFilledStars" :key="'nonFilled'+item" class="far fa-star"></i>
             </div>
-        </div>
+        </router-link>
     </div>
 </div>
 
@@ -63,7 +65,6 @@ export default {
 </script>
 
 <style scoped>
-
     .top-right {
         position:absolute;
         right: 0px;
@@ -181,7 +182,4 @@ export default {
         display: flex !important;
         text-transform: uppercase;
     }
-
-
-
 </style>
