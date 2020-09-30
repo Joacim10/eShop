@@ -41,18 +41,18 @@ const routes = [
   },
 
   {
-    path: '/checkout/',
+    path: '/checkout',
     name: 'Checkout',
     component: () => import('../views/Checkout.vue'),
-    children:[
-      { path: 'checkout',
-      name: 'CheckoutForm',
-      component: () => import('../components/Checkout/CheckoutForm.vue')},
+    // children:[
+    //   { path: '/',
+    //   name: 'CheckoutForm',
+    //   component: () => import('../components/Checkout/CheckoutForm.vue')},
 
-      { path: 'checkoutOrderOk',
-      name: 'CheckoutOrderOk',
-      component: () => import('../components/Checkout/CheckoutOrderOk.vue')}
-    ]
+    //   { path: 'checkoutOrderOk',
+    //   name: 'CheckoutOrderOk',
+    //   component: () => import('../components/Checkout/CheckoutOrderOk.vue')}
+    // ]
   },
 
   {
