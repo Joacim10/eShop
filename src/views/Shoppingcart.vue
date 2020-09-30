@@ -8,27 +8,6 @@
     <div class="row">
       <div class="col-12 col-lg-8 py-0">
         
-        <div class="d-flex justify-content-between font-weight-bold">
-          <div class="ml-5">
-            <span>Products</span>
-          </div>
-
-
-            <div class="d-flex col-6">
-          <div class="mr-5">
-            <span>Price</span>
-          </div>
-          <div class="ml-3">
-            <span>Quantity</span>
-          </div>
-          <div class=" px-5 ml-5">
-            <span>Subtotal</span>
-          </div>
-         </div>
-
-        </div>
-
-        <hr class="mb-0 mt-0 themeBg">
         <!--ShoppingCart Items--->
        
           <ShoppingCartItems  />

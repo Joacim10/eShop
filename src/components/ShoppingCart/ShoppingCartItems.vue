@@ -1,14 +1,20 @@
 <template>
   <div>
   
-  <table  class="table">   
-      <tbody  v-for="cartItem in shoppingCart" :key="cartItem._id" :cartItem="cartItem">  
-        <tr v-if="shoppingCart.length > 0">
-          
-          <th   scope="row">
+  <table class="table"> 
+      <thead class="mb-0 mt-0 border-bottom py-0">
+        <tr>
+          <th class="py-0">Products</th>
+          <th class="py-0">Price</th>
+          <th class="py-0">Quantity</th>
+          <th class="py-0">Subtotal</th>
+        </tr>
+      </thead>  
+      <tbody v-if="shoppingCart.length > 0">  
+        <tr v-for="cartItem in shoppingCart" :key="cartItem._id" :cartItem="cartItem" >
+          <th scope="row">
             
             <i v-on:click.stop="deleteProductFromCart(cartItem.product._id)" class="fas fa-times-circle"></i>
-            
             <img class="img-fluid imageWidth ml-2" :src="`${cartItem.product.image}`" alt="">
             <span class="ml-2 verticalCenter">{{cartItem.product.name}}</span>
             
@@ -103,10 +109,12 @@ th, td {
 i {
   cursor: pointer;
 }
- .imageWidth {
-        width: 60px;
-       
-       
-    }
+.imageWidth {
+  width: 60px;
+}
+.border-bottom {
+  border-bottom: 2px solid var(--theme) !important;
+}
+
     
 </style>
