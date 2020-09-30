@@ -34,7 +34,11 @@
  <span id="cartDetails" class="mr-3 d-flex"  >
              
             <button class="btnWhite border rounded px-2"  v-on:click.stop="decreaseQuantity(product); getProductItemQuantity();">-</button>
-             <span class="border bgWhite px-2 py-1 rounded">{{item.quantity}}</span> 
+
+            <!--  -->
+             <span class="border bgWhite px-2 py-1 rounded">{{itemCount}}</span>
+              <!--  -->
+
             <button class="btnWhite border px-2 rounded" v-on:click.stop="increaseQuantity(product); getProductItemQuantity();" >+</button>
             <!-- <span class="border bgWhite px-2 py-1 rounded remove" v-on:click.stop="deleteProductFromCart(cartItem.product._id)">Remove</span> -->
                
@@ -100,19 +104,14 @@
 import { mapActions, mapGetters } from 'vuex'
 
 export default {
-  
+
   name: "ProductShop",
   props: ['id'],
   components: {},
   data() {
     return {
-      item: {
-        id: this.id,
-        product: this.product,
-        quantity: 0
-
-          },
-           quantity: 1,
+      itemCount: null,
+      quantity: 1,
     };
   },
 
@@ -120,13 +119,16 @@ export default {
     ...mapActions(['getProductById', 'addProductToCart', 'addProductToWishlist', 'increaseQuantity', 'decreaseQuantity', 'deleteProductFromCart']),
 
     getProductItemQuantity() {
-      console.log('hej')
-       console.log(this.id)
-      let item = this.shoppingCart.find(item => item.product[0].id == this.id )
-      console.log(item)
+      // console.log('hej')
+      //  console.log(this.id)
+      let item = this.shoppingCart.find(item => item.product._id == this.id )
+      // console.log(item)
       if(item) {
-         console.log('hallå')
-        this.item = item
+        //  console.log('hallå')
+        //  console.log(item.product)
+        //  console.log(item.quantity)
+         this.itemCount = item.quantity;
+        //
       }
     }
  
