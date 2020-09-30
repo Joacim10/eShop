@@ -3,19 +3,32 @@
     <ShoppingCartBread />
 
     <!-- här visas children som finns i routes(index.js) -->
-    <router-view></router-view>
+    <!-- <router-view></router-view> -->
+
+    <div v-if="!orderCreatedOk">
+      <CheckoutForm />
+    </div>
+    <div v-else>
+      <CheckoutOrderOk />
+    </div>
+
     <!--  -->
   </div>
 </template>
 
 <script>
-  import ShoppingCartBread from '../components/BreadCrumbs/ShoppingCartBread'
+import { mapGetters } from "vuex";
 
+import ShoppingCartBread from "../components/BreadCrumbs/ShoppingCartBread";
+import CheckoutForm from "../components/Checkout/CheckoutForm.vue";
+import CheckoutOrderOk from "../components/Checkout/CheckoutOrderOk.vue";
 
 export default {
   name: "Checkout",
   components: {
-  ShoppingCartBread,
+    ShoppingCartBread,
+    CheckoutForm,
+    CheckoutOrderOk,
   },
 
   data() {
@@ -23,7 +36,9 @@ export default {
   },
   methods: {},
 
-  computed: {},
+  computed: {
+    ...mapGetters(["orderCreatedOk"]),
+  },
 };
 </script>
 

@@ -246,7 +246,7 @@ export default {
 
 
         //  går till en sida som visar att order är skickad ?
-                   this.$router.push("/checkout/checkoutOrderOk");
+                  //  this.$router.push("/checkout/checkoutOrderOk");
         // eller visa en modal ?
 
       } else {

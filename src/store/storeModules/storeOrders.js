@@ -89,7 +89,12 @@ export default {
     },
     storeShippingDataValid({ commit },value){
       commit('SET_SHIPPINGDATA_VALID',value)
-    }
+    },
+
+    updateOrderCreated({commit},value){
+      console.log(value)
+      commit('SET_ORDER_CREATED', value)
+    },
 
   },
 
@@ -109,7 +114,11 @@ export default {
     },
     shippingDataValid(state){
       return state.shippingDataValid
-    }
+    },
+
+    orderCreatedOk(state){
+      return state.orderCreated
+    },
 
 
 
