@@ -5,9 +5,10 @@
                     <ul class="navbar-nav mr-auto border-right ">
 
                         <li class="nav-item dropdown d-none d-sm-block">
-                            
-                             <div class="locale-switcher mt-2 hSelect">
-                                <select class="dropdown-item text-white " v-model="$i18n.locale">
+
+
+                             <div class="locale-switcher mt-2">
+                                <select class="dropdown-item text-white mt-2 " v-model="$i18n.locale">
                                 <option  value="en">ENG</option>
                                 <option  value="sv">SWE</option>
                                 </select>
@@ -60,20 +61,26 @@ export default {
 select {
     padding: 0 !important;
    outline: none;
+     
 }
+
+
 .locale-switcher{
     margin-top: 9.3px !important;
+    
 }
 .dropdown-item:hover {
-    color: #16181b;
+    color: var(--theme) ;
     text-decoration: none;
-    background-color: transparent;
+    
 }
 .dropdown-item:focus, .dropdown-item:hover {
     color: white;
     text-decoration: none;
     background-color: transparent;
 }
+
+
 
 
 

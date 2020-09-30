@@ -8,6 +8,7 @@ import storeUser from './storeModules/storeUser';
 import storeOrders from './storeModules/storeOrders';
 import storeWishlist from './storeModules/storeWishlist';
 import storeModal from './storeModules/storeModal';
+import storeShippingOptions from './storeModules/storeShippingOptions'
 
 Vue.use(Vuex)
 
@@ -21,6 +22,7 @@ export default new Vuex.Store({
     storeUser,
     storeOrders,
     storeWishlist,
+    storeShippingOptions,
     storeModal
   }
 })
