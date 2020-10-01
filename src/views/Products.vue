@@ -71,15 +71,16 @@ import { mapGetters } from "vuex";
 import ProductList from "@/components/Product/ProductList.vue"
 
 export default {
-  name: "Shop",
-  props: ['category'],
+  name: "Products",
+  props: ['category', 'filter'],
   components: {
     ProductList
   },
   data() {
     return {
       activeCategory: '',
-      colors: []
+      colors: [],
+      activeFilter: ''
     }
   },
   methods: {
@@ -117,21 +118,32 @@ export default {
     },
     clearFilter: function () {
       this.colors = []
-      this.$router.push({path: '/products'})
+      if (this.activeCategory !== '' || this.activeFilter !== '') {
+        this.$router.push({path: '/products'})
+        this.activeCategory = ''
+        this.activeFilter = ''
+        //console.log('rensar')
+      }
     }
   },
   computed:{
     ...mapGetters(['products']),
     computedProducts: function () {
-      let newArrayOfProducts = []
+      let newArrayOfProducts = this.products.data
 
       // Filtrerar på category
-      if (this.activeCategory === '') {
-        newArrayOfProducts = this.products.data
-      } else {
+      if (this.activeCategory !== '') {
         newArrayOfProducts = this.products.data.filter((item) => {
           return (item.category === this.activeCategory) 
         }) 
+      }
+
+      // Filtrerar på filter
+      if (this.activeFilter !== '') {
+        newArrayOfProducts = newArrayOfProducts.filter((item) => {
+          return (item.badgetype === this.activeFilter) 
+        }) 
+        //console.log('newArrayOfProducts 1', newArrayOfProducts)
       }
 
       // Filtrerar på varje color och slår ihop det till en array
@@ -159,10 +171,23 @@ export default {
   },
   mounted() {
     this.activeCategory = this.$route.query.category || ''
+    this.activeFilter = this.$route.query.filter || ''
+  },
+  updated() {
+    this.activeCategory = this.$route.query.category || ''
+    //console.log('this.$route.query.filter', this.$route.query.filter)
+    //console.log('updated', this.$route.query.filter)
+    this.activeFilter = this.$route.query.filter || ''
   },
   watch: {
     category: function(newVal) {
+      //console.log('newVal category !!!', newVal)
+
       this.activeCategory = newVal || ''
+    },
+    filter: function(newVal) {
+      //console.log('newVal filter !!!!!!!', newVal)
+      this.activeFilter = newVal || ''
     }
   }
 };

@@ -62,6 +62,10 @@ export default {
     mounted: function() {
         this.nonFilledStars = 5 - (this.product.rating || 0)
         this.newPrice = this.product.price * ((100 - this.product.discount)/100)
+    },
+    updated: function() {
+        this.nonFilledStars = 5 - (this.product.rating || 0)
+        this.newPrice = this.product.price * ((100 - this.product.discount)/100)
     }
 }
 </script>
