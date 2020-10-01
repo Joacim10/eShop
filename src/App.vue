@@ -48,6 +48,9 @@ export default {
   --white: #ffffff;
   --darkBlue: #0E153D;
 }
+html {
+  scroll-behavior: smooth;
+}
 
 /* colors */
 .white{
