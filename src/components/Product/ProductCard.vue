@@ -4,7 +4,8 @@
         <img :src="`${product.image}`" alt="">
         <!-- TOP-LEFT -->
         <div class="top-left">
-            <div v-if="product.badgetype === 'Discount'" class="f-16 circle text-white p-1 text-center d-none" :class="product.badgetype">-{{product.discount}}%</div>
+            <div v-if="brand" class="f-16 text-white p-1 text-center d-none brand"> <img :src="`/Image/Brand/${product.brand}.png`"> </div>
+            <div v-else-if="product.badgetype === 'Discount'" class="f-16 circle text-white p-1 text-center d-none" :class="product.badgetype">-{{product.discount}}%</div>
             <div v-else class="f-16 circle text-white p-1 text-center d-none" :class="product.badgetype">{{product.badgetext}}</div>
        </div>
         <!-- VID HOVER DÖLJS DEN HÄR -->
@@ -44,14 +45,15 @@ import ProductMenu from '@/components/Product/ProductMenu.vue'
 
 export default {
     name: 'ProductCard',
-    props: ['product'],
+    props: ['product', 'showBrand'],
     components: {
         ProductMenu
     },
     data() {
         return {
             nonFilledStars: Number,
-            newPrice: Number
+            newPrice: Number,
+            brand: this.showBrand || false
         }
     },
     methods: {
@@ -181,5 +183,19 @@ export default {
         background-color: var(--sale); 
         display: flex !important;
         text-transform: uppercase;
+    }
+
+    .brand {
+        width: 170px;
+        border-radius: 15%;
+        padding: 5px;
+        margin-bottom: 10px;
+        height: 60px;
+        display: flex !important;
+        justify-content: center;
+        align-content: center;
+        flex-direction: column;
+        -webkit-filter: drop-shadow(0 0 10px rgb(255, 255, 255));
+        filter: drop-shadow(0 0 10px rgb(249, 249, 249));
     }
 </style>

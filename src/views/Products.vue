@@ -57,7 +57,7 @@
         </div>
       </div>
       <div class="products">
-        <ProductList :products="computedProducts"/>
+        <ProductList v-if="computedProducts" :products="computedProducts"/>
       </div>
       <div class="pagination d-flex justify-content-center">
         <div><!-- Pagination --></div> 
@@ -102,12 +102,14 @@ export default {
       let array = []
 
       // Om man har valt en category så räknas alla produkter med just den färgen i den kategorin
-      if (this.activeCategory != '') {
+      if (this.activeCategory != '' && this.products.data !== undefined) {
         array = this.countCategory(this.activeCategory).filter((item) => {
+            item.colors === undefined ? console.log('item.colors 1', item.colors) : ''
           return (item.colors.includes(color)) 
         })
-      } else {
+      } else if (this.products.data !== undefined) {
         array = this.products.data.filter((item) => {
+            item.colors === undefined ? console.log('item.colors 2', item.colors) : ''
           return (item.colors.includes(color)) 
         })
       }
