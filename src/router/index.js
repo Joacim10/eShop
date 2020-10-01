@@ -17,7 +17,7 @@ const routes = [
     name: 'Products',
     component: () => import('../views/Products.vue'),
     props(route) {
-      return {  category: route.query.category }
+      return {  category: route.query.category, filter: route.query.filter }
     }
   },
   {

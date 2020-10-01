@@ -45,7 +45,7 @@ export default {
 
     
 
-      console.log('axios product', res.data[0])
+      //console.log('axios product', res.data[0])
 
       if (res !== null) {
         // commit('SET_STATE_PRODUCT', res.data)
@@ -75,7 +75,7 @@ export default {
       return state.products
     },
     product(state) {
-      console.log('product getter', state.product)
+      //console.log('product getter', state.product)
       // return state.product
       if(state.product == null && sessionStorage.getItem('product') !== null)
                 state.product = sessionStorage.getItem('product')    
