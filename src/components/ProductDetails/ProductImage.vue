@@ -2,14 +2,14 @@
 
   <div class="row align-items-center">
 
-   <div class="col-9 border pl-2 pt-0"><img class="bild" :src="product.image"></div>
+   <div class="col-9  pl-2 pt-0"><img class="bild rounded" :src="product.image"></div>
     
     <div class="col-3 d-flex flex-column justify-content-around p-2">
 
-      <span class="d-flex border mb-2"><img class="tumme" :src="product.image"></span>
-      <span class="d-flex border mb-2"><img class="tumme" :src="product.image"></span>
-      <span class="d-flex border mb-2"><img class="tumme" :src="product.image"></span>
-      <span class="d-flex border "><img class="tumme" :src="product.image"></span>
+      <span class="d-flex  mb-2"><img class="tumme rounded" :src="product.image"></span>
+      <span class="d-flex  mb-2"><img class="tumme rounded" :src="product.image"></span>
+      <span class="d-flex  mb-2"><img class="tumme rounded" :src="product.image"></span>
+      <span class="d-flex  "><img class="tumme rounded" :src="product.image"></span>
 
     </div> 
   </div>
@@ -44,7 +44,6 @@ export default {
   }
   
 
-  
 
 };
 
@@ -68,8 +67,6 @@ export default {
     }
 
 
-
-    
 
   /* ----------------------------------------- */
   /* MEDIA sm */
@@ -121,8 +118,6 @@ export default {
     }
  
 
-  
-  
     
   }
   

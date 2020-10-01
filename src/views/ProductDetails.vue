@@ -1,7 +1,7 @@
 <template>
   <div class="" >
 
-    <ProductBread :category='product.category' :name='product.name' />
+    <ProductBread :category='product.category' :name='product.name' :id='id' />
 
     <div class="container">
 
@@ -27,7 +27,6 @@
 
 </div>
          
-<!-- <ImageTest/> -->
 
 </div>
 </template>
@@ -37,7 +36,6 @@ import { mapActions, mapGetters } from 'vuex'
 import ProductImage from "@/components/ProductDetails/ProductImage.vue";
 import ProductShop from "@/components/ProductDetails/ProductShop.vue";
 import ProductDetalsNavTabs from "@/components/ProductDetails/ProductDetalsNavTabs.vue";
-//  import ImageTest from "@/components/ProductDetails/ImageTest.vue";
 import ProductBread from '../components/BreadCrumbs/ProductBread'
 
 export default {
@@ -48,7 +46,6 @@ export default {
      ProductImage,
      ProductShop,
      ProductDetalsNavTabs,
-    //  ImageTest
   },
   data() {
     return {

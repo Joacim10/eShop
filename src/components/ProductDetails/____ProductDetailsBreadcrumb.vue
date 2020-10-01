@@ -26,8 +26,7 @@
 
       <div class="d-flex pt-4 pb-3 white align-items-lg-center justify-content-between">
         <div class="d-flex bgWhite p-1 pl-3 pr-3 rounded">
-          <img :src="'/Image/Brand/' + product[0].brand + '.png' " /> 
-
+          <img :src="'/Image/Brand/' + product.brand + '.png' " /> 
         </div>
 
         <div class="d-flex align-items-lg-center justify-content-between ml-3">
