@@ -14,7 +14,7 @@
           />
           <div class="input-group-append">
             <button
-              class="btnRadiusSub position-absolute  themeBg border-0 text-white px-4"
+              class="btnRadiusSub position-absolute  themeBg border-0 text-white px-4 pxSmallScreen"
             >Apply Coupon</button>
           </div>
           </div>
@@ -46,4 +46,11 @@ export default {
   border-radius: 20px 20px 20px 20px !important;
   height: 50px;
 } 
+@media (max-width: 375px) {
+  .pxSmallScreen{
+    padding: 10px 10px 10px 10px !important;
+   
+  
+  }
+}
 </style>
