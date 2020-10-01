@@ -13,7 +13,7 @@
           >
             <div class="card mb-2 p-2">
               <div class="row">
-                <div class="col-4">
+                <div class="col-12  col-lg-4">
                   <p class="f-24">
                     Order: <span class="f-18">{{ order._id }}</span>
                   </p>
@@ -37,7 +37,7 @@
                         :orderItems="order.orderItems"
                       ></OrderCardContent>
                     </div>
-                    <div class="col">
+                    <div class="col-12">
                       <OrderShippingDetails
                         :orderData="order.shippingData"
                       ></OrderShippingDetails>

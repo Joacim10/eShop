@@ -2,7 +2,7 @@
   <form class="mt-5 lightBg py-2 rounded">
     <div class="form-group py-2 px-4">
       <div>
-        <h4 class="mt-2 mb-3">REGISTER</h4>
+        <h4 class="mt-2 mb-3 text-center text-md-left">REGISTER</h4>
         <p
           class="regText"
         >Registering for this site allows you to access your order status and history. Just fill in the fields below, and we’ll get a new account set up for you in no time. We will only ask you for information necessary to make the purchase process faster and easier.</p>
@@ -70,10 +70,10 @@
       <p>Your personal data will be used to support your experience throughout this website, to manage access to your account, and for other purposes described in our</p>
     </div>
 
-    <div class="form-group px-4">
-      <div class="row container">
+    <div class="form-group container px-4">
+      <div class="row align-items-center justify-content-center">
         <button
-          class="col-12 py-2 btnTheme px-5 border-0 text-white text-uppercase"
+          class="col-11 py-2 btnTheme px-5 border-0 text-white text-uppercase"
           v-bind:disabled="$v.$invalid"
           v-bind:class="{btndisabled: $v.$invalid}"
           v-on:click.prevent="submitForm"

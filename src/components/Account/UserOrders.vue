@@ -1,25 +1,26 @@
 <template>
   <div class="container">
-    <!-- <h5>Your orders here</h5> -->
-    <h5>You have {{orders.data.count}} orders</h5>
-
-    <!--  -->
-    <div class="row">
-      <div class="col">
-        <!-- lista upp ordrar -->
-        <!-- {{orders.data.count}}  orders.data.count > 0 -->
-        <!-- {{orders.data.count}} -->
-        <div v-if="orders.data.count > 0">
-          <OrderCard />
-        </div>
-        <div v-else >
-          <h5>You have no orders</h5>
-          <router-link to="/products">
-          <button class="mt-3 py-2 btn btnTheme text-white">GO TO SHOP</button>
-        </router-link>
+    <div v-if=" orders !== null ">
+      <h5 class="mt-2">You have {{ orders.data.count }} orders</h5>
+      <!--  -->
+      <div class="row">
+        <div class="col">
+          <div v-if="orders.data.count > 0">
+            <OrderCard />
+          </div>
+          <div v-else>
+            <!-- <h5>You have no orders</h5> -->
+            <router-link to="/products">
+              <button class="mt-3 py-2 btn btnTheme text-white">
+                GO TO SHOP
+              </button>
+            </router-link>
+          </div>
         </div>
       </div>
     </div>
+    <!---->
+
     <!--  -->
   </div>
 </template>
@@ -27,13 +28,13 @@
 <script>
 import { mapGetters, mapActions } from "vuex";
 
-import OrderCard from '../Order/OrderCard.vue';
+import OrderCard from "../Order/OrderCard.vue";
 
 export default {
   name: "UserOrders",
 
   components: {
-    OrderCard
+    OrderCard,
   },
 
   methods: {
