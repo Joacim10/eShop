@@ -3,7 +3,7 @@
     <ShoppingFun />
     <Box />    
     <Category />
-    <div class="container my-4">
+    <div class="container py-4">
       <div class="text-center pt-5">
         <h1 class="font-weight-bold">NEW <h1 class="theme font-weight-bold d-inline-block"> ARRIVALS </h1></h1>
         <div class="d-flex justify-content-center mb-3">
@@ -16,7 +16,7 @@
       <Carousel class="d-none d-md-block" :windowSize="3" :badgetype="['New']"/>
     </div>
     <DiscountBanner/>
-    <div class="container my-4">
+    <div class="container py-4">
       <div class="text-center pt-5">
         <h1 class="font-weight-bold">FEATURED <h1 class="theme font-weight-bold d-inline-block"> PRODUCTS </h1></h1>
         <div class="d-flex justify-content-center mb-3">
@@ -31,6 +31,7 @@
     <QuotesSlide />
     <LatestBlog />
     <FlashSale />
+    <TopSellers />
     <SubscribeNow />
   </div>
 </template>
@@ -44,6 +45,7 @@ import DiscountBanner from "@/components/Homepage/DiscountBanner.vue";
 import QuotesSlide from "@/components/Homepage/QuotesSlide.vue";
 import LatestBlog from "@/components/Homepage/LatestBlog/LatestBlog.vue";
 import FlashSale from "@/components/Homepage/FlashSale.vue";
+import TopSellers from "@/components/Homepage/TopSellers.vue"
 import SubscribeNow from "@/components/Homepage/SubscribeNow.vue"
 
 export default {
@@ -57,6 +59,7 @@ export default {
   QuotesSlide,
   LatestBlog,
   FlashSale,
+  TopSellers,
   SubscribeNow
   },
 };

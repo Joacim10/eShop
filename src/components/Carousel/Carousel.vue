@@ -40,7 +40,7 @@ import ProductCard from '@/components/Product/ProductCard.vue'
 export default {
   name: "Carousel",
   components: {
-      ProductCard
+    ProductCard
   },
   props: ['windowSize', 'badgetype'], //WINDOWSIZE ÄR ANTALET KORT SOM SKA VISAS
   data() {
