@@ -1,8 +1,8 @@
 <template>
   <div class="container">
         <div class="grid-container">
-      <div class="menu text-left pr-3">
-        <div class="f-16 theme head cursorNormal">Product Categories</div>
+      <div class="menu text-left pr-md-3">
+        <div class="f-16 theme cursorNormal">Categories</div>
         <div class="f-16 d-flex justify-content-between" :class="{ theme : activeCategory === 'Men' }"> <div class="cursorPointer" v-on:click="changeCategory('Men')"  >Men's</div> <div class="cursorNormal">{{ countCategory('Men').length }}</div> </div>
         <div class="f-16 d-flex justify-content-between" :class="{ theme : activeCategory === 'Women' }"> <div class="cursorPointer" v-on:click="changeCategory('Women')"  >Women's</div> <div class="cursorNormal">{{ countCategory('Women').length }}</div> </div>
         <div class="f-16 d-flex justify-content-between" :class="{ theme : activeCategory === 'Kids' }" > <div class="cursorPointer" v-on:click="changeCategory('Kids')" >Kids</div> <div class="cursorNormal">{{ countCategory('Kids').length }}</div> </div>
@@ -53,7 +53,7 @@
   <!--       <div class="f-16 theme head">Product Status</div>
         <div class="f-16 theme head">Top Rated Products</div> -->
         <div class="d-flex justify-content-start mt-4">
-          <button @click="clearFilter" class="theme btn btnTheme white">Clear Filter</button>
+          <button @click="clearFilter" class="theme btn btnTheme white">Clear <span class="d-none d-sm-inline-block">Filter</span></button>
         </div>
       </div>
       <div class="products">
@@ -171,13 +171,12 @@ export default {
 <style scoped>
   .color {
     position: relative;
-    margin-left: 10px;
   }
 
 input[type='checkbox']{
   width: 20px !important;
   height: 20px !important;
-  margin: 5px;
+  margin-right: 5px;
   -webkit-appearance: none;
   -moz-appearance: none;
   -o-appearance: none;
@@ -234,6 +233,9 @@ input.yellow[type='checkbox']:checked:after {content: '\2713';color: #808080;pos
   }
 
 @media screen and (min-width: 576px) {
+    .color {
+      margin-left: 10px;
+    }
     .grid-container {
     width: 100%;
     display: grid;
