@@ -1,6 +1,6 @@
 <template>
 <div>
-    <div class="container my-5">
+    <div class="container my-5 d-none d-sm-block">
         <div class="d-none d-lg-flex justify-content-between align-items-center flex-wrap">
             <img src="/Image/Brand/Bexim.png" alt="">
             <img src="/Image/Brand/Lighton.png" alt="">
@@ -24,6 +24,7 @@
     </div>
 
     <div class="background">
+        <button v-on:click="scrollToTop"  class="btn text-white d-none d-sm-block float-right mr-3 mt-3  themeBg"><i class="fas fa-arrow-up"></i></button>
         <div class="overlay">
             <div class="container">
                 <div class="row text-white py-5">
@@ -87,6 +88,7 @@
                                 <div class="mr-1 w-100 h-100 bgGrey">  </div>
                             </div>
                         </div>
+                         
                     </div>
                 </div> 
             </div>
@@ -98,6 +100,9 @@
                 <div class="d-none d-md-block"><img src="/image/Payment/Payment system.png" alt=""></div>
              </div>
             </div>
+
+           
+
         </div>
     </div>
 </div>
@@ -106,6 +111,12 @@
 <script>
 export default {
     components: {
+    },
+
+    methods: {
+        scrollToTop  () {
+            window.scrollTo(0,0);
+        }
     }
 }
 </script>
