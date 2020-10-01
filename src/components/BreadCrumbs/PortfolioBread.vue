@@ -1,5 +1,5 @@
 <template>
-    <div class="bread pt-4 pb-3">
+    <div class="bread pt-4 pb-3 d-none d-sm-block">
         <div class="container d-flex justify-content-between">
             <div>
                  <p class="theme">Portfolio</p>
