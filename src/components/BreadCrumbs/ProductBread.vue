@@ -1,7 +1,7 @@
 <template>
     <div class="bgDarkBlue pt-4 pb-3">
         <div class="container d-flex justify-content-between ">
-            <div>
+            <div class="d-none d-sm-block">
                   <ul class="crumb mt-2">
                      <li class="breadcrumb-item active"> <router-link to="/"><small>Home</small></router-link></li>
                      <li class="breadcrumb-item active"> <router-link to="/products"><small>Products</small></router-link></li>
@@ -13,7 +13,7 @@
               <!-- <img class="bg-light px-3 py-1 rounded" src="/image/Brand/Bexim.png" alt=""> -->
                <img class="bg-light px-3 py-1 rounded brand img-fluid"  :src="'/Image/Brand/' + product.brand + '.png' " /> 
 
-              <div class="align-items-lg-center justify-content-between ml-3">
+              <div class="align-items-lg-center justify-content-between ml-3 mt-2">
               <i class="fas fa-chevron-left white  ml-3"></i>
               <i class="fas fa-th-large white  ml-3"></i>
               <i class="fas fa-chevron-right white  ml-3"></i>
