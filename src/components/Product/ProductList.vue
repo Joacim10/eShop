@@ -1,6 +1,6 @@
 <template>
     <div class="productList flex-wrap">
-        <ProductCard class="col-6 col-md-4 px-1 px-lg-2" v-for="(product, index) in products" :key="index" :product="product"/>
+        <ProductCard class="col-12 col-sm-6 col-md-4 px-1 px-lg-2" v-for="(product, index) in products" :key="index" :product="product"/>
     </div> 
 </template>
 
