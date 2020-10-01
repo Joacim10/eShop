@@ -1,7 +1,7 @@
 <template>
   <div>
     
-    <ShoppingCartBread />
+    <ShoppingCartBread class="d-none d-sm-block" />
     
   <div class="container mt-5">
 
@@ -11,7 +11,7 @@
         <!--ShoppingCart Items--->
        
           <ShoppingCartItems  />
-
+  
       </div>
 
       <!-- TOTALCART-->

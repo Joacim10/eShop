@@ -1,6 +1,6 @@
 <template>
   <div>
-    <div class="card mt-2">
+    <div class="card mt-2 marginCartTop">
       <div class="card-header bgDarkBlue text-center theme f-24 py-1">
         <span>CART TOTALS</span>
       </div>
@@ -54,5 +54,12 @@ export default {
 }
 .btnRadiusCart {
   border-radius: 20px;
+}
+@media (max-width: 768px) {
+  .marginCartTop {
+  margin-top: 30px !important;
+  margin-bottom: 30px !important;
+  
+  }
 }
 </style>
