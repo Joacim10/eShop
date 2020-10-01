@@ -1,8 +1,8 @@
 <template>
-  <form class="mt-5 lightBg py-2 rounded">
+  <form class="container mt-5 lightBg py-2 rounded">
     <div class="form-group py-2 px-4">
       <div>
-        <h4 class="mt-2 mb-3">LOGIN</h4>
+        <h4 class="mt-2 mb-3 text-center text-md-left">LOGIN</h4>
       </div>
       <!-- login ok or not -->
       <p v-if="message" class="f-24" >{{message}}</p>
@@ -41,10 +41,11 @@
         <small>please type your password</small>
       </p>
     </div>
-    <div class="form-group py-2 px-4">
-      <div class="mt-3 row container">
+    <div class="form-group py-2 px-4 container">
+      <!--            container -->
+      <div class="mt-3 row align-items-center justify-content-center">
         <button
-          class="col-12 py-2 btnTheme px-5 border-0 text-white"
+          class="col-11  py-2 btnTheme px-5 border-0 text-white"
           v-on:click.prevent="submitForm"
           v-bind:disabled="$v.$invalid"
           v-bind:class="{btndisabled: $v.$invalid}"
@@ -79,14 +80,17 @@
       </div>
     </div>
 
-    <div class="form-group px-3 row">
-      <div class="col-5 ml-4 facebookBg text-white py-2 mr-3 d-flex rounded">
+      <!-- form-group px-3  justify-content-around justify-content-center-->
+    <div class="  row px-3  align-items-center justify-content-around ">
+      <!--                       ml-4   mr-3   -->
+      <div class="col-8 col-lg-5 mb-2 mb-lg-0 facebookBg text-white py-2  d-flex rounded">
         <i class="fab fa-facebook-square fa-2x"></i>
-        <span class="ml-5 mt-1">Facebook</span>
+        <span class="ml-5 pr-2 mt-1">Facebook</span>
       </div>
-      <div class="col-5 bg-primary text white rounded text-white py-2 mr-3 d-flex">
+      <!--                         mr-3   -->
+      <div class="col-8 col-lg-5 bg-primary text white rounded text-white py-2  d-flex">
         <i class="fab fa-google fa-2x"></i>
-        <span class="ml-5 mt-1">Google</span>
+        <span class="ml-5 pr-2 mt-1">Google</span>
       </div>
     </div>
   </form>
