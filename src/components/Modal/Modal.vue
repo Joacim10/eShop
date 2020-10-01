@@ -10,6 +10,8 @@
 
       <QuickView v-if="modalType === 'quickView'" :product="modalData"/>
 
+      <MessageModal v-if="modalType === 'textMessage'" :messageData="modalData" :buttonText="'OK'" />
+
       <!-- Den här taggen kan bytas ut mot annan komponents tag. Glöm ej import av komponent -->
       <p v-if="modalType === 'someOtherComponent'" :data="modalData"/>
 
@@ -19,12 +21,15 @@
 
 <script>
 import { mapActions, mapGetters } from "vuex";
-import QuickView from '@/components/Modal/QuickView.vue'
+import QuickView from '@/components/Modal/QuickView.vue';
+// jm
+import MessageModal from './MessageModal.vue';
 
 export default {
   
   components: {
-    QuickView
+    QuickView,
+    MessageModal,
   },
   data() {
     return {

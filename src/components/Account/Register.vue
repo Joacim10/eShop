@@ -8,7 +8,7 @@
         >Registering for this site allows you to access your order status and history. Just fill in the fields below, and we’ll get a new account set up for you in no time. We will only ask you for information necessary to make the purchase process faster and easier.</p>
       </div>
       <!-- message från store/api -->
-      <p v-if="message" class="text-success f-24">{{message}}</p>
+      <!-- <p v-if="message" class="text-success f-24">{{message}}</p> -->
       <!--  -->
       <label class="mb-1" for="reguserName">
         Username
@@ -103,12 +103,12 @@ export default {
       email: "",
       passWord: "",
       submitted: false,
-      message: "",
+      messageObj: {},
     };
   },
 
   methods: {
-    ...mapActions(["registerUser"]),
+    ...mapActions(["registerUser","toggleModal"]),
 
     async submitForm() {
 
@@ -123,7 +123,8 @@ export default {
         };
         // skicka user till mongodb med axios
         const response = await this.registerUser(user);
-        console.log(response.statusCode);
+        // console.log(response.statusCode);
+        // console.log(response.message);
 
         // kontrollera om det gick att registrera en användare
         if (response.statusCode == 201) {
@@ -138,15 +139,23 @@ export default {
           // this.$router.push("/login");
 
           // test
-          this.message = "User created";
-          setTimeout(()=>{
-            this.message = "";
-          }, 3000);
+          // this.message = "User created";
+          // setTimeout(()=>{
+          //   this.message = "";
+          // }, 3000);
+
+          // visa modal / aktivera
+             this.messageObj ={text:"User created succesfully, now you can login, Happy Shopping !",type:"Success"} ;
+             this.toggleModal({modalType: 'textMessage', data: this.messageObj});
+
 
           // 
         } else {
           // det gick inte att registrera användare  Kunde inte registrera användare
-          this.message = "Could not create user"
+          // this.message = "Could not create user, username/ email already exist"
+          this.messageObj ={text:"Could not create user, username/ email already exist",type:"Error"} ;
+          // visa modal / aktivera
+             this.toggleModal({modalType: 'textMessage', data: this.messageObj});
         }
         
       }
