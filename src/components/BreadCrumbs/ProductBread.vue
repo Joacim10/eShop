@@ -9,9 +9,11 @@
                      <li class="breadcrumb-item " ><router-link to="/shop/:productId" ><small>{{name}}</small></router-link></li>
                 </ul>
             </div>
-            <div class="d-flex">
-              <img class="bg-light px-3 py-1 rounded" src="/image/Brand/Bexim.png" alt="">
-              <div class="mt-3">
+            <div class="d-flex align-items-lg-center justify-content-between" >
+              <!-- <img class="bg-light px-3 py-1 rounded" src="/image/Brand/Bexim.png" alt=""> -->
+               <img class="bg-light px-3 py-1 rounded brand img-fluid"  :src="'/Image/Brand/' + product.brand + '.png' " /> 
+
+              <div class="align-items-lg-center justify-content-between ml-3">
               <i class="fas fa-chevron-left white  ml-3"></i>
               <i class="fas fa-th-large white  ml-3"></i>
               <i class="fas fa-chevron-right white  ml-3"></i>
@@ -26,14 +28,37 @@
 </template>
 
 <script>
+import { mapActions, mapGetters } from 'vuex'
+
 export default {
-  props: ['category', 'name']
+  props: ['category', 'name', 'id'],
+
+  
+  data() {
+    return {
+       quantity: 1
+    };
+  },
+
+  methods: {
+    ...mapActions(['getProductById'])
+  },
+  created() {
+    this.getProductById(this.id)
+  },
+  computed: {
+    ...mapGetters(['product'])
+  }
 
 }
 </script>
 
 <style scoped>
 
+ .brand {
+  max-height: 2.5rem;
+  width: auto;
+} 
 
 .fas {
   font-size: 24px;

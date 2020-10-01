@@ -1,64 +1,55 @@
 <template>
-  <div class="col-12 ">
+  <div class="col-12 " v-if="product" >
     <!-- Tab Nav -->
     <nav class="">
-      <div
-        class="flex-column flex-sm-row nav nav-tabs"
-        id="nav-tab"
-        role="tablist"
-      >
-        <a
-          class="text-center flex-fill flex-lg-grow-0 nav-link active mr-1 mt-1"
+      <div class="flex-column flex-sm-row nav nav-tabs" id="nav-tab" role="tablist">
+
+        <a class="text-center flex-fill flex-lg-grow-0 nav-link active mr-1 mt-1"
           id="nav-home-tab"
           data-toggle="tab"
           href="#nav-desc"
           role="tab"
           aria-controls="nav-home"
-          aria-selected="true"
-          >Description</a
-        >
-        <a
-          class="text-center flex-fill flex-lg-grow-0 nav-link mr-1 mt-1"
+          aria-selected="true">Description</a>
+
+        <a class="text-center flex-fill flex-lg-grow-0 nav-link mr-1 mt-1"
           id="nav-profile-tab"
           data-toggle="tab"
           href="#nav-add"
           role="tab"
           aria-controls="nav-profile"
-          aria-selected="false"
-          >Additional Information</a
-        >
-        <a
-          class="text-center flex-fill flex-lg-grow-0 nav-link mr-1 mt-1"
+          aria-selected="false" >Additional Information</a>
+
+        <a class="text-center flex-fill flex-lg-grow-0 nav-link mr-1 mt-1" 
           id="nav-contact-tab"
           data-toggle="tab"
           href="#nav-review"
           role="tab"
           aria-controls="nav-contact"
-          aria-selected="false"
-          >Reviews
-        </a>
-        <a
-          class="text-center flex-fill flex-lg-grow-0 nav-link mr-1 mt-1"
+          aria-selected="false">Reviews</a>
+
+        <a class="text-center flex-fill flex-lg-grow-0 nav-link mr-1 mt-1"
           id="nav-contact-tab"
           data-toggle="tab"
           href="#nav-brand"
           role="tab"
           aria-controls="nav-contact"
-          aria-selected="false"
-          >About Brand
-        </a>
+          aria-selected="false">About Brand</a>
+
       </div>
     </nav>
 
     <!-- Tab content -->
     <div class="tab-content pt-4" id="nav-tabContent">
-      <!-- Tab 1 -->
-      <div
+      <!-- Tab 1 Description -->
+      <div 
         class="tab-pane fade show active"
         id="nav-desc"
         role="tabpanel"
         aria-labelledby="nav-home-tab">
-        This is a long description
+
+       {{ product.description }}
+       
       </div>
 
       <!-- Tab 2 -->
@@ -67,7 +58,9 @@
         id="nav-add"
         role="tabpanel"
         aria-labelledby="nav-profile-tab">
-        Here are some additional information
+
+          {{ product.otherinfo }}
+
       </div>
 
       <!-- Tab 3 -->
@@ -80,10 +73,39 @@
       <!-- inside tab 3  start -->
         <div class="row">
 
+        <!-- inside tab 3  left -->
           <div class="col-12 col-md-6 ">
-            2 reviews for Gents Blue Lightweight Trainers
+
+            
+            <div class=""><span class="theme">1 review for</span>  {{ product.name }}</div>
+
+            <div class="row pt-3">
+              <div class="col-2"><div class="profileImg rounded"></div></div>
+              <div class="col-10">
+
+                <div class="d-flex justify-content-between">
+                  <span class="d-flex">
+                    <span class="d-flex mr-2 font-weight-bold theme">John Doe </span>
+                  <span class="d-flex mr-2 grey f-14">- {{ dateStamp }}</span>
+                  </span>                
+
+                  <span class="d-flex mr-2">
+                        <i class="fas fa-star theme"></i>
+                        <i class="fas fa-star theme"></i>
+                        <i class="fas fa-star theme"></i>
+                        <i class="fas fa-star theme"></i>
+                        <i class="far fa-star theme"></i>
+                  </span>
+                </div>
+
+                <div class="pt-4">Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim.</div>
+
+              </div>
+            </div>
+
           </div>
 
+          <!-- inside tab 3  right -->
           <div class="col-12 col-md-6 pb-3 pt-3 bgForm rounded">
               
             <h5>Add a review</h5>
@@ -107,12 +129,11 @@
             </div>
 
             <div class="pt-1">
-             
 
-              <form class="" >
+             <form class="" >
 
                 <!--  textbox  -->
-                    <div class="form-group pt-3">
+                <div class="form-group pt-3">
                     <label for="review" >Your review<span class="theme"> *</span></label>
                     <textarea class="form-control" id="review" rows="8" required></textarea>
                 </div>
@@ -124,23 +145,21 @@
                 </div>
 
                 <!--  Email -->
-
                 <div class="mb-3">
                   <label for="email" >Email<span class="theme"> *</span></label>
                   <input type="email" class="form-control" id="email" required />
                 </div>
 
                 <!--  Checkbox account -->
-
-            <div class="form-group">
-                <div class="form-check">
-                <input class="form-check-input" type="checkbox" value="" id="save" >
-                <label class="form-check-label" for="save">Save my name, email, and website in this browser for the next time I comment.
-                </label>
+                <div class="form-group">
+                    <div class="form-check">
+                    <input class="form-check-input" type="checkbox" value="" id="save" >
+                    <label class="form-check-label" for="save">Save my name, email, and website in this browser for the next time I comment.
+                    </label>
+                    </div>
                 </div>
-            </div>
 
-    <button type="submit" class="btn btnTheme white col-lg-auto text-uppercase text-bold pl-3 pr-3 pt-2 pb-2">Submit</button>
+                <button type="submit" class="btn btnTheme white col-lg-auto text-uppercase text-bold pl-3 pr-3 pt-2 pb-2">Submit</button>
 
               </form>
             </div>
@@ -157,23 +176,58 @@
         class="tab-pane fade"
         id="nav-brand"
         role="tabpanel"
-        aria-labelledby="nav-profile-tab"
-      >
-        Brandinfo
+        aria-labelledby="nav-profile-tab">
+
+       <img :src="'/Image/Brand/' + product.brand + '.png' " /> 
+
+      <p class="pt-3"> {{ product.brand }} is the best brand in the world!! </p>
+       
+       
       </div>
     </div>
   </div>
 </template>
 
 <script>
+import { mapActions, mapGetters } from 'vuex'
+
 export default {
   name: "ProductDetalsNavTabs",
 
-  data() {
-    return {};
-  },
-};
+  props: ['id'],
 
+  components: {},
+  
+  data() {
+    return {
+       quantity: 1,
+       dateStamp: Number
+    };
+  },
+
+  methods: {
+    ...mapActions(['getProductById']),
+
+     getDate: function() {
+          const today = new Date();
+          const date = today.getFullYear()+'-'+('0' + (today.getMonth()+1)).slice(-2) +'-'+ ('0' + today.getDate()).slice(-2) ;
+          
+          this.dateStamp = date;
+      }
+  },
+  created() {
+    this.getProductById(this.id);
+
+    setInterval(this.getDate);
+    
+  },
+  computed: {
+    ...mapGetters(['product'])
+  }
+  
+
+
+ }
 
 </script>
 
@@ -200,6 +254,12 @@ export default {
 
 .bgForm {
  background: #F6F6F6;
+}
+
+.profileImg {
+  height: 5rem;
+  width: 5rem;
+  background-color: var(--grey);
 }
 
 </style>
