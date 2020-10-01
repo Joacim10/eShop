@@ -10,7 +10,6 @@
                 </ul>
             </div>
             <div class="d-flex align-items-lg-center justify-content-between" >
-              <!-- <img class="bg-light px-3 py-1 rounded" src="/image/Brand/Bexim.png" alt=""> -->
                <img class="bg-light px-3 py-1 rounded brand img-fluid"  :src="'/Image/Brand/' + product.brand + '.png' " /> 
 
               <div class="align-items-lg-center justify-content-between ml-3">

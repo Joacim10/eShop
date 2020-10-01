@@ -1,18 +1,20 @@
 <template>
 
-  <div class="row align-items-center">
+  <div class="row align-items-center">   
 
-   <div class="col-9  pl-2 pt-0"><img class="bild rounded" :src="product.image"></div>
+   <div class="col-12 col-md-9 pt-0"><img class="bild rounded" :src="product.image"></div>
     
-    <div class="col-3 d-flex flex-column justify-content-around p-2">
+    <div class="col-3 d-none d-md-flex flex-md-column justify-content-around pl-0 pr-2 pb-2 pt-2">
 
       <span class="d-flex  mb-2"><img class="tumme rounded" :src="product.image"></span>
       <span class="d-flex  mb-2"><img class="tumme rounded" :src="product.image"></span>
       <span class="d-flex  mb-2"><img class="tumme rounded" :src="product.image"></span>
       <span class="d-flex  "><img class="tumme rounded" :src="product.image"></span>
 
-    </div> 
+    </div>
+     
   </div>
+  
 </template>
 
 <script>
@@ -29,7 +31,7 @@ export default {
 
   data() {
     return {
-       quantity: 1
+       quantity: 1,
     };
   },
 
@@ -54,7 +56,7 @@ export default {
 
 .bild {
         object-fit: cover;
-         height: 250px;
+         height: 310px;
          width: 100%;    
         object-position: top center;
     }
