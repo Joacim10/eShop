@@ -22,6 +22,7 @@ import { mapActions, mapGetters } from "vuex";
 import QuickView from '@/components/Modal/QuickView.vue'
 
 export default {
+  
   components: {
     QuickView
   },
