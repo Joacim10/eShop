@@ -1,6 +1,6 @@
 <template>
   <div class="container">
-    <div class="row mt-4 d-flex">
+    <div class="row mt-4 d-flex justify-content-between">
       <div class="mt-2 mr-5 ml-4">
         <router-link to="/"><img class="centerElement" src="/image/navigation/Logo.png"></router-link>
       </div>
