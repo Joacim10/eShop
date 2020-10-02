@@ -6,14 +6,16 @@
 export default {
 
   // här sparas data
-  state:{
+  state: {
     cart: [],
+    cartTotalDiscount: 0,
+
   },
 
   mutations: {
     // här utförs ändring av data
-    
-    ADD_TO_CART(state, {product,quantity}){
+
+    ADD_TO_CART(state, { product, quantity }) {
       //console.log(product._id)
 
       let exists = state.cart.find(item => {
@@ -23,21 +25,21 @@ export default {
       if (exists) {
         exists.quantity += quantity;
         // spara till storage
-      sessionStorage.setItem('mycart',JSON.stringify(state.cart))
+        sessionStorage.setItem('mycart', JSON.stringify(state.cart))
         return
       }
-      state.cart.push({product,quantity})
+      state.cart.push({ product, quantity })
       // spara till storage
-      sessionStorage.setItem('mycart',JSON.stringify(state.cart))
+      sessionStorage.setItem('mycart', JSON.stringify(state.cart))
 
     },
-    DELETE_FROM_CART(state,id){
+    DELETE_FROM_CART(state, id) {
       // console.log(id)
-      state.cart = state.cart.filter(item => {return item.product._id !== id})
+      state.cart = state.cart.filter(item => { return item.product._id !== id })
       // spara till storage
-      sessionStorage.setItem('mycart',JSON.stringify(state.cart))
+      sessionStorage.setItem('mycart', JSON.stringify(state.cart))
     },
-    INCREASE_QUANT_CART_ITEM(state,cartItem){
+    INCREASE_QUANT_CART_ITEM(state, cartItem) {
       // console.log(cartItem[0]._id)
       // letar efter den produkt som ska ökas i antal
       let item = state.cart.find(item => {
@@ -49,10 +51,10 @@ export default {
       if (item) {
         item.quantity += 1;
         // spara till storage
-        sessionStorage.setItem('mycart',JSON.stringify(state.cart))
+        sessionStorage.setItem('mycart', JSON.stringify(state.cart))
       }
     },
-    DECREASE_QUANT_CART_ITEM(state,cartItem){
+    DECREASE_QUANT_CART_ITEM(state, cartItem) {
       // console.log(cartItem._id)
       // letar efter den produkt som ska ökas i antal
       let item = state.cart.find(item => {
@@ -63,59 +65,78 @@ export default {
       if (item && item.quantity > 1) {
         item.quantity -= 1;
         // spara till storage
-        sessionStorage.setItem('mycart',JSON.stringify(state.cart))
+        sessionStorage.setItem('mycart', JSON.stringify(state.cart))
       }
     },
 
-    CLEAR_CART(state){
+    CLEAR_CART(state) {
       state.cart = []
       //  jm.
-      sessionStorage.setItem('mycart',JSON.stringify(state.cart))
+      sessionStorage.setItem('mycart', JSON.stringify(state.cart))
       // 
     },
 
-    SET_SHOPPINGCART(state){
+    SET_SHOPPINGCART(state) {
       let cart = JSON.parse(sessionStorage.getItem('mycart'))
       if (cart) {
         state.cart = cart
       }
     },
-    
+
+    // jm
+    ADD_TO_DISCOUNT(state, discount) {
+      console.log(discount)
+      state.cartTotalDiscount = discount
+    }
+
 
   },
 
   actions: {
     // anropas från en component
-    
-    addProductToCart({commit},{product,quantity}){
+
+    addProductToCart({ commit }, { product, quantity }) {
 
       // console.log(product)
 
-      commit('ADD_TO_CART', {product,quantity})
+      commit('ADD_TO_CART', { product, quantity })
 
     },
-    deleteProductFromCart({commit}, id){
+    deleteProductFromCart({ commit }, id) {
       // console.log('delete')
       // console.log(id)
       commit('DELETE_FROM_CART', id)
     },
-    increaseQuantity({commit},cartItem){
+    increaseQuantity({ commit }, cartItem) {
       // console.log(cartItem)
       commit('INCREASE_QUANT_CART_ITEM', cartItem)
     },
-    decreaseQuantity({commit},cartItem){
+    decreaseQuantity({ commit }, cartItem) {
       // console.log(cartItem)
       commit('DECREASE_QUANT_CART_ITEM', cartItem)
     },
 
-    clearAllCartItem({commit}){
+    clearAllCartItem({ commit }) {
       commit('CLEAR_CART')
     },
 
-    setShoppingCart({commit}){
+    setShoppingCart({ commit }) {
       commit('SET_SHOPPINGCART')
     },
-    
+
+
+    // jm
+    addDiscount({ commit }, discount) {
+      // console.log(discount)
+      commit('ADD_TO_DISCOUNT', discount)
+    },
+    setDiscount({ commit }, discount) {
+      // console.log(discount)
+      commit('ADD_TO_DISCOUNT', discount)
+    },
+
+
+
 
   },
 
@@ -130,12 +151,14 @@ export default {
       let total = 0
       if (state.cart.length !== 0) {
         state.cart.forEach(item => {
-
-          total += item.product.price * item.quantity 
-
+          total += item.product.price * item.quantity
         })
+        // jm
+        if (state.cartTotalDiscount > 0) {
+          // let price = 100;
+          total = total - (total * state.cartTotalDiscount / 100);
+        }
       }
-
       return total
     },
 
@@ -147,7 +170,12 @@ export default {
 
       return items
     },
-    
+
+
+    getCartDiscountTotal(state){
+      return state.cartTotalDiscount;
+    }
+
   }
 
 
