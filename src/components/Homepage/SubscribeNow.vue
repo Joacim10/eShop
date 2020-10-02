@@ -23,7 +23,7 @@
 }
 
 button {
-    top: 15.2rem;
+    top: 16.7rem;
     right: 1.2rem;
 }
 
