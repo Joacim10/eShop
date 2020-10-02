@@ -4,9 +4,9 @@
     <div class="row">
       <div class=" col-lg-7 text-white">
           <div class="col-lg-5 themeBg text-center pyCustom">
-          <span class="extraH1  font-weight-bold mr-2"> 30%</span>
+          <span class="extraH1  font-weight-bold mr-2 f-play text-uppercase"> 30%</span>
           <span class="extraH3 font-weight-bold"> OFF</span>
-          <p class="text-uppercase mt-2">for new customers </p>
+          <p class="mt-2 f-play text-uppercase">for new customers </p>
           <router-link to="/products"><button class=" px-5 py-3 btn mt-2 btnRadius bgDarkBlue text-uppercase text-white font-weight-bold">shop now</button></router-link>
           </div>
       

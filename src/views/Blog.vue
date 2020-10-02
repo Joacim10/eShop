@@ -2,7 +2,7 @@
 <div>
   <BlogBread />
   <div class="container">
-    <h1>Blog</h1>
+    <h1 class="f-play text-center font-weight-bold pt-3 pb-3 text-uppercase theme">Blog</h1>
   </div>
   </div>
 </template>

@@ -5,7 +5,7 @@
     <Category />
     <div class="container py-4">
       <div class="text-center pt-5">
-        <h1 class="font-weight-bold">NEW <h1 class="theme font-weight-bold d-inline-block"> ARRIVALS </h1></h1>
+        <h1 class="font-weight-bold f-play text-uppercase">NEW <h1 class="theme font-weight-bold d-inline-block f-play text-uppercase"> ARRIVALS </h1></h1>
         <div class="d-flex justify-content-center mb-3">
             <hr class="zigzag">
         </div>
@@ -18,7 +18,7 @@
     <DiscountBanner/>
     <div class="container py-4">
       <div class="text-center pt-5">
-        <h1 class="font-weight-bold">FEATURED <h1 class="theme font-weight-bold d-inline-block"> PRODUCTS </h1></h1>
+        <h1 class="font-weight-bold f-play text-uppercase">FEATURED <h1 class="theme font-weight-bold d-inline-block f-play text-uppercase"> PRODUCTS </h1></h1>
         <div class="d-flex justify-content-center mb-3">
             <hr class="zigzag">
         </div>
