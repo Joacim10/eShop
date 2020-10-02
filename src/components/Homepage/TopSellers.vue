@@ -10,11 +10,11 @@
       </div>
       <div class="row col-12 row-height px-0 mx-0">
         <div class="col-12 col-md-6 h-100 px-0">
-          <ProductCard v-if="products.data[2]" class="h-100 w-100" :showBrand="true" :product="products.data[12]"/>
+          <ProductCard v-if="products.data[2]" class="h-100 w-100 cursorPointer" :showBrand="true" :product="products.data[12]"/>
         </div>
         <div class="col-md-6 d-none d-md-flex justify-content-between flex-column h-100 px-0">
-            <ProductCard v-if="products.data[6]" class="h-50 w-100" :showBrand="true" :product="products.data[1]"/>
-            <ProductCard v-if="products.data[1]" class="h-50 w-100" :showBrand="true" :product="products.data[21]"/>
+            <ProductCard v-if="products.data[6]" class="h-50 w-100 cursorPointer" :showBrand="true" :product="products.data[1]"/>
+            <ProductCard v-if="products.data[1]" class="h-50 w-100 cursorPointer" :showBrand="true" :product="products.data[21]"/>
         </div>
       </div>
     </div>
