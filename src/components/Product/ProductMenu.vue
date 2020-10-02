@@ -46,16 +46,8 @@ export default {
   },
   computed: {
     initialColor () {
-      let border = ''
-      if (this.product.colors[0] === '#ffffff'){
-        border = '#00000'
-      } else {
-        border = '#fffff'
-      }
-
       return {
         "color": `${this.product.colors[0]}`,
-        "border-color": `${border} + !important`
       }; 
     }
   },
@@ -143,7 +135,7 @@ export default {
 } 
 
 .fa-circle::before{
-  text-shadow: 1px 1px 5px #6866668e;
+  text-shadow: 1px 1px 6px #000000a3;
 }
 
 </style>
