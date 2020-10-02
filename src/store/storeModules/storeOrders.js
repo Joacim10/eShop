@@ -11,7 +11,8 @@
 //   shippingData:{type:Object, required:[true, 'Please add shippingdata']},
 //   orderItems:{type:Array, required:[true, 'Please add order item']},
 //   orderTotalAmount:{type:Number, required:[true, 'Please add order amount']}
-
+//   paymentType:{ type: String, required: [true, 'Please add payment Type'] },
+//   shippingType:{ type: String, required: [true, 'Please add shipping Type'] }
 // })
 
 
@@ -63,7 +64,7 @@ export default {
         return response;
 
       } catch (error) {
-        console.log(error)
+        // console.log(error)
         return error;
       }
       // return {data:"order created" , newOrder}
@@ -86,13 +87,14 @@ export default {
     },
     clearShippingData({ commit }){
       commit('SET_SHIPPINGDATA',{})
+      commit('SET_SHIPPINGDATA_VALID',false)
     },
     storeShippingDataValid({ commit },value){
       commit('SET_SHIPPINGDATA_VALID',value)
     },
 
     updateOrderCreated({commit},value){
-      console.log(value)
+      // console.log(value)
       commit('SET_ORDER_CREATED', value)
     },
 
