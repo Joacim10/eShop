@@ -6,7 +6,7 @@
       <div class=" ">
         <div class="text-center">
           <p v-if="getCartDiscountTotal > 0" class="mb-0">
-            You have %{{ getCartDiscountTotal }} discount
+            You have {{ getCartDiscountTotal }}% discount
           </p>
           <p v-else class="mb-0">If you have a coupon code, please apply it below.</p>
         </div>
@@ -100,7 +100,7 @@ export default {
         // rensa input
         this.couponCode = null;
       } else if (this.getCartDiscountTotal > 0 && this.$v.$invalid) {
-        console.log('remove discount');
+        // console.log('remove discount');
         this.addDiscount(0);
       }
     },

@@ -148,7 +148,7 @@
       <button
         type="submit"
         class="btn btnTheme white col-lg-auto text-uppercase text-bold"
-        v-bind:disabled="!shippingDataValid || !acceptTerms || !isUserLoggedIn"
+        v-bind:disabled="!shippingDataValid || !acceptTerms || !isUserLoggedIn || !shoppingCart.length > 0" 
         v-on:click.prevent="submitOrder(); scrollToTop();"
       >
         Place order

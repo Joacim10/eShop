@@ -85,7 +85,7 @@ export default {
 
     // jm
     ADD_TO_DISCOUNT(state, discount) {
-      console.log(discount)
+      // console.log(discount)
       state.cartTotalDiscount = discount
     }
 
