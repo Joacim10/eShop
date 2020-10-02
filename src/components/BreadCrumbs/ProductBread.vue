@@ -27,10 +27,9 @@
 </template>
 
 <script>
-import { mapActions, mapGetters } from 'vuex'
 
 export default {
-  props: ['category', 'name', 'id'],
+  props: ['category', 'name', 'id', 'product'],
 
   
   data() {
@@ -40,13 +39,13 @@ export default {
   },
 
   methods: {
-    ...mapActions(['getProductById'])
+    
   },
   created() {
-    this.getProductById(this.id)
+    
   },
   computed: {
-    ...mapGetters(['product'])
+  
   }
 
 }

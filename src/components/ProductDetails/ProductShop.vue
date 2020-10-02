@@ -1,7 +1,6 @@
 <template>
   <div class="" v-if="product">
 
-  
     <div class="border-bottom">
       <h5 class="f-24 font-weight-bold theme pt-4">{{ product.name }}</h5>
       <p>{{ product.shortdesc }}</p>
@@ -32,14 +31,17 @@
        
         <div class="d-flex  align-items-baseline">
 
-        <span id="cartDetails" class="mr-2 d-flex">             
+        <span id="cartDetails" class="mr-2 d-flex"  v-if="itemCount >= 1">             
             <button class="btnWhite border rounded px-2"  v-on:click.stop="decreaseQuantity(product); getProductItemQuantity();">-</button>           
-             <span class="border bgWhite px-2 py-1 rounded">{{itemCount}}</span>
+             <span class="border bgWhite px-2 py-1 ">{{itemCount}}</span>
             <button class="btnWhite border px-2 rounded" v-on:click.stop="increaseQuantity(product); getProductItemQuantity();" >+</button>
         </span>
-
+        
+ 
+         <!-- <span id="cartDetails" class="d-flex"  v-else> </span> -->
+        
          <span class="mr-2  d-flex">           
-             <button class="btn btnTheme white text-nowrap " v-on:click="addProductToCart({product, quantity })" ><img src="/Image/ProductDetails/cart.png"> Add to cart</button>
+             <button class="btn btnTheme white text-nowrap " v-on:click.stop="addProductToCart({product, quantity }); getProductItemQuantity();" ><img src="/Image/ProductDetails/cart.png"> Add to cart</button>
          </span>
  
         
@@ -98,13 +100,13 @@ export default {
 
   name: "ProductShop",
   
-  props: ['id'],
+  props: ['id', 'product'],
 
   components: {},
 
   data() {
     return {
-      itemCount: null,
+      itemCount: 0,
       quantity: 1,
       newPrice: Number
     };
@@ -114,33 +116,29 @@ export default {
     ...mapActions(['getProductById', 'addProductToCart', 'addProductToWishlist', 'increaseQuantity', 'decreaseQuantity', 'deleteProductFromCart']),
 
     getProductItemQuantity() {
-      // console.log('hej')
-      //  console.log(this.id)
       let item = this.shoppingCart.find(item => item.product._id == this.id )
-     //console.log('tjoho: ', item)
+
       if(item) {
-        //  console.log('hallå')
-        //  console.log(item.product)
-        //  console.log(item.quantity)
-         this.itemCount = item.quantity;
-   
+         this.itemCount = item.quantity;   
       }
     },
 
-
  },
   created() {
-    console.log('this.id', this.id)
-    this.getProductById(this.id)
     this.getProductItemQuantity()
   },
 
-  computed: {
-    ...mapGetters(['product', 'shoppingCart', 'cart'])
+  updated: function (){
+    this.getProductItemQuantity()
+    console.log('UPDATED')
   },
 
-      mounted: function() {
-        this.newPrice = this.product.price - (this.product.price  * (this.product.discount/100))
+  computed: {
+    ...mapGetters(['shoppingCart', 'cart'])
+  },
+
+  mounted: function() {
+    this.newPrice = this.product.price - (this.product.price  * (this.product.discount/100))
     }
   
 };
