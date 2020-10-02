@@ -67,10 +67,12 @@
 
 .mtHome{
     margin-top: 5rem;
+    margin-bottom: 2rem;
 }
 
 .boxHome{
-    background-color: #20d3c148;
+    /* background-color: #20d3c148; */
+    background-color: #c0f3ed;
     border-radius: 12px;
 }
 

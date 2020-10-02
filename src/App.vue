@@ -47,6 +47,7 @@ export default {
   --mediumGrey: #cccccc;
   --white: #ffffff;
   --darkBlue: #0E153D;
+  --mediumBlue:  #0e153dd7; /* 85%*/
 }
 
 /* colors */
@@ -99,6 +100,11 @@ background-color: var(--theme);
 .bgDarkBlue{
   background-color: var(--darkBlue) !important;
 }
+
+.bgMediumBlue{
+  background-color: var(--mediumBlue) !important;
+}
+
 
 .bgMediumGrey{
   background-color: var(--mediumGrey);

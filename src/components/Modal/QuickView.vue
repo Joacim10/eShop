@@ -4,11 +4,10 @@
     
     <div class="container">
      
-
       <div class="row pt-1 pb-1">
         <!-- Left col -->
         <div class="col-12 col-lg-6"> 
-         <ProductImage :id='product._id' />
+         <ProductImage :id='product._id' :product='product' :image='product.image' />
         </div>
         <!-- Right col -->
         <div class="col-12 col-lg-6">
@@ -28,8 +27,7 @@
           <span class="d-flex"><img class="img-fluid"  :src="'/Image/Brand/' + product.brand + '.png' " /> </span>
            </div>
 
-
-         <ProductShop :id='product._id' />
+         <ProductShop :id='product._id' :product='product' />
         </div>  
       </div>
 

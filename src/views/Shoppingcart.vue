@@ -25,7 +25,7 @@
     
      <div class="container my-4">
       <div class="text-center pt-5">
-        <h1 class="font-weight-bold">YOU MAY <h1 class="theme font-weight-bold d-inline-block">ALSO LIKE </h1></h1>
+        <h1 class="font-weight-bold f-play">YOU MAY <h1 class="theme font-weight-bold d-inline-block f-play">ALSO LIKE </h1></h1>
         <div class="d-flex justify-content-center mb-3">
             <hr class="zigzag">
         </div>

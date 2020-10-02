@@ -2,14 +2,14 @@
 
   <div class="row align-items-center">   
 
-   <div class="col-12 col-md-9 pt-0"><img class="bild rounded" :src="product.image"></div>
+   <div class="col-12 col-md-9 pt-0"><img class="bild rounded" :src="image"></div>
     
     <div class="col-3 d-none d-md-flex flex-md-column justify-content-around pl-0 pr-2 pb-2 pt-2">
 
-      <span class="d-flex  mb-2"><img class="tumme rounded" :src="product.image"></span>
-      <span class="d-flex  mb-2"><img class="tumme rounded" :src="product.image"></span>
-      <span class="d-flex  mb-2"><img class="tumme rounded" :src="product.image"></span>
-      <span class="d-flex  "><img class="tumme rounded" :src="product.image"></span>
+       <span class="d-flex  mb-2"><img class="tumme rounded" :src="image"></span>
+      <span class="d-flex  mb-2"><img class="tumme rounded" :src="image"></span>
+      <span class="d-flex  mb-2"><img class="tumme rounded" :src="image"></span>
+      <span class="d-flex  "><img class="tumme rounded" :src="image"></span> 
 
     </div>
      
@@ -18,13 +18,10 @@
 </template>
 
 <script>
-
-import { mapActions, mapGetters } from 'vuex'
-
 export default {
   name: "ProductImage",
 
-  props: ['id'],
+  props: ['id', 'product', 'image'],
 
   components: {},
 
@@ -36,13 +33,13 @@ export default {
   },
 
   methods: {
-    ...mapActions(['getProductById', 'addProductToCart'])
+  
   },
   created() {
-    this.getProductById(this.id)
+  
   },
   computed: {
-    ...mapGetters(['product'])
+ 
   }
   
 

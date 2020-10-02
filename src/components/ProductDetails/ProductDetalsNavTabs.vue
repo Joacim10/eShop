@@ -189,12 +189,12 @@
 </template>
 
 <script>
-import { mapActions, mapGetters } from 'vuex'
+// import { mapActions, mapGetters } from 'vuex'
 
 export default {
   name: "ProductDetalsNavTabs",
 
-  props: ['id'],
+  props: ['id', 'product'],
 
   components: {},
   
@@ -206,9 +206,7 @@ export default {
   },
 
   methods: {
-    ...mapActions(['getProductById']),
-
-     getDate: function() {
+        getDate: function() {
           const today = new Date();
           const date = today.getFullYear()+'-'+('0' + (today.getMonth()+1)).slice(-2) +'-'+ ('0' + today.getDate()).slice(-2) ;
           
@@ -216,13 +214,12 @@ export default {
       }
   },
   created() {
-    this.getProductById(this.id);
-
+    
     setInterval(this.getDate);
     
   },
   computed: {
-    ...mapGetters(['product'])
+   
   }
   
 
