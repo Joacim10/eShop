@@ -109,10 +109,11 @@ export default {
       chBoxRememberMe: "",
       submitted: false,
       message: "",
+      messageObj: {},
     };
   },
   methods: {
-    ...mapActions(["loginUser"]),
+    ...mapActions(["loginUser","toggleModal"]),
 
     async submitForm() {
       if (this.userNameOrEmail != "" && this.passWord != "") {
@@ -124,7 +125,7 @@ export default {
 
         // om allt ok
         if (response.statusCode == 200) {
-          console.log("login submitted");
+          // console.log("login submitted");
 
           // rensa inmatningsfält
           this.userNameOrEmail = "";
@@ -133,15 +134,18 @@ export default {
           this.$v.$reset;
           
           // gå till shop ?  lås upp köpknappen ?
-          this.returnUrl = this.$route.query.returnUrl || '/'
+          this.returnUrl = this.$route.query.returnUrl || '/account/userProfile'
           this.$router.push(this.returnUrl)
 
         } else{
-        this.message = `login failed: ${response.message}`;
+          // rensa password
+          this.passWord = "";
+          // this.message = `login failed: ${response.message}`;
+          this.messageObj ={text:"Could not login, username/ email or password dont match",type:"Error"} ;
+          // visa modal / aktivera
+          this.toggleModal({modalType: 'textMessage', data: this.messageObj});
         }
 
-        
-        
       }
     },
   },
