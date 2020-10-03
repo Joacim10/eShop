@@ -23,7 +23,7 @@
         </div>
     </div>
 
-    <div class="background">
+    <div class="background borderTop">
         <button v-on:click="scrollToTop"  class="btn text-white d-none d-sm-block float-right mr-3 mt-3  themeBg"><i class="fas fa-arrow-up"></i></button>
         <div class="overlay">
             <div class="container">
@@ -122,6 +122,11 @@ export default {
 </script>
 
 <style scoped>
+
+.borderTop {
+    border-top: 3px solid var(--theme);
+}
+
 .bgGrey {
     background-color: var(--grey);
 }

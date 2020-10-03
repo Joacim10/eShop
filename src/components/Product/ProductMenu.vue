@@ -14,7 +14,7 @@
       </div>
        
       <!-- Compare -->
-      <div class="tip"> <i class="my-2 px-2 fas fa-random"></i>
+      <div class="tip"> <i v-on:click="addProductToCompare(product)" class="my-2 px-2 fas fa-random"></i>
          <span class="tiptext">Compare</span>
       </div>
 
@@ -42,7 +42,7 @@ export default {
     };
   },
   methods: {
-      ...mapActions(['addProductToCart', 'addProductToWishlist', 'toggleModal']),
+      ...mapActions(['addProductToCart', 'addProductToWishlist', 'toggleModal', 'addProductToCompare']),
   },
   computed: {
     initialColor () {
