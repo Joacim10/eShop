@@ -20,7 +20,7 @@
         <div v-if="countColor('#F385E9') != 0" class="f-16 d-flex justify-content-between align-items-center"><div class="d-flex align-items-center"><input class="pink cursorPointer" type="checkbox" v-model="colors" value="#F385E9" /><div class="color cursorNormal">Pink</div></div> <div class="cursorNormal">{{ countColor('#F385E9') }}</div> </div>
         <div v-if="countColor('#ffffff') != 0" class="f-16 d-flex justify-content-between align-items-center"><div class="d-flex align-items-center"><input class="whiteBox cursorPointer" type="checkbox" v-model="colors" value="#ffffff" /><div class="color cursorNormal">White</div></div> <div class="cursorNormal">{{ countColor('#ffffff') }}</div> </div>
         <div class="d-flex justify-content-start mt-4">
-          <button @click="clearFilter" class="theme btn btnTheme white">Clear <span class="d-none d-sm-inline-block">Filter</span></button>
+          <button @click="clearFilter" class="btn btnTheme white">Clear <span class="d-none d-sm-inline-block">Filter</span></button>
         </div>
       </div>
       <div class="products">
