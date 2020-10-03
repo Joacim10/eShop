@@ -1,7 +1,7 @@
 <template>
   <div class="container">
     <div class="text-center mt-5 theme">
-      <h2>
+      <h2 class="f-play font-weight-bold">
         Behind in every succesful buisness,
         <br />there have a strong qualified person
       </h2>

@@ -1,5 +1,5 @@
 <template>
-  <div class="pb-5">
+  <div class="pb-5" id="checkout">
     <ShoppingCartBread />
 
     <!-- här visas children som finns i routes(index.js) -->
@@ -9,7 +9,7 @@
       <CheckoutForm />
     </div>
     <div v-else>
-      <CheckoutOrderOk />
+      <CheckoutOrderOk id="orderok" />
     </div>
 
     <!--  -->

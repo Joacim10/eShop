@@ -20,8 +20,9 @@
           <p class="font-weight-bold">TOTAL</p>
           <p class="theme">${{shoppingCartTotal}}</p>
         </div>
-        <router-link to="/checkout">
-          <button
+        <router-link :to="{ path:'/checkout'}">
+          <button v-bind:disabled="shoppingCart.length === 0"
+                  v-bind:class="{btndisabled:shoppingCart.length === 0}"
             class="btnRadiusCart py-2 mt-1 themeBg border-0 text-white pxCartBtn"
           >PROCEED TO CHECKOUT</button>
         </router-link>
@@ -42,18 +43,22 @@ export default {
    
 
   computed: {
-    ...mapGetters(["shoppingCartTotal"])
+    ...mapGetters(["shoppingCartTotal",'shoppingCart'])
   }
 };
 </script>
 
 <style scoped>
+
 .pxCartBtn {
   padding-right: 50px;
   padding-left: 50px;
 }
 .btnRadiusCart {
   border-radius: 20px;
+}
+.btndisabled {
+  background-color: #8ab8b3 !important;
 }
 @media (max-width: 768px) {
   .marginCartTop {

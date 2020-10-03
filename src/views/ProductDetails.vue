@@ -28,11 +28,11 @@
 </div> <!-- end of pD container -->
          
 <!-- gröna rutor -->
-<div class="bgMediumBlue pt-1 pb-5 ">
+<div class="bgMediumBlue pt-1 pb-1">
   <Box/>
 </div>
 
-<div class="container pt-4 pb-4">
+<div class="container pt-4 ">
 
 <!-- you may also like -->
      
@@ -65,9 +65,11 @@
 </div>
 
 <!-- subscribe now -->
+<div class="pb-5 pb-md-0">
 <SubscribeNow />
-
 </div>
+</div>
+
 </template>
 
 <script>

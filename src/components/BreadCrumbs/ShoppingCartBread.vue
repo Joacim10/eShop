@@ -4,7 +4,13 @@
 <div class="d-flex">  
   <ul class="crumb">
   <li class="breadcrumb-item active"> <router-link to="/shoppingcart">Shopping Cart</router-link></li>
-  <li class="breadcrumb-item " ><router-link to="/checkout" >Checkout</router-link></li>
+  <li class="breadcrumb-item " >
+    <router-link
+     :disabled="shoppingCart.length === 0" 
+      :event="shoppingCart.length > 0 ? 'click' : ''"
+      to="/checkout" >Checkout
+    </router-link>
+  </li>
   <li class="breadcrumb-item"><router-link to="/checkout/checkoutOrderOk">Order Complete</router-link></li>
   
 </ul>
@@ -18,8 +24,11 @@
 </template>
 
 <script>
+import { mapGetters } from 'vuex'
 export default {
-
+  computed: {
+    ...mapGetters(['shoppingCart'])
+  }
 }
 </script>
 

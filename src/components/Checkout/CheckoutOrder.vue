@@ -144,11 +144,12 @@
       </div>
 
       <!-- knapp går bara att trycka på om shipping data är valid och man har godkänt vilkoren -->
+   
       <button
         type="submit"
         class="btn btnTheme white col-lg-auto text-uppercase text-bold"
-        v-bind:disabled="!shippingDataValid || !acceptTerms || !isUserLoggedIn"
-        v-on:click.prevent="submitOrder"
+        v-bind:disabled="!shippingDataValid || !acceptTerms || !isUserLoggedIn || !shoppingCart.length > 0" 
+        v-on:click.prevent="submitOrder(); scrollToTop();"
       >
         Place order
       </button>
@@ -178,6 +179,11 @@ export default {
 
   methods: {
     ...mapActions(["createNewOrder", "clearAllCartItem", "clearShippingData"]),
+    
+     scrollToTop() {
+                window.scrollTo(0,0);
+           },
+
 
     async submitOrder() {
       // skapar ett objekt med data om användare, valda produkter och leverans data
@@ -191,6 +197,7 @@ export default {
         shippingType: this.getShippingData,
         
       };
+      
       // test
       // console.log(newOrder)
       // 
