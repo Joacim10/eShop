@@ -75,8 +75,12 @@ export default {
       }
     },
     initialColor () {
+      let color = '#0000'
+      if (this.product.colors) {
+        color = this.product.colors[0]
+      }
       return {
-        "color": `${this.product.colors[0]}`,
+        "color": `${color}`,
       }; 
     }
   },
