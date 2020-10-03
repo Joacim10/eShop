@@ -28,7 +28,7 @@
     <!-- INDICATORS -->
     <ol id="carousel-indicators" class="carousel-indicators">
       <!-- CLICK FLYTTAR CAROUSELEN BEROENDE AV INDEX. ACTIVE LÄGGS TILL OM SCROLLEN MOTSVARAR INDEX PÅ INDICATOR -->
-      <li v-for="(item, index) in (computedProducts.slice(0, reduceIndicators))" :key="index"  @click="moveCarousel(0, index)" class="indicator" :class="{ 'active' : index === activeIndicator}"></li>
+      <li :v-if="numberOfIndicators" v-for="(x, index) in numberOfIndicators" :key="index"  @click="moveCarousel(0, index)" class="indicator" :class="{ 'active' : index === activeIndicator}"></li>
     </ol>
   </div>
 </template>
@@ -77,6 +77,7 @@ export default {
     this.cardWidth = (100 - (this.cardMargin * (this.windowSize - 1))) / this.windowSize
     this.paginationFactor = +((this.cardWidth + this.cardMargin).toFixed(2))
     this.reduceIndicators = - (this.windowSize -1)
+    //console.log('computedProducts.slice(0, reduceIndicators)', this.computedProducts.slice(0, this.reduceIndicators))
     this.$nextTick(() => {
       //SÄTTER CARD HEIGHT NÄR KOMPONENTEN SKAPAS
       this.cardHeight = this.$refs.carousel.clientWidth * this.cardWidth * 0.01 * 1.143
@@ -111,6 +112,14 @@ export default {
         "height": `${this.cardHeight}px !important`,
         "margin-right": `${this.cardMargin}%`
       };      
+    },
+    // NUMBER OF INDICATORS
+    numberOfIndicators() {
+      let indicators = false
+      if (this.computedProducts.length) {
+        indicators = this.computedProducts.length + this.reduceIndicators
+      }
+      return indicators
     },
     // RETURNERAR TRUE OM MAN ÄR I SLUTET AV LISTAN
     atEndOfList() {
