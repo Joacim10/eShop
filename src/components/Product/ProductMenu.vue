@@ -9,12 +9,12 @@
       </div>
 
       <!-- Wishlist - hjärtat -->
-      <div class="tip"> <i v-on:click="addProductToWishlist(product)" class="my-2 px-2 fas fa-heart"></i>
+      <div class="tip"> <i v-on:click="toggleWishlist" class="my-2 px-2 fas fa-heart" v-bind:class="{ red: includedInWishList }"></i>
          <span class="tiptext" >Wishlist</span>
       </div>
        
       <!-- Compare -->
-      <div class="tip"> <i v-on:click="addProductToCompare(product)" class="my-2 px-2 fas fa-random"></i>
+      <div class="tip"> <i v-on:click="toggleCompare" class="my-2 px-2 fas fa-random" v-bind:class="{ theme: includedInCompare }"></i>
          <span class="tiptext">Compare</span>
       </div>
 
@@ -31,7 +31,7 @@
 </template>
 
 <script>
-import { mapActions } from "vuex";
+import { mapActions, mapGetters } from "vuex";
 
 export default {
   name: "ProductMenu",
@@ -42,9 +42,38 @@ export default {
     };
   },
   methods: {
-      ...mapActions(['addProductToCart', 'addProductToWishlist', 'toggleModal', 'addProductToCompare']),
+    ...mapActions(['addProductToCart', 'addProductToWishlist', 'toggleModal', 'addProductToCompare', 'deleteProductFromWishlist', 'deleteProductFromCompare']),
+    toggleWishlist () {
+      if (!this.wishlist.includes(this.product)) {
+        this.addProductToWishlist(this.product)
+      } else {
+        this.deleteProductFromWishlist(this.product._id)
+      }
+    },
+    toggleCompare () {
+      if (!this.compare.includes(this.product)) {
+        this.addProductToCompare(this.product)
+      } else {
+        this.deleteProductFromCompare(this.product._id)
+      }
+    }
   },
   computed: {
+    ...mapGetters(['compare', 'wishlist']),
+    includedInCompare () {
+      if (this.compare !== undefined) {
+        return this.compare.includes(this.product)
+      } else {
+        return false
+      }
+    },
+    includedInWishList () {
+      if (this.wishlist !== undefined) {
+        return this.wishlist.includes(this.product)
+      } else {
+        return false
+      }
+    },
     initialColor () {
       return {
         "color": `${this.product.colors[0]}`,
@@ -136,6 +165,10 @@ export default {
 
 .fa-circle::before{
   text-shadow: 1px 1px 6px #000000a3;
+}
+
+.red {
+  color: red;
 }
 
 </style>

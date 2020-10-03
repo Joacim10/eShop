@@ -88,7 +88,7 @@ color: var(--theme) !important;
 }
 
 .theme{
-color: var(--theme);
+color: var(--theme) !important;
 }
 .theme a{
 color: var(--theme) !important;

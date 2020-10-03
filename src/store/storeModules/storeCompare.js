@@ -16,8 +16,8 @@ export default {
   mutations: {
 
     ADD_TO_COMPARE(state, product) {
-      console.log(state.compare)
-      console.log(product)
+      //console.log(state.compare)
+      //console.log(product)
 
       let exists = state.compare.find(item => { return item._id === product._id })
       

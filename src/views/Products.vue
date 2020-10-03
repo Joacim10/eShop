@@ -83,7 +83,7 @@ export default {
             item.colors === undefined ? console.log('item.colors 1', item.colors) : ''
           return (item.colors.includes(color)) 
         })
-      } else if (this.products.data !== undefined) {
+      } else if (this.products.data[0].colors !== undefined) {
         array = this.products.data.filter((item) => {
             item.colors === undefined ? console.log('item.colors 2', item.colors) : ''
           return (item.colors.includes(color)) 

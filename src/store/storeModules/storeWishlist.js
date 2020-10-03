@@ -16,8 +16,8 @@ export default {
   mutations: {
 
     ADD_TO_WISHLIST(state, product) {
-      console.log(state.wishlist)
-      console.log(product)
+      //console.log(state.wishlist)
+      //console.log(product)
 
       let exists = state.wishlist.find(item => { return item._id === product._id })
       
