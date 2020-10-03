@@ -4,8 +4,8 @@
     <div class="container">
     <div class=" py-5 pyTeam">
         <div class="text-white">
-            <h2 class="mb-0">An <span class="theme">Awsome Team</span></h2>
-            <h2 >Behind Our Online store</h2>
+            <h2 class="mb-0 f-play font-weight-bold">An <span class="theme f-play font-weight-bold">Awsome Team</span></h2>
+            <h2 class="f-play font-weight-bold" >Behind Our Online store</h2>
         </div>
     </div>
     </div>

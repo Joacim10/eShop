@@ -1,7 +1,7 @@
 <template>
     <div class="container pl-0 pr-0 mtHome">
-        <h1 class="container row font-weight-bold justify-content-center">SHOP BY<span class="theme ml-2">CATEGORY</span></h1>
-        <div class="d-flex flex-row justify-content-center text-center mb-3">
+         <h1 class="row font-weight-bold d-flex justify-content-center f-play text-uppercase">SHOP BY<span class="theme ml-2 f-play text-uppercase">CATEGORY</span></h1>
+        <div class="d-flex justify-content-center mb-3">
             <hr class="zigzag">
         </div>
         <p class="d-flex justify-content-center text-center container">We always try to give you the best product within a fast and reliable way</p>

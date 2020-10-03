@@ -1,7 +1,7 @@
 <template>
       <div class="container">
       <div class="text-center pt-5 pb-3 mb-3">
-        <h1 class="font-weight-bold">TOP <h1 class="theme d-none font-weight-bold d-md-inline-block"> SELLERS </h1><h1 class="theme d-md-none font-weight-bold d-inline-block"> SELLER </h1></h1>
+        <h1 class="font-weight-bold f-play text-uppercase">TOP <h1 class="theme d-none font-weight-bold d-md-inline-block f-play text-uppercase"> SELLERS </h1><h1 class="theme d-md-none font-weight-bold d-inline-block"> SELLER </h1></h1>
         <div class="d-flex justify-content-center my-2">
             <hr class="zigzag">
         </div>

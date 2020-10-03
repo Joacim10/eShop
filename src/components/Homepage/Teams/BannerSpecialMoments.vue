@@ -3,8 +3,8 @@
     <div class="container ">
     <div class=" py-5">
         <div class="text-white text-center">
-            <h2 class="mb-1">Some <span class="theme">Special moments,</span></h2>
-            <h2 class="mb-3" >from our company</h2>
+            <h2 class="mb-1 f-play font-weight-bold">Some <span class="theme f-play font-weight-bold">Special moments,</span></h2>
+            <h2 class="mb-3 f-play font-weight-bold" >from our company</h2>
             <p>It has survived not only five centuries, but also the leap into electronic <br>typesetting, remaining essentially unchanged.</p>
         </div>
     </div>

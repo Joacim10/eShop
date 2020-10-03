@@ -5,8 +5,8 @@
 
             <div class=" col-lg-7 text-white">
                    <div class="col-lg-5 themeBg text-center pt-5">
-                    <span class="extraH1 "> FLASH</span>
-                    <span class="extraH1  text-center"> SALE</span>
+                    <span class="extraH1 f-play font-weight-bold text-uppercase"> FLASH</span>
+                    <span class="extraH1  text-center f-play font-weight-bold text-uppercase"> SALE</span>
                   
                     <h4 class="text-uppercase pb-5 mt-3">up to 50% off</h4>
                     

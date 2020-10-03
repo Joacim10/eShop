@@ -2,7 +2,7 @@
     <div class="lightBg pl-0 pr-0 mtHome">
         <div class="container d-flex justify-content-between align-items-center">
             <div class="col-md-5 pt-5 pb-5">
-                <h1 class="pr-2 font-weight-bold">SUBSCRIBE <span class="theme">NOW</span></h1>
+                <h1 class="pr-2 font-weight-bold f-play text-uppercase">SUBSCRIBE <span class="theme f-play text-uppercase">NOW</span></h1>
                 <p class="f-16">Signup for awesome news about our new products and 
                 <br> know our special discounts on products.</p>
                 <div class="input-group mb-3 position-relative">

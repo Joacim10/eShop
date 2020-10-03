@@ -2,7 +2,7 @@
 <div>
   <WishlistBread />
   <div class="container pl-0 pr-0 mtHome">
-    <h1 class="row font-weight-bold d-flex justify-content-center">YOUR PRODUCTS<span class="theme ml-2">WISHLIST</span></h1>
+    <h1 class="row font-weight-bold d-flex justify-content-center f-play text-uppercase">YOUR PRODUCTS<span class="theme f-play font-weight-bold text-uppercase ml-2">WISHLIST</span></h1>
     <div class="d-flex justify-content-center mb-3">
         <hr class="zigzag">
     </div>
