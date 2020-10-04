@@ -27,15 +27,20 @@
 
     <!-- Shipping Options-->
     <ShippingOptions />
-        <!-- test -->
-        <!-- {{getShippingData}} -->
-        <!-- test -->
+    <!-- test -->
+    <!-- {{getShippingData}} -->
+    <!-- test -->
     <!-- Shipping Options end-->
 
     <!-- TOTAL -->
-    <div class="d-flex justify-content-between mt-3">
-      <p class="font-weight-bold text-uppercase theme">TOTAL</p>
-      <p class="theme">${{ shoppingCartTotal }}</p>
+    <div class="mt-3 mb-2">
+      <div class="d-flex justify-content-between align-items-center">
+        <p class="font-weight-bold text-uppercase theme mb-0">TOTAL</p>
+        <p class="theme mb-0">${{ shoppingCartTotal + getShippingCost}}</p>
+      </div>
+      <!-- <div v-if="getShippingCost > 0" class="mt-0 mb-0">
+        <p class="text-right mt-0 mb-0">+ ${{ getShippingCost }} Shipping</p>
+      </div> -->
     </div>
 
     <div class="theme my-hr"></div>
@@ -144,12 +149,20 @@
       </div>
 
       <!-- knapp går bara att trycka på om shipping data är valid och man har godkänt vilkoren -->
-   
+
       <button
         type="submit"
         class="btn btnTheme white col-lg-auto text-uppercase text-bold"
-        v-bind:disabled="!shippingDataValid || !acceptTerms || !isUserLoggedIn || !shoppingCart.length > 0" 
-        v-on:click.prevent="submitOrder(); scrollToTop();"
+        v-bind:disabled="
+          !shippingDataValid ||
+          !acceptTerms ||
+          !isUserLoggedIn ||
+          !shoppingCart.length > 0
+        "
+        v-on:click.prevent="
+          submitOrder();
+          scrollToTop();
+        "
       >
         Place order
       </button>
@@ -179,11 +192,10 @@ export default {
 
   methods: {
     ...mapActions(["createNewOrder", "clearAllCartItem", "clearShippingData"]),
-    
-     scrollToTop() {
-                window.scrollTo(0,0);
-           },
 
+    scrollToTop() {
+      window.scrollTo(0, 0);
+    },
 
     async submitOrder() {
       // skapar ett objekt med data om användare, valda produkter och leverans data
@@ -195,12 +207,11 @@ export default {
         orderTotalAmount: this.shoppingCartTotal,
         paymentType: this.paymentType,
         shippingType: this.getShippingData,
-        
       };
-      
+
       // test
       // console.log(newOrder)
-      // 
+      //
 
       //  skickar en "action" till store för att spara data i databas
       const response = await this.createNewOrder(newOrder);
@@ -233,6 +244,7 @@ export default {
       "isUserLoggedIn",
       "user",
       "getShippingData",
+      "getShippingCost",
     ]),
   },
 };

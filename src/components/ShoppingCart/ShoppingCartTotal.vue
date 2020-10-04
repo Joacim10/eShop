@@ -18,7 +18,7 @@
 
         <div class="d-flex justify-content-between mt-3">
           <p class="font-weight-bold">TOTAL</p>
-          <p class="theme">${{shoppingCartTotal}}</p>
+          <p class="theme">${{shoppingCartTotal + getShippingCost}}</p>
         </div>
         <router-link :to="{ path:'/checkout'}">
           <button v-bind:disabled="shoppingCart.length === 0"
@@ -43,7 +43,7 @@ export default {
    
 
   computed: {
-    ...mapGetters(["shoppingCartTotal",'shoppingCart'])
+    ...mapGetters(["shoppingCartTotal",'shoppingCart','getShippingCost',])
   }
 };
 </script>
