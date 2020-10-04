@@ -36,7 +36,7 @@
 </template>
 
 <script>
-import { mapGetters } from "vuex";
+import { mapGetters, mapActions } from "vuex";
 import ProductList from "@/components/Product/ProductList.vue"
 
 export default {
@@ -54,6 +54,7 @@ export default {
     }
   },
   methods: {
+    ...mapActions(['resetSearch']),
     changePage: function (page) {
       this.page = page
     },
@@ -66,6 +67,9 @@ export default {
         this.colors = []
         this.page = 1
         this.$router.push({path: '/products'})
+      }
+      if (this.getSearchValue !== ''){
+        this.resetSearch()
       }
     },
     countCategory: function (category) {
@@ -99,16 +103,29 @@ export default {
         this.activeFilter = ''
         this.page = 1
       }
+      if (this.getSearchValue !== ''){
+        this.resetSearch()
+      }
     }
   },
   computed:{
-    ...mapGetters(['products']),
+    ...mapGetters(['products', 'getSearchValue']),
     productsOnPage: function () {
       let startAtProduct = ((this.page - 1) * 9)
       let endAtProduct = startAtProduct + 9
-      let products = this.computedProducts.slice(startAtProduct, endAtProduct).map(i => {
-        return i
-      })
+      let products = []
+      if (this.getSearchValue !== '') {
+        let searchProducts = this.computedProducts.filter((item) => {
+            return (item.name.toUpperCase().includes(this.getSearchValue.toUpperCase())) 
+          })
+        products = searchProducts.slice(startAtProduct, endAtProduct).map(i => {
+          return i
+        })
+      } else {
+        products = this.computedProducts.slice(startAtProduct, endAtProduct).map(i => {
+          return i
+        })
+      }
       return products
     },
     numberOfPages: function () {

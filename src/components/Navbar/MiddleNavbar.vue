@@ -5,26 +5,26 @@
         <router-link to="/"><img class="centerElement" src="/image/navigation/Logo.png"></router-link>
       </div>
 
-      <div class="input-group col-6 d-none d-xl-flex mr-3">
-        <input class="inputHeader form-control" placeholder="Search here">
-        <div class="input-group-append">
-          <button
-            class="btn border dropdown-toggle"
-            type="button"
-            data-toggle="dropdown"
-            aria-haspopup="true"
-            aria-expanded="false"
-          >{{ $t("nav.categories") }}</button>
-          <div class="dropdown-menu">
-            <a class="dropdown-item" href="#">Action</a>
-          </div>
+      <form class="input-group col-6 d-none d-xl-flex mr-3" v-on:submit.prevent="search">
+          <input class="inputHeader form-control" type="text" ref="input" placeholder="Search here" >
           <div class="input-group-append">
-            <button class="btn border btnRoundRight themeBg text-white" type="button">
-              <i class="fas fa-search"></i>
-            </button>
+            <select class="btn border " id="categories" name="categories">
+              <option value="Men" class="dropdown-item" >{{ $t("nav.categories") }}</option>
+              <option value="Men" class="dropdown-item" >Men's</option>
+              <option value="Women" class="dropdown-item" >Women's</option>
+              <option value="Kids" class="dropdown-item" >Kids</option>
+              <option value="Hats" class="dropdown-item" >Hats</option>
+              <option value="Sunglasses" class="dropdown-item" >Sunglasses</option>
+              <option value="Shoes" class="dropdown-item" >Shoes</option>
+              <option value="Watches" class="dropdown-item" >Watches</option>
+            </select>
+            <div class="input-group-append">
+              <button class="btn border btnRoundRight themeBg text-white" type="submit" >
+                <i class="fas fa-search"></i>
+              </button>
+            </div>
           </div>
-        </div>
-      </div>
+        </form>
 
       <div class="mt-2 d-none d-sm-block">
         <router-link to="/account"><i class="fa-lg mr-2 far fa-user text-dark"></i></router-link>
@@ -43,11 +43,31 @@
 </template>
 
 <script>
-import { mapGetters } from 'vuex'
+import { mapGetters, mapActions } from 'vuex'
 export default {
+  name: 'MiddleNavbar',
+  data: function () {
+    return {
+      searchValue: ''
+    }
+  },
+  methods: {
+    ...mapActions(['newSearch']),
+/*     setSearchValue () {
+      this.searchValue = 
+    }, */
+    search (e) {
+      e.preventDefault()
+      if (this.$refs.input !== undefined) {
+        let value = this.$refs.input.value
+        this.newSearch(value)
+        this.$refs.input.value = ''
+      }
+    }
+  },
   computed: {
       ...mapGetters(['wishlistItemCount','shoppingCartItemCount','shoppingCartTotal', 'compareItemCount'])
-    }
+  }
 };
 </script>
 
