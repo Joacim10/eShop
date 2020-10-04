@@ -5,11 +5,24 @@
         <router-link to="/"><img class="centerElement" src="/image/navigation/Logo.png"></router-link>
       </div>
 
+
+<!-- <div class="form-group">
+  <label class="control-label col-sm-offset-2 col-sm-2" for="company">Company</label>
+  <div class="col-sm-6 col-md-4">
+    <select id="company" class="form-control">
+      <option>small</option>
+      <option>medium</option>
+      <option>large</option>
+    </select> 
+  </div>
+</div> -->
+
+
       <form class="input-group col-6 d-none d-xl-flex mr-3" v-on:submit.prevent="search">
           <input class="inputHeader form-control" type="text" ref="input" placeholder="Search here" >
           <div class="input-group-append">
-            <select class="btn border " id="categories" name="categories">
-              <option value="Men" class="dropdown-item" >{{ $t("nav.categories") }}</option>
+            <select ref="selectCategory" class="btn border form-control" id="categories" name="categories">
+              <option value="" class="dropdown-item" >{{ $t("nav.categories") }}</option>
               <option value="Men" class="dropdown-item" >Men's</option>
               <option value="Women" class="dropdown-item" >Women's</option>
               <option value="Kids" class="dropdown-item" >Kids</option>
@@ -59,9 +72,19 @@ export default {
     search (e) {
       e.preventDefault()
       if (this.$refs.input !== undefined) {
-        let value = this.$refs.input.value
-        this.newSearch(value)
+        let input = this.$refs.input.value
+        let selectCategory = ''
+        if (this.$refs.selectCategory !== undefined) {
+        selectCategory = this.$refs.selectCategory.value
+        }
+        this.newSearch({input, selectCategory})
         this.$refs.input.value = ''
+        if (this.$router.history.current.path !== '/products' ) {
+          this.$router.push({path: '/products'})
+        }
+        if (this.$router.history.current.query.category || this.$router.history.current.query.filter) {
+          this.$router.push({path: '/products'})
+        }
       }
     }
   },

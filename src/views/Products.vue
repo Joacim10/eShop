@@ -104,20 +104,26 @@ export default {
         this.page = 1
       }
       if (this.getSearchValue !== ''){
-        this.resetSearch()
+        this.resetSearch('')
       }
     }
   },
   computed:{
-    ...mapGetters(['products', 'getSearchValue']),
+    ...mapGetters(['products', 'getSearchValue', 'getCategoryValue']),
     productsOnPage: function () {
       let startAtProduct = ((this.page - 1) * 9)
       let endAtProduct = startAtProduct + 9
+
       let products = []
       if (this.getSearchValue !== '') {
         let searchProducts = this.computedProducts.filter((item) => {
             return (item.name.toUpperCase().includes(this.getSearchValue.toUpperCase())) 
           })
+          if (this.getCategoryValue !== '') {
+              searchProducts = searchProducts.filter((item) => {
+                return (item.category.toUpperCase().includes(this.getCategoryValue.toUpperCase())) 
+              })
+          }
         products = searchProducts.slice(startAtProduct, endAtProduct).map(i => {
           return i
         })
@@ -186,6 +192,7 @@ export default {
     filter: function(newVal) {
       this.activeFilter = newVal || ''
       this.page = 1
+      this.resetSearch('')
     }
   }
 };

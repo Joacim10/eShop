@@ -2,19 +2,22 @@
 
 export default {
  state: {
-  searchValue: ''
+  searchValue: '',
+  selectCategory: ''
  },
  mutations: {
   NEW_SEARCH(state, value) {
-    state.searchValue = value
+    state.searchValue = value.input
+    state.selectCategory = value.selectCategory
   },
   RESET_SEARCH(state, value) {
     state.searchValue = value
+    state.categoryValue = value
   }
  },
  actions: {
-  newSearch({ commit }, value) {
-    commit('NEW_SEARCH', value )
+  newSearch({ commit }, {input, selectCategory}) {
+    commit('NEW_SEARCH', {input, selectCategory} )
   },
   resetSearch({ commit }) {
     commit('RESET_SEARCH', '')
@@ -23,6 +26,9 @@ export default {
  getters: {
   getSearchValue(state) {
     return state.searchValue
+  },
+  getCategoryValue(state) {
+    return state.selectCategory
   }
  }
 }
