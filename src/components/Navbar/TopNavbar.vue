@@ -6,8 +6,8 @@
           <li class="nav-item dropdown">
             <div class="locale-switcher mblang d-flex ">
               <select class="dropdown-item text-white" v-model="$i18n.locale">
-                <option value="en">ENG</option>
-                <option value="sv">SWE</option>
+                <option value="en" class="text-dark">ENG</option>
+                <option value="sv" class="text-dark">SWE</option>
               </select>
 
               <select class="dropdown-item text-white locale-switcher mr-2">
