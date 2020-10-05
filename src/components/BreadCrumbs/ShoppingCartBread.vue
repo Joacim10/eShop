@@ -3,7 +3,7 @@
 <div class="container d-flex justify-content-center">
 <div class="d-flex">  
   <ul class="crumb">
-  <li class="breadcrumb-item active"> <router-link to="/shoppingcart">Shopping Cart</router-link></li>
+  <li class="breadcrumb-item " :class="{ 'theme' : orderCreatedOk === true}" > <router-link to="/shoppingcart" >Shopping Cart</router-link></li>
   <li class="breadcrumb-item " >
     <router-link
      :disabled="shoppingCart.length === 0" 
@@ -11,7 +11,7 @@
       to="/checkout" >Checkout
     </router-link>
   </li>
-  <li class="breadcrumb-item"><router-link to="/checkout/checkoutOrderOk">Order Complete</router-link></li>
+  <li  class="breadcrumb-item text-white" :class="{ 'theme' : orderCreatedOk === true}">Order Complete</li>
   
 </ul>
 </div>
@@ -27,9 +27,12 @@
 import { mapGetters } from 'vuex'
 export default {
   computed: {
-    ...mapGetters(['shoppingCart'])
+    ...mapGetters(['shoppingCart','orderCreatedOk', 'order'])
+   
   }
+  
 }
+
 </script>
 
 <style scoped>
