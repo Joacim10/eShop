@@ -16,7 +16,7 @@
             aria-expanded="false"
           >{{ $t("nav.categories") }}</button>
           <div class="dropdown-menu">
-            <a class="dropdown-item" href="#">Action</a>
+            <a class="dropdown-item" href="#" >Action</a>
           </div>
           <div class="input-group-append">
             <button class="btn border btnRoundRight themeBg text-white" type="button">
