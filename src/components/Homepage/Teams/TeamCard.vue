@@ -16,7 +16,7 @@
 
     <div class="row d-flex justify-content-center mb-5">
     
-    <div v-for="member in members" :key="member" class="card mt-3 borderCard rounded mr-3 " style="width: 16.5rem;" id="teamCard">
+    <div v-for="(member, index) in members" :key="index" class="card mt-3 borderCard rounded mr-3 " style="width: 16.5rem;" id="teamCard">
       <img class="card-img-top" src="/image/Team/Doe.png" alt="Card image cap" />
       <div  class="card-body themeBg text-center text-white" >
         <p class="card-title mb-1">{{member.name}}</p>
