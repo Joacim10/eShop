@@ -22,7 +22,7 @@
           class="m-0 p-0"
           v-if="!$v.firstName.minLength || !$v.firstName.maxLength"
         >please use between {{$v.firstName.$params.minLength.min}} and {{$v.firstName.$params.maxLength.max}} char.</p>
-        <p class="m-0 p-0" v-if="!$v.firstName.alpha">please use alpha char.</p>
+        <p class="m-0 p-0" v-if="!$v.firstName.isValidalphaRegexåäö">please use alpha char.</p>
         <!-- <div class="valid-feedback">Looks good!</div> -->
         <!-- <div class="invalid-feedback">Please insert your first name</div> -->
       </div>
@@ -45,7 +45,7 @@
           class="m-0 p-0"
           v-if="!$v.lastName.minLength || !$v.lastName.maxLength"
         >please use between {{$v.lastName.$params.minLength.min}} and {{$v.lastName.$params.maxLength.max}} char.</p>
-        <p class="m-0 p-0" v-if="!$v.lastName.alpha">please use alpha char.</p>
+        <p class="m-0 p-0" v-if="!$v.lastName.isValidalphaRegexåäö">please use alpha char.</p>
         <!-- <div class="valid-feedback">Looks good!</div> -->
         <!-- <div class="invalid-feedback">lease insert your last name</div> -->
       </div>
@@ -306,28 +306,15 @@
 <script>
 // store
 import { mapActions, mapGetters } from "vuex";
+// 
+import {isValidalphaRegexåäö, validPhonenumber }  from '../../helpers/myregexvalues.js';
+// 
 
-// /^\+?([0-9]{2})\)?[-. ]?([0-9]{4})[-. ]?([0-9]{4})$/
-// /^\(?([0-9]{3})\)?[-. ]?([0-9]{3})[-. ]?([0-9]{4})$/
-// /^[\+]?[(]?[0-9]{3}[)]?[-\s\.]?[0-9]{3}[-\s\.]?[0-9]{4,6}$/im
-//  /^[+]*[(]{0,1}[0-9]{1,3}[)]{0,1}[-\s\./0-9]*$/g
-const phoneno = /^[+]*[(]{0,1}[0-9]{1,3}[)]{0,1}[-\s./0-9]*$/g;
-
-// function som används av vuelidate för data "phoneNumber"
-const validnumber = (value) => {
-  if (value.match(phoneno)) {
-    return true;
-  } else {
-    return false;
-  }
-};
-
-// alphaNum,
+// alphaNum, alpha,
 import {
   required,
   minLength,
   maxLength,
-  alpha,
   numeric,
   email,
 } from "vuelidate/lib/validators";
@@ -405,19 +392,19 @@ export default {
   validations: {
     firstName: {
       required,
-      alpha,
+      isValidalphaRegexåäö,
       minLength: minLength(2),
       maxLength: maxLength(20),
     },
     lastName: {
       required,
-      alpha,
+      isValidalphaRegexåäö,
       minLength: minLength(2),
       maxLength: maxLength(20),
     },
     country: {
       required,
-      alpha,
+      isValidalphaRegexåäö,
     },
     streetAddress: {
       required,
@@ -427,7 +414,7 @@ export default {
     },
     city: {
       required,
-      alpha,
+      isValidalphaRegexåäö,
       maxLength: maxLength(20),
     },
     zipCode: {
@@ -439,7 +426,7 @@ export default {
       required,
       minLength: minLength(10),
       maxLength: maxLength(30),
-      validnumber,
+      validPhonenumber,
     },
     email: {
       required,
