@@ -146,9 +146,10 @@
                   <i class="theme ml-1 fas noArrow fa-angle-down"></i>
                 </div>
                 <div class="dropdown-menu" aria-labelledby="pagesNavbarDropdown">
-                  <router-link class="dropdown-item" to="/about" >About Us</router-link>
-                  <router-link class="dropdown-item" to="/team" >Team</router-link>
-                  <router-link class="dropdown-item" to="/portfolio" >Portfolio</router-link>
+                  <router-link class="dropdown-item" to="/about">About Us</router-link>
+                  <router-link class="dropdown-item" to="/team">Team</router-link>
+                  <router-link class="dropdown-item" to="/portfolio">Portfolio</router-link>
+                  <router-link class="dropdown-item" to="/contact">Contact Us</router-link>
                 </div>
               </li>
               <li class="nav-item mt-1 ml-4">
