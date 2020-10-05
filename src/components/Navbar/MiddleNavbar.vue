@@ -5,26 +5,26 @@
         <router-link to="/"><img class="centerElement" src="/image/navigation/Logo.png"></router-link>
       </div>
 
-      <div class="input-group col-6 d-none d-xl-flex mr-3">
-        <input class="inputHeader form-control" placeholder="Search here">
+      <form class="input-group col-6 d-none d-xl-flex mr-3" v-on:submit.prevent="search">
+        <input class="inputHeader form-control" type="text" ref="input" placeholder="Search here" >
         <div class="input-group-append">
-          <button
-            class="btn border dropdown-toggle"
-            type="button"
-            data-toggle="dropdown"
-            aria-haspopup="true"
-            aria-expanded="false"
-          >{{ $t("nav.categories") }}</button>
-          <div class="dropdown-menu">
-            <a class="dropdown-item" href="#" >Action</a>
-          </div>
+          <select ref="selectCategory" class="btn border form-control" id="categories" name="categories">
+            <option value="" class="dropdown-item" >{{ $t("nav.categories") }}</option>
+            <option value="Men" class="dropdown-item" >Men's</option>
+            <option value="Women" class="dropdown-item" >Women's</option>
+            <option value="Kids" class="dropdown-item" >Kids</option>
+            <option value="Hats" class="dropdown-item" >Hats</option>
+            <option value="Sunglasses" class="dropdown-item" >Sunglasses</option>
+            <option value="Shoes" class="dropdown-item" >Shoes</option>
+            <option value="Watches" class="dropdown-item" >Watches</option>
+          </select>
           <div class="input-group-append">
-            <button class="btn border btnRoundRight themeBg text-white" type="button">
+            <button class="btn border btnRoundRight themeBg text-white" type="submit" >
               <i class="fas fa-search"></i>
             </button>
           </div>
         </div>
-      </div>
+      </form>
 
       <div class="mt-2 d-none d-sm-block">
         <router-link to="/account"><i class="fa-lg mr-2 far fa-user text-dark"></i></router-link>
@@ -43,27 +43,52 @@
 </template>
 
 <script>
-import { mapGetters } from 'vuex'
+import { mapGetters, mapActions } from 'vuex'
 export default {
-  computed: {
-      ...mapGetters(['wishlistItemCount','shoppingCartItemCount','shoppingCartTotal', 'compareItemCount'])
+  name: 'MiddleNavbar',
+  data: function () {
+    return {
+      searchValue: ''
     }
+  },
+  methods: {
+    ...mapActions(['newSearch']),
+    search (e) {
+      e.preventDefault()
+      if (this.$refs.input !== undefined) {
+        let input = this.$refs.input.value
+        let selectCategory = ''
+        if (this.$refs.selectCategory !== undefined) {
+          selectCategory = this.$refs.selectCategory.value
+        }
+        this.newSearch({input, selectCategory})
+        this.$refs.input.value = ''
+        if (this.$router.history.current.path !== '/products' ) {
+          this.$router.push({path: '/products'})
+        }
+        if (this.$router.history.current.query.category || this.$router.history.current.query.filter) {
+          this.$router.push({path: '/products'})
+        }
+      }
+    }
+  },
+  computed: {
+    ...mapGetters(['wishlistItemCount','shoppingCartItemCount','shoppingCartTotal', 'compareItemCount'])
+  }
 };
 </script>
 
 <style scoped>
 .btnRoundRight{
-
   border-radius: 0px 50px 50px 0px !important;
 }
+
 .badge__{
   top: -22px;
   right: -10px;
-    
 }
 
 .inputHeader {
-
   border-radius: 30px;
 }
 
