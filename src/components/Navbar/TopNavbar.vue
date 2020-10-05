@@ -57,8 +57,8 @@
 
         <!--Visas endast i mobil X-Small -->
        <div class="mt-2 p-0 mb-2  text-white d-sm-none d-lg-none d-xl-none">
-           <router-link to="/account"><i class="fa-lg text-white far fa-user"></i></router-link>
-           <router-link to ="/shoppingcart"><i class=" text-white fa-lg ml-3 fas fa-shopping-bag"></i></router-link> 
+           <router-link to="/account"><i class="fas fa-user text-white fa-lg"></i></router-link>
+           <router-link to ="/shoppingcart"><i class=" text-white fa-lg ml-2 fas fa-shopping-bag"></i></router-link> 
               <span class="text-white ml-1 py-1">{{shoppingCartItemCount}}</span>  
               <span class="ml-2">${{shoppingCartTotal}}</span>
         </div>
