@@ -1,24 +1,24 @@
 <template>
   <div class="themeBg">
     <div class="container d-flex justify-content-between d-none">
-      <nav class="navbar navbar-expand-lg py-0 px-0">
-        <ul class="navbar-nav mr-auto border-right">
+      <nav class="navbar navbar-expand-lg py-0 px-0 border-right">
+        <ul class="navbar-nav mr-auto ">
           <li class="nav-item dropdown">
-            <div class="locale-switcher mt-2 mblang">
-              <select class="dropdown-item text-white mt-2" v-model="$i18n.locale">
+            <div class="locale-switcher mblang d-flex ">
+              <select class="dropdown-item text-white" v-model="$i18n.locale">
                 <option value="en">ENG</option>
                 <option value="sv">SWE</option>
               </select>
+
+              <select class="dropdown-item text-white locale-switcher mr-2">
+                <option value="ENG">USD</option>
+              </select>
             </div>
+            
           </li>
 
               <!-- Dropdown USD Visas bara i large skärm -->
-            <li class="nav-item dropdown d-none d-lg-block">
-               <a class="nav-link text-white" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> USD <i class="fas fa-angle-down"></i></a>
-                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                   <a class="dropdown-item" href="#">Action</a>
-                </div>
-            </li>
+           
           </ul>
       </nav>
 
@@ -81,14 +81,13 @@ export default {
 </script>
 
 <style scoped>
+
 select {
   padding: 0 !important;
   outline: none;
 }
 
-.locale-switcher {
-  margin-top: 9.3px !important;
-}
+
 .dropdown-item:hover {
   color: var(--theme);
   text-decoration: none;
@@ -101,9 +100,7 @@ select {
 }
 
 @media (max-width: 998px) {
-  .mblang {
-    margin-bottom: 10px;
-  }
+  
   .border-right {
     border-right: 0px !important;
   }
