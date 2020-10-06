@@ -423,7 +423,7 @@ input[type='radio']:after {
         width: 0.5rem;
         height: 0.5rem;
         border-radius: 15px;
-        top: -0.5rem;
+        top: -0.45rem;
         left: 2px;
         position: relative;
         background-color: var(--theme);
