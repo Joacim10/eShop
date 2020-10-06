@@ -86,7 +86,7 @@
 }
 
 .my-hover:hover { background-color: #20D3C2; }
-.my-hover:hover h6, .my-hover:hover p { color: white; }
+.my-hover:hover h6, .my-hover:hover p { color: white !important; }
 .my-hover:hover img { filter: brightness(0) invert(1)}
 
 /* Laptop */
