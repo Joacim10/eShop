@@ -60,6 +60,7 @@
               ]"
               v-bind:show="true"
             >
+              <div class="d-flex align-items-center">
               <span>
                 <input
                   type="radio"
@@ -69,10 +70,12 @@
                   v-model="paymentType"
                 />
               </span>
+             
               <!-- <span class="ml-2">Direct bank transfer</span> -->
               <label for="Directbanktransfer" class="ml-2"
                 >Direct bank transfer</label
               >
+               </div>
             </CustomToolTip>
             <br />
           </div>
@@ -90,6 +93,7 @@
               ]"
               v-bind:show="true"
             >
+              <div class="d-flex align-items-center">
               <span>
                 <input
                   type="radio"
@@ -101,6 +105,7 @@
               </span>
               <!-- <span class="ml-2">Check Payment</span> -->
               <label for="CheckPayment" class="ml-2">Check Payment</label>
+              </div>
             </CustomToolTip>
 
             <br />
@@ -119,6 +124,7 @@
               ]"
               v-bind:show="true"
             >
+            <div class="d-flex align-items-center">
               <span>
                 <input
                   type="radio"
@@ -130,6 +136,7 @@
               </span>
               <!-- <span class="ml-2">Cash on delivery</span> -->
               <label for="Cashondelivery" class="ml-2">Cash on delivery</label>
+              </div>
             </CustomToolTip>
 
             <br />
@@ -148,6 +155,7 @@
               ]"
               v-bind:show="true"
             >
+             <div class="d-flex align-items-center">
               <span>
                 <input
                   type="radio"
@@ -159,6 +167,7 @@
               </span>
               <!-- <span class="ml-2">Paypal</span> -->
               <label for="Paypal1" class="ml-2">Paypal</label>
+              </div>
 
               <span class="theme ml-2">
                 <img src="/Image/checkout/PayPalLogo.png" />
@@ -354,4 +363,58 @@ export default {
   height: 1px;
   background-color: var(--theme);
 }
+input:checked{
+  border:1px solid var(--theme);
+  border-radius: 50%;
+  width: 14px;
+  height: 14px;
+  margin-top: 1px;
+  outline: none!important;
+}
+input {
+ border:1px solid gray;
+  border-radius: 50%;
+  width: 14px;
+  height: 14px;
+  margin-top: 1px;
+  outline: none!important;
+}
+
+
+input[type='radio']:after {
+        
+        border-radius: 20px;
+        height: 8px!important;
+        width: 8px !important;
+        top: -5.6px;
+        left: 1.4px;
+        position: relative;
+        content: '';
+        display: inline-block;
+        visibility: visible;
+     
+    }
+    
+
+    input[type='radio']:checked:after {
+        width: 0.5rem;
+        height: 0.5rem;
+        border-radius: 15px;
+        top: -0.5rem;
+        left: 2px;
+        position: relative;
+        background-color: var(--theme);
+        content: '';
+        display: inline-block;
+        visibility: visible;
+   
+    }
+
+    input[type="radio"] {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+ 
+}
+  
 </style>

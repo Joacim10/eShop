@@ -49,6 +49,11 @@ export default {
 </script>
 
 <style scoped>
+button:focus {
+   outline:0px !important;
+    -webkit-appearance:none;
+    box-shadow: none !important;
+}
 
 .pxCartBtn {
   padding-right: 50px;

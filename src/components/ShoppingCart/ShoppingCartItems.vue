@@ -88,6 +88,12 @@ export default {
 </script>
 
 <style scoped>
+button:focus {
+   outline:0px !important;
+    -webkit-appearance:none;
+    box-shadow: none !important;
+}
+
 .table td {
   vertical-align: middle;
 }

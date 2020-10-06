@@ -13,8 +13,8 @@
       </div>
       
       <!-- jm  -->
-      <div class="my-input-area rounded-pill border">
-        <div class="input-group border-0">
+      <div class="my-input-area rounded-pill border ">
+        <div class="input-group border-0 ">
           <input
             type="text"
             class="form-control border-0 ml-2"
@@ -29,10 +29,10 @@
                 ($v.couponCode.$error && !$v.couponCode.maxLength),
             }"
           />
-          <div class="input-group-append">
+          <div class="input-group-append ">
             <!-- btn-outline-secondary -->
             <button
-              class="btn rounded-pill color-primary themeBg btn-outline-secondary text-light"
+              class="btn rounded-pill color-primary themeBg   text-light"
               type="button"
               id="couponCode1"
               v-on:click.prevent="applyCoupon"
@@ -131,6 +131,11 @@ export default {
 </script>
 
 <style scoped>
+.form-control, button:focus {
+   outline:0px !important;
+    -webkit-appearance:none;
+    box-shadow: none !important;
+}
 .btnRadiusSub {
   border-radius: 20px;
   right: 0%;
@@ -163,6 +168,7 @@ export default {
 .my-input-area {
   background-color: #fff;
   padding: 2px 5px 2px 5px;
+  outline:none !important;
 }
 
 @media (max-width: 375px) {

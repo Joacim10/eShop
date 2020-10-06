@@ -52,6 +52,11 @@ export default {
 html {
   scroll-behavior: smooth;
 }
+button:focus {
+   outline:0px !important;
+    -webkit-appearance:none;
+    box-shadow: none !important;
+}
 
 /* colors */
 .white{
