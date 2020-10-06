@@ -195,9 +195,11 @@
             />
             <label class="form-check-label" for="acceptTerms">
               I have read and agree to the website terms and
-              <a href="#" class="theme">conditions</a>
-              <span class="theme">*</span>
             </label>
+            <!-- <a  class="theme">conditions</a> -->
+            <label type="button" class=" btn-link theme pl-1" 
+            v-on:click.prevent="toggleModal({modalType: 'terms&conditions'})">conditions</label>
+              <span class="theme">*</span>
           </div>
         </div>
       </div>
@@ -288,7 +290,7 @@ export default {
   },
 
   methods: {
-    ...mapActions(["createNewOrder", "clearAllCartItem", "clearShippingData"]),
+    ...mapActions(["createNewOrder", "clearAllCartItem", "clearShippingData","toggleModal"]),
 
     scrollToTop() {
       window.scrollTo(0, 0);
