@@ -12,6 +12,8 @@
 
       <MessageModal v-if="modalType === 'textMessage'" :messageData="modalData" :buttonText="'OK'" />
 
+      <TermsAndConditions v-if="modalType === 'terms&conditions'"></TermsAndConditions>
+
       <!-- Den här taggen kan bytas ut mot annan komponents tag. Glöm ej import av komponent -->
       <p v-if="modalType === 'someOtherComponent'" :data="modalData"/>
 
@@ -24,12 +26,15 @@ import { mapActions, mapGetters } from "vuex";
 import QuickView from '@/components/Modal/QuickView.vue';
 // jm
 import MessageModal from './MessageModal.vue';
+// jm
+import TermsAndConditions from './TermsAndConditions.vue';
 
 export default {
   
   components: {
     QuickView,
     MessageModal,
+    TermsAndConditions,
   },
   data() {
     return {
