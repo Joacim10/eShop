@@ -51,7 +51,7 @@
        
        <div v-if="shoppingCart.length === 0" class="text-center mt-2">
         <h1 class="theme sizeMobile"> SHOPPINGCART IS EMPTY </h1>
-        <router-link to="/products"> <button class=" mt-3 py-2 btn btnTheme text-white">CHECK OUT OUR PRODUCTS</button> </router-link>
+        <router-link to="/products"> <button class=" mt-3 py-2 px-4 paddingShoppingCart btn btnTheme text-white">CHECK OUT OUR PRODUCTS</button> </router-link>
         
       </div>
       
@@ -88,6 +88,10 @@ export default {
 </script>
 
 <style scoped>
+.paddingShoppingCart {
+  padding-top: 15px !important;
+  padding-bottom: 15px !important;
+}
 button:focus {
    outline:0px !important;
     -webkit-appearance:none;
