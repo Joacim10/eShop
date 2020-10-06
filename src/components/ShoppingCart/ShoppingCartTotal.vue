@@ -20,12 +20,14 @@
           <p class="font-weight-bold">TOTAL</p>
           <p class="theme">${{shoppingCartTotal + getShippingCost}}</p>
         </div>
+        <div class="d-flex justify-content-center">
         <router-link :to="{ path:'/checkout'}">
           <button v-bind:disabled="shoppingCart.length === 0"
                   v-bind:class="{btndisabled:shoppingCart.length === 0}"
-            class="btnRadiusCart py-2 mt-1 themeBg border-0 text-white pxCartBtn"
+            class="btnRadiusCart py-2 paddingCheckout mt-1 themeBg border-0 text-white pxCartBtn"
           >PROCEED TO CHECKOUT</button>
         </router-link>
+        </div>
       </div>
     </div>
   </div>
@@ -49,6 +51,11 @@ export default {
 </script>
 
 <style scoped>
+
+.paddingCheckout {
+  padding-top: 15px !important;
+  padding-bottom: 15px !important;
+}
 button:focus {
    outline:0px !important;
     -webkit-appearance:none;
@@ -60,7 +67,7 @@ button:focus {
   padding-left: 50px;
 }
 .btnRadiusCart {
-  border-radius: 20px;
+  border-radius: 30px;
 }
 .btndisabled {
   background-color: #8ab8b3 !important;
