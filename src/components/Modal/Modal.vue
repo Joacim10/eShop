@@ -14,6 +14,8 @@
 
       <TermsAndConditions v-if="modalType === 'terms&conditions'"></TermsAndConditions>
 
+      <PrivacyPolicy v-if="modalType === 'privacypolicy'"></PrivacyPolicy>
+
       <!-- Den här taggen kan bytas ut mot annan komponents tag. Glöm ej import av komponent -->
       <p v-if="modalType === 'someOtherComponent'" :data="modalData"/>
 
@@ -28,6 +30,8 @@ import QuickView from '@/components/Modal/QuickView.vue';
 import MessageModal from './MessageModal.vue';
 // jm
 import TermsAndConditions from './TermsAndConditions.vue';
+// jm
+import PrivacyPolicy from './PrivacyPolicy.vue';
 
 export default {
   
@@ -35,6 +39,7 @@ export default {
     QuickView,
     MessageModal,
     TermsAndConditions,
+    PrivacyPolicy,
   },
   data() {
     return {

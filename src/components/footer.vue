@@ -77,9 +77,20 @@
             <div class="col-6 d-none d-sm-block col-sm-4 col-lg-3">
               <p class="theme f-18 pb-4">USEFUL LINKS</p>
               <ul class="pl-0 list-unstyled">
-                <li class="whiteDark">
+                <!-- <li class="whiteDark">
                   <a href="#" class="f-16">Privacy Policy</a>
+                </li> -->
+                <li class="whiteDark">
+                  <a
+                    type="button"
+                    class="btn-link whiteDark"
+                    v-on:click.prevent="
+                      toggleModal({ modalType: 'privacypolicy' })
+                    "
+                    >Privacy Policy</a
+                  >
                 </li>
+
                 <!-- <li class="whiteDark"><a href="#" class="f-16">Terms & Conditions</a></li> -->
                 <li class="whiteDark">
                   <a
