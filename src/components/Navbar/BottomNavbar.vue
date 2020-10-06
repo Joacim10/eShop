@@ -64,7 +64,7 @@
                 </div>
               </li>
               <li class="nav-item active ml-4 mt-1">
-                <router-link class="nav-link darkBlue active" to="/">
+                <router-link class="nav-link darkBlue active" to="/" >
                   {{ $t("nav.home") }}
                   <span class="sr-only">(current)</span>
                 </router-link>
@@ -77,17 +77,18 @@
                   data-toggle="dropdown"
                   aria-haspopup="true"
                   aria-expanded="false"
+                  
                 >
                   {{ $t("nav.shop") }}
                   <i class="theme ml-1 fas noArrow fa-angle-down"></i>
                 </div>
                 <div class="dropdown-menu" aria-labelledby="shopDropdown">
-                  <router-link class="dropdown-item" to="/shoppingcart">Shoppingcart</router-link>
-                  <router-link class="dropdown-item" to="/wishlist">Wishlist</router-link>
+                  <router-link class="dropdown-item" to="/shoppingcart"  >Shoppingcart</router-link>
+                  <router-link class="dropdown-item" to="/wishlist" >Wishlist</router-link>
                 </div>
               </li>
               <li class="nav-item ml-4 mt-1">
-                <router-link class="nav-link darkBlue" to="/products">{{ $t("nav.products") }}</router-link>
+                <router-link class="nav-link darkBlue" to="/products" >{{ $t("nav.products") }}</router-link>
               </li>
               <li class="nav-item dropdown ml-4 mt-1">
                 <div
@@ -102,32 +103,32 @@
                   <i class="theme ml-1 fas noArrow fa-angle-down"></i>
                 </div>
                 <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                  <router-link
+                  <router-link 
                     class="dropdown-item"
                     :to="{ path: '/products', query: { category: 'Men' }}"
                   >Men's</router-link>
-                  <router-link
+                  <router-link 
                     class="dropdown-item"
                     :to="{ path: '/products', query: { category: 'Women' }}"
                   >Women's</router-link>
-                  <router-link
+                  <router-link 
                     class="dropdown-item"
                     :to="{ path: '/products', query: { category: 'Kids' }}"
                   >Kids</router-link>
-                  <router-link
+                  <router-link 
                     class="dropdown-item"
                     :to="{ path: '/products', query: { category: 'Hats' }}"
                   >Hats</router-link>
-                  <router-link
+                  <router-link 
                     class="dropdown-item"
                     :to="{ path: '/products', query: { category: 'Sunglasses' }}"
                   >Sunglasses</router-link>
-                  <router-link
+                  <router-link 
                     class="dropdown-item"
                     :to="{ path: '/products', query: { category: 'Shoes' }}"
                   >Shoes</router-link>
                   <router-link
-                    class="dropdown-item"
+                    class="dropdown-item" 
                     :to="{ path: '/products', query: { category: 'Watches' }}"
                   >Watches</router-link>
                 </div>
@@ -148,16 +149,17 @@
                   <router-link class="dropdown-item" to="/about">About Us</router-link>
                   <router-link class="dropdown-item" to="/team">Team</router-link>
                   <router-link class="dropdown-item" to="/portfolio">Portfolio</router-link>
+                  <router-link class="dropdown-item" to="/contact">Contact Us</router-link>
                 </div>
               </li>
               <li class="nav-item mt-1 ml-4">
-                <router-link class="nav-link darkBlue" to="/blog">Blog</router-link>
+                <router-link class="nav-link darkBlue" to="/blog" >Blog</router-link>
               </li>
               
             </ul>
             
             <div class="my-2 my-lg-0">
-              <router-link tag="button" :to="{ path: '/products', query: { filter: 'Discount' }}"
+              <router-link   tag="button" :to="{ path: '/products', query: { filter: 'Discount' }}"
                 class="btn themeBg text-white px-3 btnRadius btnCollapse"
                 type="submit"
               >{{ $t("nav.special") }}</router-link>
@@ -224,8 +226,12 @@ export default {
   },
   computed: {
     ...mapGetters(['compareItemCount'])
+  },
+  watch: {
+    '$route' () {
+      $('#navbarSupportedContent').collapse('hide');
+    }
   }
-
 };
 </script>
 

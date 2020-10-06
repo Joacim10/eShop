@@ -97,7 +97,7 @@ export default {
 
 @media (max-width: 375px) {
   .centerElement {
-    text-align: center;
+    margin-left: 80px;
   }
 }
 </style>

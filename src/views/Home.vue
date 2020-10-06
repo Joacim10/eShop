@@ -29,7 +29,10 @@
       <Carousel class="d-none d-md-block" :windowSize="3" :badgetype="['Hot', 'Discount']"/>
     </div>
     <QuotesSlide />
-    <LatestBlog />
+    <div class="container py-4">
+      <LatestBlog class="d-lg-none" :windowSize="1" />
+      <LatestBlog class="d-none d-lg-flex" :windowSize="2" />
+    </div>
     <FlashSale />
     <TopSellers />
     <SubscribeNow />
@@ -43,7 +46,7 @@ import Category from "@/components/Homepage/Category.vue";
 import Carousel from "@/components/Carousel/Carousel.vue";
 import DiscountBanner from "@/components/Homepage/DiscountBanner.vue";
 import QuotesSlide from "@/components/Homepage/QuotesSlide.vue";
-import LatestBlog from "@/components/Homepage/LatestBlog/LatestBlog.vue";
+import LatestBlog from "@/components/Carousel/LatestBlog/LatestBlog.vue";
 import FlashSale from "@/components/Homepage/FlashSale.vue";
 import TopSellers from "@/components/Homepage/TopSellers.vue"
 import SubscribeNow from "@/components/Homepage/SubscribeNow.vue"
