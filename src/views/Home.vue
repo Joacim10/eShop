@@ -45,7 +45,7 @@ import Box from "@/components/Homepage/Box.vue";
 import Category from "@/components/Homepage/Category.vue";
 import Carousel from "@/components/Carousel/Carousel.vue";
 import DiscountBanner from "@/components/Homepage/DiscountBanner.vue";
-import QuotesSlide from "@/components/Homepage/QuotesSlide.vue";
+import QuotesSlide from "@/components/Homepage/Quotes/QuotesSlide.vue";
 import LatestBlog from "@/components/Carousel/LatestBlog/LatestBlog.vue";
 import FlashSale from "@/components/Homepage/FlashSale.vue";
 import TopSellers from "@/components/Homepage/TopSellers.vue"
