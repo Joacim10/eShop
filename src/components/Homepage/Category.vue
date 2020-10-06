@@ -1,10 +1,19 @@
 <template>
+
     <div class="container pl-0 pr-0 mtHome">
-         <h1 class="row font-weight-bold d-flex justify-content-center f-play text-uppercase">SHOP BY<span class="theme ml-2 f-play text-uppercase">CATEGORY</span></h1>
+
+     <div class="text-center pt-5">
+        <h1 class="font-weight-bold f-play text-uppercase">SHOP BY <h1 class="theme font-weight-bold d-inline-block f-play text-uppercase"> CATEGORY </h1></h1>
+
+      </div>
+ 
+        
         <div class="d-flex justify-content-center mb-3">
             <hr class="zigzag">
         </div>
+
         <p class="d-flex justify-content-center text-center container">We always try to give you the best product within a fast and reliable way</p>
+        
         <div class="grid-layout mlC">
             <div class="category-item span-1 imgNone"><img src="https://bit.ly/2RupTt5" style="height:420px;" class="img-size img-fluid"><p class="bgDarkblue ">Men</p></div>
             <div class="category-item span-1 imgNone"><img src="https://bit.ly/2GYE4o2" style="width:320px;height:420px;" class="img-size img-fluid"><p class="bgDarkblue ">Women</p></div>
@@ -14,6 +23,7 @@
             <div class="category-item span-3"><img src="https://bit.ly/3c1Ryee" class="img-size img-fluid"><p class="bgDarkblue">Sunglases</p></div>
             <div class="category-item span-1"><img src="https://bit.ly/3mv9EdE" class="img-size img-fluid"><p class="bgDarkblue ">Watches</p></div>
         </div>
+
     </div>
 </template>
 
