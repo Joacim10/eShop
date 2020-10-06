@@ -180,7 +180,13 @@
           Your personal data will be used to process your order, support your
           experience throughout this website, and for other purposes described
           in our
-          <a href="#" class="theme">privacy policy</a> .
+          <!-- <a href="#" class="theme">privacy policy</a> . -->
+          <label
+            type="button"
+            class="btn-link theme pl-1"
+            v-on:click.prevent="toggleModal({ modalType: 'privacypolicy' })"
+            >privacy policy</label
+          >
         </p>
       </div>
       <div class="mt-3 pb-3">
@@ -193,13 +199,23 @@
               id="acceptTerms"
               v-model="acceptTerms"
             />
-            <label class="form-check-label" for="acceptTerms">
-              I have read and agree to the website terms and
-            </label>
-            <!-- <a  class="theme">conditions</a> -->
-            <label type="button" class=" btn-link theme pl-1" 
-            v-on:click.prevent="toggleModal({modalType: 'terms&conditions'})">conditions</label>
+            <div class="">
+              <label class="form-check-label" for="acceptTerms">
+                I have read and agree to the website terms and
+              
+              <!-- <a  class="theme">conditions</a> -->
+              <a
+                type="button"
+                class="btn-link theme pl-1"
+                v-on:click.prevent="
+                  toggleModal({ modalType: 'terms&conditions' })
+                "
+                >conditions</a>
               <span class="theme">*</span>
+
+              </label>
+              
+            </div>
           </div>
         </div>
       </div>
@@ -229,7 +245,7 @@
         <!-- <div class="col-12"> -->
         <!-- test -->
         <CustomToolTip
-        class="col-12"
+          class="col-12"
           :customInputData="[
             { data: shippingDataValid, text: 'Billing details not complete.' },
             { data: acceptTerms, text: 'You must accept Terms.' },
@@ -290,7 +306,12 @@ export default {
   },
 
   methods: {
-    ...mapActions(["createNewOrder", "clearAllCartItem", "clearShippingData","toggleModal"]),
+    ...mapActions([
+      "createNewOrder",
+      "clearAllCartItem",
+      "clearShippingData",
+      "toggleModal",
+    ]),
 
     scrollToTop() {
       window.scrollTo(0, 0);

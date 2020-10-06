@@ -4,7 +4,7 @@
       <div class="row">
       <div class="col">
         <h4>Website Terms and Conditions</h4>
-         <div class="overflow-auto h-75">
+         <div class="overflow-auto myheigth">
         <p>
           These Terms and Conditions constitute a legally binding agreement made
           between you, whether personally or on behalf of an entity (“you”) and
@@ -69,4 +69,7 @@ export default {};
 </script>
 
 <style scoped>
+  .myheigth {
+    height: 60vh;
+  }
 </style>
