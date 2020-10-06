@@ -54,7 +54,7 @@ export default {
       items: [
         {author: 'Adam Moore', titel: 'A beautiful scenery in the world we are missing'},
         {author: 'Jonathon Doe', titel: 'We love our country, we love our peoples like ourselves'},
-        {author: 'Adam Moore', titel: 'A beautiful scenery in the world we are missing'},
+        {author: 'David Tatcher', titel: 'A beautiful scenery in the world we are missing'},
         {author: 'Jonathon Doe', titel: 'We love our country, we love our peoples like ourselves'},]
     }
   },

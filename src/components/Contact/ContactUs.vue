@@ -17,7 +17,7 @@
             </div>
         </div>
 
-        <div class="mt-4 container flex-row">
+        <div class="mt-4 container d-flex flex-row">
             <div class="col-12 col-sm-12 col-lg-6 row none">
                 <p class="theme f-24">Get in Touch</p>
                 <p class="white mP maxWidth">We have world-class, flexible support via live chat, email and phone. We guarantee that you’ll be able to have any issue resolved within 24 hours. You can contact support immediately here.</p>
