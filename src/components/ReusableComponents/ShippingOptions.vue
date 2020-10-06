@@ -98,6 +98,59 @@ data() {
 }
 </script>
 
-<style>
+<style scoped>
 
+input:checked{
+  border:1px solid var(--theme);
+  border-radius: 50%;
+  width: 14px;
+  height: 14px;
+  margin-top: 4px;
+  outline: none!important;
+}
+input {
+ border:1px solid gray;
+  border-radius: 50%;
+  width: 14px;
+  height: 14px;
+  margin-top: 4px;
+  outline: none!important;
+}
+
+
+input[type='radio']:after {
+        
+        border-radius: 20px;
+        height: 8px!important;
+        width: 8px !important;
+        top: -5.6px;
+        left: 1.4px;
+        position: relative;
+        content: '';
+        display: inline-block;
+        visibility: visible;
+     
+    }
+    
+
+    input[type='radio']:checked:after {
+        width: 0.5rem;
+        height: 0.5rem;
+        border-radius: 15px;
+        top: -0.5rem;
+        left: 2px;
+        position: relative;
+        background-color: var(--theme);
+        content: '';
+        display: inline-block;
+        visibility: visible;
+   
+    }
+
+    input[type="radio"] {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+ 
+}
 </style>
