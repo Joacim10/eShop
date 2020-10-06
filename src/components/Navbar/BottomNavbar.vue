@@ -155,12 +155,41 @@
               </li>
               
             </ul>
+            
             <div class="my-2 my-lg-0">
               <router-link tag="button" :to="{ path: '/products', query: { filter: 'Discount' }}"
                 class="btn themeBg text-white px-3 btnRadius btnCollapse"
                 type="submit"
               >{{ $t("nav.special") }}</router-link>
             </div>
+
+      <!-- Sökruta start -->
+       <div class="container d-lg-none pb-4 pt-3">
+      <form class="input-group d-flex  mr-3" v-on:submit.prevent="search">
+
+        <input class="inputHeader form-control" type="text" ref="input" placeholder="Search here" >
+        <div class="input-group-append">
+          <select ref="selectCategory" class="btn border form-control" id="categories2" name="categories2">
+            <option value="" class="dropdown-item" >{{ $t("nav.categories") }}</option>
+            <option value="Men" class="dropdown-item" >Men's</option>
+            <option value="Women" class="dropdown-item" >Women's</option>
+            <option value="Kids" class="dropdown-item" >Kids</option>
+            <option value="Hats" class="dropdown-item" >Hats</option>
+            <option value="Sunglasses" class="dropdown-item" >Sunglasses</option>
+            <option value="Shoes" class="dropdown-item" >Shoes</option>
+            <option value="Watches" class="dropdown-item" >Watches</option>
+          </select>
+          <div class="input-group-append">
+            <button class="btn border btnRoundRight themeBg text-white" type="submit" >
+              <i class="fas fa-search"></i>
+            </button>
+          </div>
+        </div>
+
+      </form>
+      </div> 
+       <!-- Sökruta end -->
+
           </div>
         </nav>
       </div>
@@ -169,7 +198,35 @@
 </template>
 
 <script>
-export default {};
+import { mapGetters, mapActions } from 'vuex'
+
+export default {
+  methods: {
+    ...mapActions(['newSearch']),
+    search (e) {
+      e.preventDefault()
+      if (this.$refs.input !== undefined) {
+        let input = this.$refs.input.value
+        let selectCategory = ''
+        if (this.$refs.selectCategory !== undefined) {
+          selectCategory = this.$refs.selectCategory.value
+        }
+        this.newSearch({input, selectCategory})
+        this.$refs.input.value = ''
+        if (this.$router.history.current.path !== '/products' ) {
+          this.$router.push({path: '/products'})
+        }
+        if (this.$router.history.current.query.category || this.$router.history.current.query.filter) {
+          this.$router.push({path: '/products'})
+        }
+      }
+    }
+  },
+  computed: {
+    ...mapGetters(['compareItemCount'])
+  }
+
+};
 </script>
 
 <style scoped>

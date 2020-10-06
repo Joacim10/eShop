@@ -5,6 +5,7 @@
         <router-link to="/"><img class="centerElement" src="/image/navigation/Logo.png"></router-link>
       </div>
 
+      <!-- Sökruta start -->
       <form class="input-group col-6 d-none d-xl-flex mr-3" v-on:submit.prevent="search">
         <input class="inputHeader form-control" type="text" ref="input" placeholder="Search here" >
         <div class="input-group-append">
@@ -25,6 +26,8 @@
           </div>
         </div>
       </form>
+
+       <!-- Sökruta end -->
 
       <div class="mt-2 d-none d-sm-block">
         <router-link to="/account"><i class="fa-lg mr-2 far fa-user text-dark"></i></router-link>
@@ -48,7 +51,7 @@ export default {
   name: 'MiddleNavbar',
   data: function () {
     return {
-      searchValue: ''
+     
     }
   },
   methods: {
@@ -78,7 +81,7 @@ export default {
 };
 </script>
 
-<style scoped>
+<style >
 .btnRoundRight{
   border-radius: 0px 50px 50px 0px !important;
 }
