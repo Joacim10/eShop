@@ -107,6 +107,8 @@ input:checked{
   height: 14px;
   margin-top: 4px;
   outline: none!important;
+   top: -5.6px;
+   left: 1.4px;
 }
 input {
  border:1px solid gray;
@@ -119,25 +121,18 @@ input {
 
 
 input[type='radio']:after {
-        
         border-radius: 20px;
         height: 8px!important;
         width: 8px !important;
-        top: -5.6px;
-        left: 1.4px;
         position: relative;
         content: '';
         display: inline-block;
-        visibility: visible;
-     
     }
     
 
     input[type='radio']:checked:after {
-        width: 0.5rem;
-        height: 0.5rem;
-        border-radius: 15px;
-        top: -0.5rem;
+    
+        top: -0.45rem;
         left: 2px;
         position: relative;
         background-color: var(--theme);
