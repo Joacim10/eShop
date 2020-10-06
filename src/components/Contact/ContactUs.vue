@@ -16,6 +16,7 @@
                 <p class="white ml-2">vanilla@website.com <br> info@website.com</p>
             </div>
         </div>
+
         <div class="mt-4 container flex-row">
             <div class="col-12 col-sm-12 col-lg-6 row none">
                 <p class="theme f-24">Get in Touch</p>
