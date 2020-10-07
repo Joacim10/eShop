@@ -380,6 +380,7 @@ export default {
 </script>
 
 <style scoped>
+
 .my-hr {
   content: "";
   width: 100%;

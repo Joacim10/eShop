@@ -63,8 +63,8 @@
                   >Watches</router-link>
                 </div>
               </li>
-              <li class="nav-item active ml-4 mt-1">
-                <router-link class="nav-link darkBlue active" to="/" >
+              <li class="nav-item active ml-4 mt-1">              
+                <router-link class="nav-link darkBlue active" to="/" >               
                   {{ $t("nav.home") }}
                   <span class="sr-only">(current)</span>
                 </router-link>
