@@ -53,8 +53,13 @@ export default {
 
     GET_USER_DATA(state) {
       let userdata = JSON.parse(sessionStorage.getItem('currentUser'))
+      let token = JSON.parse(sessionStorage.getItem('token'))
       if (userdata) {
         state.user = userdata
+        state.isUserLoggedIn = true
+      }
+      if(token){
+        state.userToken = token
       }
     }
 
@@ -100,6 +105,7 @@ export default {
           // sparar till lokal storage där vi kan hämta data senare
           //
           sessionStorage.setItem("currentUser", JSON.stringify(response.data.user));
+          sessionStorage.setItem("token", JSON.stringify(response.data.token));
 
           // spara till state
           commit('IS_USER_LOGGED_IN', true);

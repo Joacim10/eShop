@@ -21,10 +21,11 @@ export default {
     Modal
   },
   methods: {
-    ...mapActions(['getAllProducts', 'setShoppingCart'])
+    ...mapActions(['getAllProducts','getCurrentUser', 'setShoppingCart'])
   },
   created() {
     this.getAllProducts();
+    this.getCurrentUser();
     this.setShoppingCart();
   },
   computed: {
