@@ -1,6 +1,6 @@
 <template>
   <!-- "REF" GÖR DET MÖJLIGT ATT KOMMA ÅT WIDTH I PIXLAR FÖR ATT RÄKNA UT HÖJDEN PÅ KORTEN  -->
-  <div id="carousel" ref="blogCarousel" class="position-relative">
+  <div id="carousel" ref="blogCarousel" class="position-relative cursorNormal">
     <div class="card-carousel-wrapper">
       <!-- FLYTTAR CAROUSELEN OM MAN INTE ÄR BÖRJAN AV DEN -->
       <div class="card-carousel--nav__left d-none d-sm-block" @click="moveCarousel(-1, 0)" :disabled="atHeadOfList">
@@ -14,7 +14,7 @@
             <!-- TRANSFORM FLYTTAR KORTEN SÅ MYCKET MAN HAR SCROLLAT -->
             <div class="card-carousel-cards" :style="{ transform: 'translateX' + '(' + currentOffset + '%' + ')' }">
                 <!-- COMPUTED CARD SIZE LÄGGER TILL STYLE PÅ KORTEN FÖR STORLEK OCH MARGIN -->
-            <LatestBlogCard class="card-carousel--card" :style="computedCardSize" v-for="(item, index) in items" :key="index" :item="item"  />
+            <LatestBlogCard class="card-carousel--card cursorNormal" :style="computedCardSize" v-for="(item, index) in items" :key="index" :item="item"  />
             </div>
           </div>
       </div>
