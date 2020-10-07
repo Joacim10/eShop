@@ -49,7 +49,7 @@
             <a class="text-white mr-2">
               <i class="fab fa-pinterest-p"></i>
             </a>
-            <a class="text-white mr-2">
+            <a class="text-white">
               <i class="fab fa-youtube"></i>
             </a>
         </div>

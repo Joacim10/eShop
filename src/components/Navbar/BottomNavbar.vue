@@ -4,7 +4,7 @@
       <div class="container">
         <nav class="navbar-expand-lg navbar-light pt-0 pb-0">
           <button
-            class="navbar-toggler border-0"
+            class="navbar-toggler border-0 pl-0"
             type="button"
             data-toggle="collapse"
             data-target="#navbarSupportedContent"
@@ -28,7 +28,7 @@
                   aria-expanded="false"
                 >
                   <img class="mr-1 mb-1" src="/image/navigation/HamburgerPhoto.png" />
-                  <span class="mr-2 ">{{ $t("nav.brows") }}</span>
+                  <span class="mr-2 ">{{ $t("nav.browse") }}</span>
                   <i class="ml-4 fas fa-angle-down"></i>
                 </a>
 
@@ -63,8 +63,8 @@
                   >Watches</router-link>
                 </div>
               </li>
-              <li class="nav-item active ml-4 mt-1">              
-                <router-link class="nav-link darkBlue active" to="/" >               
+              <li class="nav-item active ml-xl-4 mt-1">              
+                <router-link class="nav-link darkBlue active pl-0" to="/" >               
                   {{ $t("nav.home") }}
                   <span class="sr-only">(current)</span>
                 </router-link>
@@ -85,6 +85,7 @@
                 <div class="dropdown-menu" aria-labelledby="shopDropdown">
                   <router-link class="dropdown-item" to="/shoppingcart"  >Shoppingcart</router-link>
                   <router-link class="dropdown-item" to="/wishlist" >Wishlist</router-link>
+                  <router-link class="dropdown-item" to="/compare" >Compare</router-link>
                 </div>
               </li>
               <li class="nav-item ml-4 mt-1">
@@ -159,10 +160,10 @@
             </ul>
             
             <div class="my-2 my-lg-0">
-              <router-link   tag="button" :to="{ path: '/products', query: { filter: 'Discount' }}"
+              <button v-on:click="specialOffers"
                 class="btn themeBg text-white px-3 btnRadius btnCollapse"
                 type="submit"
-              >{{ $t("nav.special") }}</router-link>
+              >{{ $t("nav.special") }}</button>
             </div>
 
       <!-- Sökruta start -->
@@ -204,7 +205,11 @@ import { mapGetters, mapActions } from 'vuex'
 
 export default {
   methods: {
-    ...mapActions(['newSearch']),
+    ...mapActions(['newSearch', 'resetSearch']),
+    specialOffers() {
+      this.resetSearch()
+      this.$router.push({ path: '/products', query: { filter: 'Discount' }})
+    },
     search (e) {
       e.preventDefault()
       if (this.$refs.input !== undefined) {

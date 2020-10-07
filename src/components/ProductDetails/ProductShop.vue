@@ -130,7 +130,7 @@ export default {
 
   updated: function (){
     this.getProductItemQuantity()
-    console.log('UPDATED')
+    //console.log('UPDATED')
   },
 
   computed: {
