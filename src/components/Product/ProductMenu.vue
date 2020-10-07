@@ -2,7 +2,7 @@
     <div id="productMenu" v-on:click.stop>
 
       <!-- Färgplupparna -->
-      <div class="tip"><i class="my-2 px-2 fas fa-circle" :style="initialColor"></i>
+      <div class="tip"><i class="my-2 px-2 fas fa-circle cursorNormal" :style="initialColor"></i>
         <span class="tipcolors tiptext pl-1">
           <i v-for="(color, index) in product.colors" :key="index" class="fas fa-circle pr-1" :style="{'color': color}"></i> 
         </span>
@@ -154,25 +154,14 @@ export default {
 #productMenu .tipcolors i {
  text-decoration: none;
 } 
-#productMenu .green {
-  color: #82d8c6 !important;
-}
-#productMenu .purple {
-  color: #ca82d8 !important;
-}
-#productMenu .red {
-  color: #fe6c6c !important;
-}
-#productMenu .black {
-  color: #333333 !important;
-} 
+
 
 .fa-circle::before{
   text-shadow: 1px 1px 6px #000000a3;
 }
 
 .red {
-  color: red;
+  color: red !important;
 }
 
 </style>

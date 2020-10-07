@@ -133,9 +133,8 @@ export default {
 
   updated: function (){
     this.getProductItemQuantity()
-    //console.log('UPDATED')
     this.newPrice = this.product.price - (this.product.price  * (this.product.discount/100))
-    console.log('UPDATED')
+    //console.log('UPDATED')
   },
 
   computed: {

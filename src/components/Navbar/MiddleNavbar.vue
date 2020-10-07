@@ -1,7 +1,7 @@
 <template>
   <div class="container">
-    <div class="row mt-4 d-flex justify-content-between">
-      <div class="mt-2 mr-5 ml-4">
+    <div class="mt-4 d-flex justify-content-between">
+      <div class="mt-2 mr-5 ml-0">
         <router-link to="/"><img class="centerElement" src="/image/navigation/Logo.png"></router-link>
       </div>
 
@@ -32,11 +32,11 @@
       <div class="mt-2 d-none d-sm-block">
         <router-link to="/account"><i class="fa-lg mr-2 far fa-user text-dark"></i></router-link>
         <router-link to="/account"><span class="mr-4 text-dark">{{ $t("nav.account") }}</span></router-link>
-        <router-link to="/wishlist"><i class="text-dark fa-lg ml-3 far fa-heart position-relative"><span class="badge themeBg rounded-pill badge-primary position-absolute badge__">{{wishlistItemCount}}</span></i></router-link>
-        <router-link to="/compare"><i class="text-dark fa-lg ml-3 fas fa-random position-relative"><span class="badge themeBg rounded-pill badge-primary position-absolute badge__">{{compareItemCount}}</span></i></router-link>
+        <router-link to="/wishlist"><i class="text-dark fa-lg ml-3 far fa-heart position-relative"><span v-if="wishlistItemCount != 0" class="fadeIn badge themeBg rounded-pill badge-primary position-absolute badge__">{{wishlistItemCount}}</span></i></router-link>
+        <router-link to="/compare"><i class="text-dark fa-lg ml-3 fas fa-random position-relative"><span v-if="compareItemCount != 0" class="fadeIn badge themeBg rounded-pill badge-primary position-absolute badge__">{{compareItemCount}}</span></i></router-link>
         <a>
           <router-link to="/shoppingcart"><i class="text-dark fa-lg ml-3 fas fa-shopping-bag position-relative">
-            <span class="badge themeBg rounded-pill badge-primary position-absolute badge__">{{shoppingCartItemCount}}</span>
+            <span v-if="shoppingCartItemCount != 0" class="fadeIn badge themeBg rounded-pill badge-primary position-absolute badge__">{{shoppingCartItemCount}}</span>
           </i> </router-link>
         </a>
         <span class="ml-2">${{shoppingCartTotal}}</span>
@@ -82,6 +82,18 @@ export default {
 </script>
 
 <style >
+.fadeIn {
+    animation: fade 0.3s linear 1 forwards;
+}
+
+@keyframes fade {
+	0% {
+		opacity: 0;
+	}
+	100% {
+		opacity: 1;
+	}
+}
 
 .btnRoundRight{
   border-radius: 0px 50px 50px 0px !important;
