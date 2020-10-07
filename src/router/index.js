@@ -2,6 +2,9 @@ import Vue from 'vue'
 import VueRouter from 'vue-router'
 import Home from '../views/Home.vue'
 
+// jm
+// import {canActivateRoute} from './protectedRoute';
+
 Vue.use(VueRouter)
 
 const routes = [
@@ -62,11 +65,13 @@ const routes = [
     children:[
       { path: 'userProfile',
       name: 'UserProfile',
-      component: () => import('../components/Account/UserProfile.vue')},
+      component: () => import('../components/Account/UserProfile.vue'),
+      meta:{authorize:true,mustBe:'user'} },
 
       { path: 'userOrders',
       name: 'UserOrders',
-      component: () => import('../components/Account/UserOrders.vue')}
+      component: () => import('../components/Account/UserOrders.vue'),
+      meta:{authorize:true,mustBe:'user'} }
     ]
   },
   {
@@ -133,6 +138,38 @@ const router = new VueRouter({
       return { x: 0, y: 0 }
     }
   },
+})
+
+// kontroll om användare är inloggad och får gå till en viss sida
+router.beforeEach((to, from, next)=>{
+  // hämtar de typer som skickats med i metadata
+  const {authorize,mustBe} = to.meta;
+  // hämtar id för inloggad user
+  const currentUser = JSON.parse(sessionStorage.getItem('currentUser'))
+
+  if (authorize) {
+
+    if (currentUser) {
+
+      // let uservalid = canActivateRoute(to, mustBe,currentUser);
+      // console.log(uservalid)
+
+      if (!currentUser.id) {
+        return next({path:'/account', query: {returnUrl: to.path}})
+      }
+
+    } else {
+      return next({path:'/account', query: {returnUrl: to.path}})
+    }
+
+    // if (uservalid) {
+    //     return next({path:'/account', query: {returnUrl: to.path}})
+    // } else {
+    //   return next({path:'/account', query: {returnUrl: to.path}})
+    // }
+  }
+  next();
+
 })
 
 export default router

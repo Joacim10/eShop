@@ -29,15 +29,14 @@
       <Carousel class="d-none d-md-block" :windowSize="3" :badgetype="['Hot', 'Discount']"/>
     </div>
     <QuotesSlide />
-    <div class="container py-4">
-           <div class="text-center pt-5">
-        <h1 class="font-weight-bold f-play text-uppercase">Latest <h1 class="theme font-weight-bold d-inline-block f-play text-uppercase"> Blog </h1></h1>
-      </div>
-         
-        <div class="d-flex justify-content-center mb-3">
-            <hr class="zigzag">
-        </div>
 
+    <div class="container py-4 my-5">
+      <h1 class="text-center f-play text-uppercase theme font-weight-bold ">
+        Latest
+        <span class="darkBlue">blog</span>
+      </h1>
+      <hr class="zigzag" />
+      <p class="mb-3 text-center">Read our latest posts about our events and trending news</p>
       <LatestBlog class="d-lg-none" :windowSize="1" />
       <LatestBlog class="d-none d-lg-flex" :windowSize="2" />
     </div>
