@@ -30,6 +30,14 @@
     </div>
     <QuotesSlide />
     <div class="container py-4">
+           <div class="text-center pt-5">
+        <h1 class="font-weight-bold f-play text-uppercase">Latest <h1 class="theme font-weight-bold d-inline-block f-play text-uppercase"> Blog </h1></h1>
+      </div>
+         
+        <div class="d-flex justify-content-center mb-3">
+            <hr class="zigzag">
+        </div>
+
       <LatestBlog class="d-lg-none" :windowSize="1" />
       <LatestBlog class="d-none d-lg-flex" :windowSize="2" />
     </div>

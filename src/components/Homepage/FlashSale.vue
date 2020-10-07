@@ -33,7 +33,7 @@
                         <small>Seconds</small>
                     </div> 
                     </div>
-                   <button class=" mt-5 btn px-5 pt-3 pb-2 btn-light btnRadius theme text-uppercase font-weight-bold btn-sm elementCenterSm"><h6>Shop now</h6></button>
+                   <button class=" mt-5 btn px-5 pt-3 pb-2 btnWhite text-uppercase font-weight-bold btn-sm elementCenterSm"><h6>Shop now</h6></button>
             </div>
 
             </div>

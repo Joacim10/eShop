@@ -7,14 +7,14 @@
           <span class="extraH1  font-weight-bold mr-2 f-play text-uppercase"> 30%</span>
           <span class="extraH3 font-weight-bold"> OFF</span>
           <p class="mt-2 f-play text-uppercase">for new customers </p>
-          <router-link to="/products"><button class=" px-5 py-3 btn mt-2 btnRadius bgDarkBlue text-uppercase text-white font-weight-bold">shop now</button></router-link>
+          <router-link to="/products"><button class=" px-5 py-3 btn mt-2 btnRadius btnDarkBlue text-uppercase font-weight-bold">shop now</button></router-link>
           </div>
       
       </div>
       <div class="col-lg-5 text-white align-self-center py-5  text-lg-left elementCenterSm">
           <small>Donec pulvinar arcu vitae ipsum varius cursus. Nunc iaculis fermentum iaculis. Nunc pulvinar purus at erat lacinia, ut convallis nibh consequat. Integer nulla nisi, aliquam at tellus a, viverra scelerisque purus. Nam pretium iaculis ultrices.</small>
           <div class="mt-4 text-sm-center  text-lg-left">
-          <button class="btn pxDiscountBtn py-3  btn-light btnRadius theme text-uppercase f-18 btn-sm"> Learn more</button>
+          <button class="btn pxDiscountBtn py-3  btnWhite btnRadius  text-uppercase f-18 btn-sm"> Learn more</button>
           </div>
           
       </div>

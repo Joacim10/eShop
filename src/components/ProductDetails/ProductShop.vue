@@ -14,11 +14,12 @@
         <span class="d-flex f-24 font-weight-bold theme pr-3" v-if="product.discount === 0" >
           {{ product.currency }}{{ product.price }}
         </span> 
-
+        
         <span class="d-flex align-items-baseline" v-else>
-          <span class="d-flex f-24 font-weight-bold theme pr-3">{{ product.currency }}{{ product.price }} </span> 
-          <span class=" d-flex pr-3 grey"><s>{{ product.currency }}{{ newPrice }}</s></span>        
+          <span class="d-flex f-24 font-weight-bold theme pr-3">{{ product.currency }}{{ newPrice }}</span> 
+          <span class=" d-flex pr-3 grey"><s>{{ product.currency }}{{ product.price }} </s></span>        
         </span>
+
 
         <span class="small d-flex align-items-baseline ">
           <img src="/Image/ProductDetails/InStock.png" class="d-flex mr-1"> In stock
@@ -47,12 +48,12 @@
         
           <span id="Choices" class="mr-2  d-flex">    
 
-              <span class="tip mr-2"><img src="/Image/ProductDetails/Choices/color_round.png">
-                <span class="tiptext" >Colors</span>         
+              <span class="tip tip2 mr-2"><img src="/Image/ProductDetails/Choices/color_round.png" >
+                <span class="tiptext tiptext2"><i v-for="(color, index) in product.colors" :key="index" class="fas fa-circle pr-1"  :style="{'color': color}" ></i> </span>         
               </span>
 
-              <span class="tip mr-2"><img src="/Image/ProductDetails/Choices/compare_round.png">
-                <span class="tiptext" >Random</span>         
+              <span class="tip mr-2"><img src="/Image/ProductDetails/Choices/compare_round.png" v-on:click="addProductToCompare(product)">
+                <span class="tiptext" >Compare</span>         
               </span>
 
              <span class="tip mr-2"><img src="/Image/ProductDetails/Choices/heart_round.png" v-on:click="addProductToWishlist(product)" >
@@ -110,10 +111,12 @@ export default {
       quantity: 1,
       newPrice: Number
     };
+
+    
   },
 
   methods: {
-    ...mapActions(['getProductById', 'addProductToCart', 'addProductToWishlist', 'increaseQuantity', 'decreaseQuantity', 'deleteProductFromCart']),
+    ...mapActions(['getProductById', 'addProductToCart', 'addProductToWishlist', 'increaseQuantity', 'decreaseQuantity', 'deleteProductFromCart', 'addProductToCompare']),
 
     getProductItemQuantity() {
       let item = this.shoppingCart.find(item => item.product._id == this.id )
@@ -130,6 +133,8 @@ export default {
 
   updated: function (){
     this.getProductItemQuantity()
+    //console.log('UPDATED')
+    this.newPrice = this.product.price - (this.product.price  * (this.product.discount/100))
     console.log('UPDATED')
   },
 
@@ -138,8 +143,9 @@ export default {
   },
 
   mounted: function() {
-    this.newPrice = this.product.price - (this.product.price  * (this.product.discount/100))
+   this.newPrice = this.product.price - (this.product.price  * (this.product.discount/100))
     }
+
   
 };
 </script>
@@ -186,7 +192,7 @@ export default {
 
 
   .tip .tiptext::after {
-   content: "";
+  content: "";
   position: absolute;
   top: 135%;
   left: 50%;
@@ -199,6 +205,22 @@ export default {
  }
     
  .tip:hover .tiptext {
+    visibility: visible !important;
+    opacity: 1;
+  }
+
+
+ .tip2 .tiptext2 { 
+  background-color: #f0eeee !important ;
+  color: var(--darkBlue) !important;
+ }
+
+
+ .tip2 .tiptext2::after {
+   border-color: transparent #f0eeee  transparent  transparent !important;
+ }
+    
+ .tip2:hover .tiptext2 {
     visibility: visible !important;
     opacity: 1;
   }
