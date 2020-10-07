@@ -4,7 +4,7 @@
   <table class="table" v-if="shoppingCart.length > 0"> 
       <thead class="mb-0 mt-0 border-bottom py-0">
         <tr>
-          <th class="py-0">Products</th>
+          <th class="py-0 pl-4">Products</th>
           <th class="py-0">Price</th>
           <th class="py-0">Quantity</th>
           <th class="py-0">Subtotal</th>
@@ -15,7 +15,7 @@
           <th scope="row ">
            
             
-            <i v-on:click.stop="deleteProductFromCart(cartItem.product._id)" class="fas fa-times-circle"></i>
+            <i v-on:click.stop="deleteProductFromCart(cartItem.product._id)" class="fas fa-times-circle ml-2 "></i>
             
             <span class="mr-3">
             <img class="img-fluid imageWidth ml-1 " :src="`${cartItem.product.image}`" alt="">

@@ -196,6 +196,10 @@ export default {
 .regText {
   color: #777777 !important;
 }
+.form-control {
+  border: 0;
+}
+
 
 /* klasser för vuelidate */
 .invalid {
