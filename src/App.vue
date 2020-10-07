@@ -21,10 +21,11 @@ export default {
     Modal
   },
   methods: {
-    ...mapActions(['getAllProducts'])
+    ...mapActions(['getAllProducts','getCurrentUser'])
   },
   created() {
     this.getAllProducts();
+    this.getCurrentUser();
   },
   computed: {
     ...mapGetters(['showModal']),
