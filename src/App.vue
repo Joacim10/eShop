@@ -215,11 +215,11 @@ background-color: var(--productBG);
 }
 
 .cursorNormal{
-  cursor: default;
+  cursor: default !important;
 }
 
 .cursorPointer{
-  cursor: pointer;
+  cursor: pointer !important;
 }
 
 

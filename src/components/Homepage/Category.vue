@@ -15,13 +15,21 @@
         <p class="d-flex justify-content-center text-center container">We always try to give you the best product within a fast and reliable way</p>
         
         <div class="grid-layout mlC">
-            <div class="category-item span-1 imgNone"><img src="https://bit.ly/2RupTt5" style="height:420px;" class="img-size img-fluid"><p class="bgDarkblue ">Men</p></div>
-            <div class="category-item span-1 imgNone"><img src="https://bit.ly/2GYE4o2" style="width:320px;height:420px;" class="img-size img-fluid"><p class="bgDarkblue ">Women</p></div>
-            <div class="category-item span-1 imgNone"><img src="https://bit.ly/3hvaYcA" style="height:420px;" class="img-size img-fluid"><p class="bgDarkblue ">Kids</p></div>
-            <div class="category-item span-2"><img src="https://bit.ly/2E4c29B" class="img-size img-fluid"><p class="bgDarkblue ">Shoes</p></div>
-            <div class="category-item span-2 imgNone"><img src="https://bit.ly/2ZDEhDG" style="height:293px;" class="img-size img-fluid"><p class="bgDarkblue ">Hats</p></div>
-            <div class="category-item span-3"><img src="https://bit.ly/3c1Ryee" class="img-size img-fluid"><p class="bgDarkblue">Sunglases</p></div>
-            <div class="category-item span-1"><img src="https://bit.ly/3mv9EdE" class="img-size img-fluid"><p class="bgDarkblue ">Watches</p></div>
+        
+            <div class="category-item span-1 imgNone"><router-link :to="{ path: '/products', query: { category: 'Men' }}">
+                <img src="https://bit.ly/2RupTt5" style="height:420px;" class="img-size img-fluid"><p class="bgDarkblue ">Men</p></router-link></div>
+            <div class="category-item span-1 imgNone"><router-link :to="{ path: '/products', query: { category: 'Women' }}">
+                <img src="https://bit.ly/2GYE4o2" style="width:320px;height:420px;" class="img-size img-fluid"><p class="bgDarkblue ">Women</p></router-link></div>
+            <div class="category-item span-1 imgNone"><router-link :to="{ path: '/products', query: { category: 'Kids' }}">
+                <img src="https://bit.ly/3hvaYcA" style="height:420px;" class="img-size img-fluid"><p class="bgDarkblue ">Kids</p></router-link></div>
+            <div class="category-item span-2"><router-link :to="{ path: '/products', query: { category: 'Shoes' }}">
+                <img src="https://bit.ly/2E4c29B" class="img-size img-fluid"><p class="bgDarkblue ">Shoes</p></router-link></div>
+            <div class="category-item span-2 imgNone"><router-link :to="{ path: '/products', query: { category: 'Hats' }}">
+                <img src="https://bit.ly/2ZDEhDG" style="height:293px;" class="img-size img-fluid"><p class="bgDarkblue ">Hats</p></router-link></div>
+            <div class="category-item span-3"><router-link :to="{ path: '/products', query: { category: 'Sunglases' }}">
+                <img src="https://bit.ly/3c1Ryee" class="img-size img-fluid"><p class="bgDarkblue">Sunglases</p></router-link></div>
+            <div class="category-item span-1"><router-link :to="{ path: '/products', query: { category: 'Watches' }}">
+                <img src="https://bit.ly/3mv9EdE" class="img-size img-fluid"><p class="bgDarkblue ">Watches</p></router-link></div>
         </div>
 
     </div>
