@@ -82,6 +82,7 @@ export default {
 </script>
 
 <style >
+
 .btnRoundRight{
   border-radius: 0px 50px 50px 0px !important;
 }

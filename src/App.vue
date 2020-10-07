@@ -38,7 +38,7 @@ export default {
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700;900&display=swap');
 
 :root{
-  --theme: #20D3C2;
+  --theme: #20d3c2;
   --sale: #64CB83;
   --hot: #FE4545;
   --lightGrey: #f6f6f6;
@@ -50,6 +50,21 @@ export default {
   --darkBlue: #0E153D;
   --mediumBlue:  #0e153dd7; /* 85%*/
 }
+select:focus{
+  box-shadow: none!important;
+  border-color: var(--theme)!important;
+}
+
+input:focus{
+ box-shadow: none!important;
+ border-color: var(--theme)!important; 
+}
+textarea:focus{
+  box-shadow: none !important;
+  border-color: var(--theme)!important;
+}
+
+
 html {
   scroll-behavior: smooth;
 }
