@@ -30,9 +30,9 @@
 
     <div class="jumbotron p-0">
       <div class="container">
-        <div class="row align-items-center pt-5 pt-lg-0 pb-4 pb-lg-0 ">
+        <div class="row align-items-center pt-5 pt-lg-0 pb-0 pb-lg-0 ">
             
-          <div class="col-12 col-md-6  col-lg-4 ">
+          <div class="col-12 col-md-6  col-lg-5 pb-4 ">
             <h1 class="f-play">{{ $t("header.shoping") }}</h1>
             <h1 class="font-weight-bold theme f-play text-uppercase">
               {{ $t("header.fun") }}
@@ -51,7 +51,7 @@
             </p>
           </div>
 
-          <div class="d-none d-md-block col-12 col-md-6 col-lg-8 overflow-hidden funImg ">
+          <div class="d-none d-md-block col-12 col-md-6 col-lg-7 overflow-hidden funImg text-center">
             <img
               src="/Image/ShoppingFun/couple2.png"
               class="img-fluid "

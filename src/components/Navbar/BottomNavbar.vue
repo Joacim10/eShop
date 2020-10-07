@@ -160,7 +160,7 @@
             
             <div class="my-2 my-lg-0">
               <router-link   tag="button" :to="{ path: '/products', query: { filter: 'Discount' }}"
-                class="btn themeBg text-white px-3 btnRadius btnCollapse"
+                class="btn btnTheme px-3 btnRadius btnCollapse"
                 type="submit"
               >{{ $t("nav.special") }}</router-link>
             </div>
