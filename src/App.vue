@@ -21,10 +21,11 @@ export default {
     Modal
   },
   methods: {
-    ...mapActions(['getAllProducts'])
+    ...mapActions(['getAllProducts', 'setShoppingCart'])
   },
   created() {
     this.getAllProducts();
+    this.setShoppingCart();
   },
   computed: {
     ...mapGetters(['showModal']),
