@@ -29,6 +29,7 @@
       <Carousel class="d-none d-md-block" :windowSize="3" :badgetype="['Hot', 'Discount']"/>
     </div>
     <QuotesSlide />
+
     <div class="container py-4 my-5">
       <h1 class="text-center f-play text-uppercase theme font-weight-bold ">
         Latest

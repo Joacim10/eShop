@@ -21,10 +21,11 @@ export default {
     Modal
   },
   methods: {
-    ...mapActions(['getAllProducts', 'setShoppingCart'])
+    ...mapActions(['getAllProducts','getCurrentUser', 'setShoppingCart'])
   },
   created() {
     this.getAllProducts();
+    this.getCurrentUser();
     this.setShoppingCart();
   },
   computed: {
@@ -38,7 +39,7 @@ export default {
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700;900&display=swap');
 
 :root{
-  --theme: #20D3C2;
+  --theme: #20d3c2;
   --sale: #64CB83;
   --hot: #FE4545;
   --lightGrey: #f6f6f6;
@@ -50,6 +51,21 @@ export default {
   --darkBlue: #0E153D;
   --mediumBlue:  #0e153dd7; /* 85%*/
 }
+select:focus{
+  box-shadow: none!important;
+  border-color: var(--theme)!important;
+}
+
+input:focus{
+ box-shadow: none!important;
+ border-color: var(--theme)!important; 
+}
+textarea:focus{
+  box-shadow: none !important;
+  border-color: var(--theme)!important;
+}
+
+
 html {
   scroll-behavior: smooth;
 }
@@ -134,14 +150,17 @@ color: var(--grey) !important;
 color: var(--grey) !important;
 }
 
-
+/* Buttons */
 
 .btnTheme{
 background-color: var(--theme);
 border-radius: 25px;
+color: var(--white)
 }
+
 .btnTheme:hover{
   background-color: #3eb9ad !important;
+  color: var(--white)
 }
 
 .btnWhite{
@@ -152,14 +171,45 @@ color: var(--theme);
 
 .btnWhite:hover{
 background-color: var(--theme);
+color: var(--white);
+}
+
+.btnDarkBlue{
+background-color: var(--darkBlue);
 border-radius: 25px;
 color: var(--white);
 }
 
+.btnDarkBlue:hover{
+background-color: var(--white);
+color: var(--theme);
+}
+
+
+button,
+.btn,
+.btn_form {
+  font-family: 'Roboto', sans-serif;
+  /* font-size: 1rem;
+  font-weight: 600; */
+  text-align: center;
+  /* text-transform: uppercase; */
+  vertical-align: middle;
+  text-decoration: none;
+  /* line-height: 1.5; */
+  border: 1px solid transparent;
+  cursor: pointer;
+  outline: 0;
+  border-radius: 25px;
+  /* padding: 0.8rem 1.5rem; */
+}
+
+/* ------------------------ */
+
 .productBg{
 background-color: var(--productBG);
 }
-/* Colors */
+
 
 .f-14 {
   font-size: 0.875rem !important;
@@ -185,11 +235,9 @@ background-color: var(--productBG);
 }
 
 .f-play {
-  /* font-family: play !important; */
   font-family: 'Play', sans-serif !important;
 }
 .f-roboto {
-  /* font-family: play !important; */
   font-family: "Roboto", sans-serif !important;
 }
 
@@ -197,8 +245,6 @@ background-color: var(--productBG);
  body {
   font-family: 'Roboto', sans-serif;
 } 
-
-
 
 
 .zigzag {

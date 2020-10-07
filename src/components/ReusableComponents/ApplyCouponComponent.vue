@@ -32,7 +32,7 @@
           <div class="input-group-append ">
             <!-- btn-outline-secondary -->
             <button
-              class="btn rounded-pill color-primary themeBg   text-light"
+              class="btn rounded-pill btnTheme"
               type="button"
               id="couponCode1"
               v-on:click.prevent="applyCoupon"
