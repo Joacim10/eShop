@@ -27,8 +27,7 @@
                         <p>{{item.text}} </p>
                     </div>
 
-       </div>
- 
+                    </div>
 
 </template>
 
@@ -50,7 +49,7 @@ export default {
 
 
 
-<style >
+<style scoped>
 .starsActive{
   color: var(--theme);
 }
