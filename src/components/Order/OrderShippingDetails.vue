@@ -8,18 +8,60 @@
     </button>
 
     <div v-show="showDetails">
-        <div class="d-flex">
-          <div>
-            <p class="font-weight-bold">StreetAddress: <span class="font-weight-normal">{{ orderData.streetAddress }}</span>  </p>
-            <p class="font-weight-bold">ZipCode: <span class="font-weight-normal">{{ orderData.zipCode }}</span>  </p>
-            <p class="font-weight-bold">City: <span class="font-weight-normal">{{ orderData.city }}</span>  </p>
-            <p class="font-weight-bold">Country: <span class="font-weight-normal">{{ orderData.country }}</span>  </p>            
+      <div class="d-flex">
+        <div>
+          <p class="font-weight-bold">
+            StreetAddress:
+            <span class="font-weight-normal">{{
+              orderData.streetAddress
+            }}</span>
+          </p>
+          <p class="font-weight-bold">
+            ZipCode:
+            <span class="font-weight-normal">{{ orderData.zipCode }}</span>
+          </p>
+          <p class="font-weight-bold">
+            City: <span class="font-weight-normal">{{ orderData.city }}</span>
+          </p>
+          <p class="font-weight-bold">
+            Country:
+            <span class="font-weight-normal">{{ orderData.country }}</span>
+          </p>
+          <!-- jm -->
+          <div v-if="orderData.shipToDifferentAddress">
+            <h5>Alter delivery address:</h5>
+            <p class="font-weight-bold">
+              Recipient:
+              <span class="font-weight-normal">{{
+                orderData.altShippingrecipient
+              }}</span>
+            </p>
+            <p class="font-weight-bold">
+              StreetAddress:
+              <span class="font-weight-normal">{{
+                orderData.altShippingStreetAddress
+              }}</span>
+            </p>
+            <p class="font-weight-bold">
+              ZipCode:
+              <span class="font-weight-normal">{{
+                orderData.alterZipCode
+              }}</span>
+            </p>
+            <p class="font-weight-bold">
+              City:
+              <span class="font-weight-normal">{{ orderData.alterCity }}</span>
+            </p>
+          </div>
+          <!-- text -->
+          <div v-if="orderData.orderNotes.length > 0">
+            <h5>Order notes:</h5>
+            <p>{{ orderData.orderNotes }}</p>
           </div>
         </div>
-        <div class="my-hr"></div>
+      </div>
+      <div class="my-hr"></div>
     </div>
-
-  
   </div>
 </template>
 
@@ -34,9 +76,9 @@ export default {
   props: ["Item", "orderData"],
   methods: {
     toggleShowDetails() {
-      // 
+      //
       this.showDetails = !this.showDetails;
-      // 
+      //
     },
   },
 };
