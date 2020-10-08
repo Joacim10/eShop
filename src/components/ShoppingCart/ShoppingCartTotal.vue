@@ -10,12 +10,8 @@
           <p class="font-weight-bold">Subtotal</p>
           <p class="theme">${{shoppingCartTotal}}</p>
         </div>
-          
+          <!-- Shipping options komponent -->
               <ShippingOptions />
-         
-        
-
-
         <div class="d-flex justify-content-between mt-3">
           <p class="font-weight-bold">TOTAL</p>
           <p class="theme">${{shoppingCartTotal + getShippingCost}}</p>
@@ -24,7 +20,7 @@
         <router-link :to="{ path:'/checkout'}">
           <button v-bind:disabled="shoppingCart.length === 0"
                   v-bind:class="{btndisabled:shoppingCart.length === 0}"
-            class="btnRadiusCart py-2 paddingCheckout mt-1 themeBg border-0 text-white pxCartBtn"
+                  class="btnRadiusCart py-2 paddingCheckout mt-1 themeBg border-0 text-white pxCartBtn"
           >PROCEED TO CHECKOUT</button>
         </router-link>
         </div>
