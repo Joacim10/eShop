@@ -44,7 +44,7 @@
       </div>
       
       <div v-if="shoppingCart.length > 0"  class="d-flex justify-content-end">
-        <button class=" px-4 py-2 btn  btnRadius bgDarkBlue text-uppercase text-white font-weight-bold">UPDATE CART</button>
+        <button v-on:click="clearAllCartItem()" class=" px-4 py-2 btn  btnRadius bgDarkBlue text-uppercase text-white font-weight-bold">CLEAR CART</button>
       </div>
     
   </div>
@@ -57,7 +57,7 @@ export default {
 
   
     methods: {
-         ...mapActions(["deleteProductFromCart", "increaseQuantity", "decreaseQuantity"]),
+         ...mapActions(["deleteProductFromCart", "increaseQuantity", "decreaseQuantity", "clearAllCartItem"]),
          
           
          

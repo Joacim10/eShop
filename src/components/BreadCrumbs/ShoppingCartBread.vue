@@ -40,7 +40,9 @@ export default {
   background-color: #0e153da6;
 }
 
-
+a{
+  border-bottom: none!important;
+}
 
 ul.crumb {
   list-style: none;
