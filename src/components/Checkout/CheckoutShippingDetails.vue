@@ -16,13 +16,18 @@
           id="firstName"
           v-model="firstName"
           v-on:blur="$v.firstName.$touch()"
-          v-bind:class="{invalid: $v.firstName.$error}"
+          v-bind:class="{ invalid: $v.firstName.$error }"
         />
         <p
           class="m-0 p-0"
           v-if="!$v.firstName.minLength || !$v.firstName.maxLength"
-        >please use between {{$v.firstName.$params.minLength.min}} and {{$v.firstName.$params.maxLength.max}} char.</p>
-        <p class="m-0 p-0" v-if="!$v.firstName.isValidalphaRegexåäö">please use alpha char.</p>
+        >
+          please use between {{ $v.firstName.$params.minLength.min }} and
+          {{ $v.firstName.$params.maxLength.max }} char.
+        </p>
+        <p class="m-0 p-0" v-if="!$v.firstName.isValidalphaRegexåäö">
+          please use alpha char.
+        </p>
         <!-- <div class="valid-feedback">Looks good!</div> -->
         <!-- <div class="invalid-feedback">Please insert your first name</div> -->
       </div>
@@ -39,13 +44,18 @@
           id="lastName"
           v-model="lastName"
           v-on:blur="$v.lastName.$touch()"
-          v-bind:class="{invalid: $v.lastName.$error}"
+          v-bind:class="{ invalid: $v.lastName.$error }"
         />
         <p
           class="m-0 p-0"
           v-if="!$v.lastName.minLength || !$v.lastName.maxLength"
-        >please use between {{$v.lastName.$params.minLength.min}} and {{$v.lastName.$params.maxLength.max}} char.</p>
-        <p class="m-0 p-0" v-if="!$v.lastName.isValidalphaRegexåäö">please use alpha char.</p>
+        >
+          please use between {{ $v.lastName.$params.minLength.min }} and
+          {{ $v.lastName.$params.maxLength.max }} char.
+        </p>
+        <p class="m-0 p-0" v-if="!$v.lastName.isValidalphaRegexåäö">
+          please use alpha char.
+        </p>
         <!-- <div class="valid-feedback">Looks good!</div> -->
         <!-- <div class="invalid-feedback">lease insert your last name</div> -->
       </div>
@@ -53,7 +63,12 @@
       <!--  Company -->
       <div class="col-12 mb-3">
         <label for="company">Company name (optional)</label>
-        <input type="text" class="form-control" id="company" v-model="companyName" />
+        <input
+          type="text"
+          class="form-control"
+          id="company"
+          v-model="companyName"
+        />
       </div>
 
       <!--  Country / Region -->
@@ -67,9 +82,10 @@
           id="country"
           v-model="country"
           v-on:blur="$v.country.$touch()"
-          v-bind:class="{invalid: $v.country.$error}"
+          v-bind:class="{ invalid: $v.country.$error }"
         >
           <option selected disabled value>Select</option>
+          <option>usa</option>
           <option>sweden</option>
           <option>norway</option>
           <option>finland</option>
@@ -91,7 +107,7 @@
           placeholder="House number and street name"
           v-model="streetAddress"
           v-on:blur="$v.streetAddress.$touch()"
-          v-bind:class="{invalid: $v.streetAddress.$error}"
+          v-bind:class="{ invalid: $v.streetAddress.$error }"
         />
         <!-- <div class="valid-feedback">Looks good!</div> -->
         <!-- <div class="invalid-feedback">Please insert your street address</div> -->
@@ -106,7 +122,7 @@
           placeholder="Apartment, suite, unit, etc. (optional)"
           v-model="apartmentNumber"
           v-on:blur="$v.apartmentNumber.$touch()"
-          v-bind:class="{invalid: $v.apartmentNumber.$error}"
+          v-bind:class="{ invalid: $v.apartmentNumber.$error }"
         />
       </div>
 
@@ -123,7 +139,7 @@
           id="city"
           v-model="city"
           v-on:blur="$v.city.$touch()"
-          v-bind:class="{invalid: $v.city.$error}"
+          v-bind:class="{ invalid: $v.city.$error }"
         />
       </div>
 
@@ -154,7 +170,7 @@
           id="zip"
           v-model="zipCode"
           v-on:blur="$v.zipCode.$touch()"
-          v-bind:class="{invalid: $v.zipCode.$error}"
+          v-bind:class="{ invalid: $v.zipCode.$error }"
         />
       </div>
 
@@ -171,12 +187,14 @@
           placeholder="format +xx xx xxxxx or (xx) xxx xxxxxx"
           v-model="phoneNumber"
           v-on:blur="$v.phoneNumber.$touch()"
-          v-bind:class="{invalid: $v.phoneNumber.$error}"
+          v-bind:class="{ invalid: $v.phoneNumber.$error }"
         />
         <p
           class="m-0 p-0"
           v-if="!$v.phoneNumber.validnumber && $v.phoneNumber.$error"
-        >please fill in valid phone number</p>
+        >
+          please fill in valid phone number
+        </p>
       </div>
 
       <!--  Email -->
@@ -191,7 +209,7 @@
           id="email"
           v-model="email"
           v-on:blur="$v.email.$touch()"
-          v-bind:class="{invalid: $v.email.$error}"
+          v-bind:class="{ invalid: $v.email.$error }"
         />
         <!-- <div class="invalid-feedback">Please insert your e-mail</div> -->
       </div>
@@ -223,7 +241,8 @@
         <label
           class="form-check-label font-weight-bold text-uppercase"
           for="account"
-        >Ship to a different address?</label>
+          >Ship to a different address?</label
+        >
       </div>
     </div>
 
@@ -240,9 +259,12 @@
           </label>
           <input
             type="text"
+            placeholder="max 20 char"
             class="form-control"
             id="altShippingrecipient"
             v-model="altShippingrecipient"
+            v-on:blur="$v.altShippingrecipient.$touch()"
+          v-bind:class="{ invalid: $v.altShippingrecipient.$error }"
           />
         </div>
       </div>
@@ -255,9 +277,12 @@
           </label>
           <input
             type="text"
+            placeholder="max 20 char"
             class="form-control"
             id="altShippingStreetAddress"
             v-model="altShippingStreetAddress"
+            v-on:blur="$v.altShippingStreetAddress.$touch()"
+          v-bind:class="{ invalid: $v.altShippingStreetAddress.$error }"
           />
         </div>
       </div>
@@ -268,7 +293,15 @@
             Zip
             <span class="theme">*</span>
           </label>
-          <input type="text" class="form-control" id="alterzip" v-model="alterZipCode" />
+          <input
+            type="text"
+            placeholder="max 10 char"
+            class="form-control"
+            id="alterzip"
+            v-model="alterZipCode"
+            v-on:blur="$v.alterZipCode.$touch()"
+          v-bind:class="{ invalid: $v.alterZipCode.$error }"
+          />
         </div>
       </div>
       <!-- alter city -->
@@ -278,7 +311,15 @@
             City
             <span class="theme">*</span>
           </label>
-          <input type="text" class="form-control" id="alterCity" v-model="alterCity" />
+          <input
+            type="text"
+            placeholder="max 20 char"
+            class="form-control"
+            id="alterCity"
+            v-model="alterCity"
+            v-on:blur="$v.alterCity.$touch()"
+          v-bind:class="{ invalid: $v.alterCity.$error }"
+          />
         </div>
       </div>
       <!--  -->
@@ -293,10 +334,13 @@
     <div class="form-group">
       <label for="notes">Order notes (optional)</label>
       <textarea
-        class="form-control"
-        id="notes"
+        class="form-control "
+        id="orderNotes"
         rows="8"
-        placeholder="Notes about your order, e.g. special notes for delivery."
+        placeholder="Notes about your order, e.g. special notes for delivery. max 100 char"
+        v-model="orderNotes"
+        v-on:blur="$v.orderNotes.$touch()"
+          v-bind:class="{ invalid: $v.orderNotes.$error }"
       ></textarea>
     </div>
   </div>
@@ -306,9 +350,12 @@
 <script>
 // store
 import { mapActions, mapGetters } from "vuex";
-// 
-import {isValidalphaRegexåäö, validPhonenumber }  from '../../helpers/myregexvalues.js';
-// 
+//
+import {
+  isValidalphaRegexåäö,
+  validPhonenumber,
+} from "../../helpers/myregexvalues.js";
+//
 
 // alphaNum, alpha,
 import {
@@ -356,7 +403,11 @@ export default {
   },
 
   methods: {
-    ...mapActions(["storeShippingData","storeShippingDataValid","clearShippingData"]),
+    ...mapActions([
+      "storeShippingData",
+      "storeShippingDataValid",
+      "clearShippingData",
+    ]),
 
     updateShippingData() {
       const shippingData = {
@@ -385,7 +436,7 @@ export default {
 
       // console.log(shippingData);
       // sparar till storeOrders
-      this.storeShippingData(shippingData)
+      this.storeShippingData(shippingData);
     },
   },
 
@@ -439,6 +490,24 @@ export default {
         return val !== "test@test.com";
       },
     },
+    orderNotes: {
+      maxLength: maxLength(100),
+    },
+    altShippingrecipient:{
+      isValidalphaRegexåäö,
+      maxLength: maxLength(20),
+    },
+    altShippingStreetAddress:{
+      maxLength: maxLength(20),
+    },
+    alterZipCode:{
+      numeric,
+      maxLength: maxLength(10),
+    },
+    alterCity:{
+      isValidalphaRegexåäö,
+      maxLength: maxLength(20),
+    }
   },
   updated: function () {
     if (this.$v.$invalid == false) {
@@ -456,8 +525,7 @@ export default {
   },
   beforeMount: function () {
     this.clearShippingData();
-  }
-
+  },
 };
 </script>
 
@@ -478,4 +546,9 @@ export default {
 .btndisabled {
   background-color: #8ab8b3 !important;
 }
+
+textarea{
+  resize: none;
+}
+
 </style>
