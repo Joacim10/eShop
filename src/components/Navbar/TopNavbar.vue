@@ -5,6 +5,7 @@
         <ul class="navbar-nav mr-auto ">
           <li class="nav-item dropdown">
             <div class="locale-switcher mblang d-flex ">
+              <!-- Local Switcher  -->
               <select class="dropdown-item text-white" v-model="$i18n.locale">
                 <option value="en" class="text-dark">ENG</option>
                 <option value="sv" class="text-dark">SWE</option>
@@ -14,11 +15,7 @@
                 <option value="ENG">USD</option>
               </select>
             </div>
-            
           </li>
-
-              <!-- Dropdown USD Visas bara i large skärm -->
-           
           </ul>
       </nav>
 

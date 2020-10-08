@@ -1,6 +1,6 @@
 <template>
   <div>
-
+    <!-- Loopar ut produkt struktur med produkter -->
   <table class="table" v-if="shoppingCart.length > 0"> 
       <thead class="mb-0 mt-0 border-bottom py-0">
         <tr>
@@ -13,16 +13,11 @@
       <tbody>  
         <tr v-for="cartItem in shoppingCart" :key="cartItem._id" :cartItem="cartItem" >
           <th scope="row ">
-           
-            
-            <i v-on:click.stop="deleteProductFromCart(cartItem.product._id)" class="fas fa-times-circle ml-2 "></i>
-            
-            <span class="mr-3">
-            <img class="img-fluid imageWidth ml-1 " :src="`${cartItem.product.image}`" alt="">
-            </span>
-            <span class="ml-0 verticalCenter mlSmall ">{{cartItem.product.name}}</span>
-         
-
+              <i v-on:click.stop="deleteProductFromCart(cartItem.product._id)" class="fas fa-times-circle ml-2 "></i>
+                <span class="mr-3">
+                  <img class="img-fluid imageWidth ml-1 " :src="`${cartItem.product.image}`" alt="">
+                </span>
+                <span class="ml-0 verticalCenter mlSmall ">{{cartItem.product.name}}</span>
           </th>
           <td class=" bTop">
             <span> ${{cartItem.product.price}}</span>
@@ -40,22 +35,15 @@
             <span>${{ cartItem.product.price * cartItem.quantity}}</span>
           </td>
         </tr>
-       
       </tbody>
-      
-      <!--- OM SHOPPINGCART ÄR TOM -->
-     
     </table>
-     
-       
-       
-       <div v-if="shoppingCart.length === 0" class="text-center mt-2">
+            <!-- Om shoppingcart är noll visa detta  -->
+      <div v-if="shoppingCart.length === 0" class="text-center mt-2">
         <h1 class="theme sizeMobile"> SHOPPINGCART IS EMPTY </h1>
         <router-link to="/products"> <button class=" mt-3 py-2 px-4 paddingShoppingCart btn btnTheme text-white">CHECK OUT OUR PRODUCTS</button> </router-link>
-        
       </div>
       
-   <div v-if="shoppingCart.length > 0"  class="d-flex justify-content-end">
+      <div v-if="shoppingCart.length > 0"  class="d-flex justify-content-end">
         <button class=" px-4 py-2 btn  btnRadius bgDarkBlue text-uppercase text-white font-weight-bold">UPDATE CART</button>
       </div>
     
