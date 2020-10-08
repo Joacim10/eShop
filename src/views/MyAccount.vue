@@ -51,10 +51,16 @@ export default {
   },
   methods: {
     // ,'getCurrentUser',"clearAllCartItem"
-    ...mapActions(["logOutUser"]),
+    ...mapActions(["logOutUser","clearAllCartItem","clearShippingData"]),
 
     onClickLogOut() {
       this.logOutUser();
+
+      // rensar shoppingvagn
+        this.clearAllCartItem();
+        // rensa shippingdata eller vill man ha kvar den ?
+        this.clearShippingData();
+
       // gå tillbaka till produkter
       this.returnUrl = this.$route.query.returnUrl || "/";
       this.$router.push(this.returnUrl);
